@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Hide at all costs;
-client.login('NzQxNzAzOTIxODc3MTIzMTY0.Xy7bmw.LU22DJvzCgb2ixSkOpFARHW8nqE');
+client.login('NoneOfYourBusiness');
 
 client.once('ready', () => {
     console.log('Ready!');
