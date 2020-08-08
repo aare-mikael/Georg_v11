@@ -1,19 +1,13 @@
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
 
-// Requires the config file, which can be used for sensitive info;
-const config = require('./config.json');
-
-// Fetches the prefix;
-const prefix = config.prefix;
-
 // Creates a new Discord client, essentially this is the bot;
 const client = new Discord.Client();
 
 
 
-// Hide your token at all costs, which is what I've done here;
-client.login(config.token);
+// Hide your token at all costs;
+client.login("NzQxNzAzOTIxODc3MTIzMTY0.Xy7bmw.JdnS0O6PmdyzKWnDHhu66yW8UQg");
 
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
@@ -21,12 +15,9 @@ client.once('ready', () => {
     client.user.setActivity('with your heart');
 });
 
-// Makes the bot immediately stop reading upon finding that the message doesnt start with the prefix specified in config.json, which saves power and time;
-if (!message.content.startsWith(prefix)) return;
-
-const args = message.content.slice(prefix.length).trim();
-const command = args.shift().toLowerCase();
-
-if(message.content.contains("test a feature")) {
-    message.channel.send("working");
-};
+// Makes the bot react when a textmessage pops into a channel it has access to;
+client.on('message', message => {
+    if(message.content === 'test') {
+        message.channel.send('test working');
+    }
+})
