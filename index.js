@@ -2,7 +2,10 @@
 const Discord = require('discord.js');
 
 // Requires the config file, which can be used for sensitive info;
-const { prefix, token } = require('./config.json');
+const config = require('./config.json');
+
+// Fetches the prefix;
+const prefix = config.prefix;
 
 // Creates a new Discord client, essentially this is the bot;
 const client = new Discord.Client();
@@ -10,7 +13,7 @@ const client = new Discord.Client();
 
 
 // Hide your token at all costs, which is what I've done here;
-client.login(token);
+client.login(config.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
@@ -24,6 +27,6 @@ if (!message.content.startsWith(prefix)) return;
 const args = message.content.slice(prefix.length).trim();
 const command = args.shift().toLowerCase();
 
-if(message.content == "test a feature") {
-    message.channel.send(command);
+if(message.content.contains("test a feature")) {
+    message.channel.send("working");
 };
