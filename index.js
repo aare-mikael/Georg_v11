@@ -10,18 +10,18 @@ const { prefix, token } = require('./config.json');
 // Creates a new Discord client, essentially this is the bot;
 const client = new Discord.Client();
 
-// Creates a collection with all the commands dealing with text, like "delete" and "hangman";
-client.textcommands = new Discord.Collection();
+// Creates a collection with all the commands;
+client.commands = new Discord.Collection();
 
-// Declares an array which contains all files in textcommands which ends in .js, which is Javascript-files;
-const textcommandFiles = fs.readdirSync('./textcommands').filter(file => file.endsWith('.js'));
+// Declares an array which contains all files in commands which ends in .js, which is Javascript-files;
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-for (const file of textcommandFiles) {
-    // Requires all files in textcommands;
-    const textcommand = require(`./textcommands/${file}`);
+for (const file of commandFiles) {
+    // Requires all files in commands;
+    const command = require(`./commands/${file}`);
 
     // Set a new item in the collection with the key as the commandname and the value as the exported module;
-    client.textcommands.set(textcommand.name, textcommand);
+    client.commands.set(command.name, command);
 }
 
 
@@ -42,9 +42,27 @@ client.on('message', message => {
 
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+    const commandName = args.shift().toLowerCase();
 
-    if(command === 'test') {
-        message.channel.send('test working');
+    const command = client.commands.get(commandName)
+
+    if(command.args && !args.length) {
+        let reply = message.channel.send(`You didn't provide any arguments, ${message.author}!`)
+
+        if(usage == true) {
+            if(command.usage) {
+            reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+            }
+        }
+
+        return message.channel.send(reply);
     }
+
+    try {
+        command.execute(message, args)
+    } catch (error) {
+        console.error(error);
+        message.channel.send("There was an error trying to execute that command!");
+    }
+    
 });
