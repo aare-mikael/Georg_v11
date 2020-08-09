@@ -52,8 +52,10 @@ client.on('message', message => {
         return message.reply('I can\'t execute that command inside DMs!');
     }    
 
+    // Kommentert ut pga ukjent bug (09.08.20) som hindrer boten i å svare på meldinger når denne delen er implementert;
+    /*
     if(command.args && !args.length) {
-        let reply = message.channel.send(`You didn't provide any arguments, ${message.author}!`)
+        var reply = `You didn't provide any arguments, ${message.author}!`;
 
         if(usage == true) {
             if(command.usage) {
@@ -61,8 +63,9 @@ client.on('message', message => {
             }
         }
 
-        return message.channel.send(reply);
+        message.channel.send(reply);
     }
+    */
 
     // This enters a command into an array of commands recently used, to limit spam and so forth;
     if (!cooldowns.has(command.name)) {
