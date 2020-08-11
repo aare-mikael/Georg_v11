@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Ping!',
 	cooldown: 5,
 	args: true,
-	usage: "<user> <role>",
+//	usage: "<user> <role>",
 	execute(message, args) {
 		message.channel.send('Pong.');
 	},
