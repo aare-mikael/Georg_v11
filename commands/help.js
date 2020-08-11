@@ -12,7 +12,7 @@ module.exports = {
 
         if (!args.length) {
             // Sender i DM til author;
-            data.push('Here\'s a list of all my commands:');
+            data.push('**Here\'s a list of all my commands:\n**');
             data.push(commands.map(command => command.name).join('\n'));
             data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
