@@ -4,6 +4,11 @@ const fs = require('fs');
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
 
+/*
+// Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
+const ytdl = require('ytdl-core');
+*/
+
 // Requires the prefix specified in config.json, to avoid issues where a command name is randomly said without meaning to invoke the command;
 const { prefix, token } = require('./config.json');
 const { cooldown } = require('./commands/ping');
@@ -33,7 +38,8 @@ client.login(token);
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
     console.log('Ready!');
-    client.user.setActivity('with your heart');
+    client.user.setActivity('your heartbeat', { type: 'LISTENING' });
+//    client.user.setActivity('with your heart');
 });
 
 // Makes the bot react when a textmessage pops into a channel it has access to;
