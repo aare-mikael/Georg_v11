@@ -13,6 +13,7 @@ module.exports = {
 
         var antall = args[args.length-1];
 
+        // Pops the last argument, which in this command is the amount of times the user want's to tag the person;
         args.pop();
 
         if (antall > 20) {
@@ -21,12 +22,12 @@ module.exports = {
             var i = 0;
             var j = 5;
             for (i = 0; i < j; i++) {
-                message.channel.send(args[0]);
+                message.channel.send(args.join(' '));
             }
         } else {
             var i = 0;
             for (i = 0; i < antall; i++) {
-                message.channel.send(args[0]);
+                message.channel.send(args.join(' '));
             }
         }
     },
