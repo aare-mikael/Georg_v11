@@ -7,7 +7,7 @@ module.exports = {
 
     var trashID = '227520275132973056';
 
-    var ttsmsg = message.content.replace("tts ", "");
+    var ttsmsg = message.content.replace("-tts ", "");
 
     message.channel.send(ttsmsg, { tts: true });
     message.channel.bulkDelete(1);

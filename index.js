@@ -1,6 +1,9 @@
 // fs is Node's native file system module;
 const fs = require('fs');
 
+// Forces the use of env;
+const env = require('dotenv').config()
+
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
 
@@ -10,8 +13,14 @@ const ytdl = require('ytdl-core');
 
 
 // Requires the prefix specified in config.json, to avoid issues where a command name is randomly said without meaning to invoke the command;
-const { prefix, token } = require('./config.json');
+const { prefix } = require('./config.json');
 const { cooldown } = require('./commands/ping');
+
+// Requires the token to log in, from a file that won't get pushed to github;
+const token = process.env.token;
+
+// Requires the customsound array, so the bot knows which sound to play when a user joins voice;
+const intro = require('./commands/customsound');
 
 // Creates a new Discord client, essentially this is the bot;
 const client = new Discord.Client();
@@ -33,7 +42,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 // Hide your token at all costs;
-client.login(token);
+client.login(process.env.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
@@ -42,8 +51,55 @@ client.once('ready', () => {
 //    client.user.setActivity('with your heart');
 });
 
+// Makes the bot pay attention to whenever somebody joins a new channel;
+client.on('voiceStateUpdate', (oldState, newState) => {
+
+//    console.log(newState.guild.voiceStates);
+//    console.log(newState.VoiceStateManager);
+
+    const trashbot2 = '741703921877123164';
+    
+
+//    console.log(trashbot2.VoiceStateManager);
+
+    if (newState.guild.voiceConnection) return;
+
+
+    // Variable names should tell you what this does;
+    var newserver = newState.guild.id.toString();
+    var oldserver = oldState.guild.id.toString();
+
+    // Collects the id of the person joining;
+    const newPerson = newState.member.id.toString();
+
+    if(newPerson == '741703921877123164') return;
+
+    var oldChannel = oldState.channelID;
+    var newChannel = newState.channelID;
+    var voiceChannel = newState.channel;
+
+    // Checks if the new channel is the same as the old, in case a bug happens;
+    if (oldChannel != newChannel) {
+
+        // If newChannel is either null or undefined, the person disconnected from voice;
+        if (newChannel != null || newChannel != undefined) {
+
+            voiceChannel.join().then(connection => {
+            dispatcher = connection.play('https://www.myinstants.com/media/sounds/challenger-approaching-super-smash-bros.mp3', { volume: 0.5 });
+            dispatcher.on("finish", end => voiceChannel.leave());
+            }).catch(err => console.log(err));
+        }
+    }
+})
+
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', message => {
+
+    // Stops Posterboy from using his tenor.com/view gifs in #whatevs;
+    if(message.content.includes("tenor.com/view") && message.channel.id == "615524562959990803") {
+        message.channel.bulkDelete(1);
+//        message.channel.send("Tenor-gifs are not allowed in this channel!");
+    }
     
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
