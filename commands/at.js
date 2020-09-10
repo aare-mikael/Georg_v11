@@ -1,6 +1,6 @@
 module.exports = {
     name: 'at',
-    description: "@ personen du skriver etter -at",
+    description: "@ personen du skriver etter -at, så mange ganger som du skriver bakerst.",
     cooldown: 30,
     category: "Text",
     execute(message, args) {
@@ -14,7 +14,7 @@ module.exports = {
 
         var antall = 5;
 
-        if(!args[args.length - 1].match(/\d+.+\d/)) {
+        if(!args[args.length - 1].match(/\d/)) {
             antall = 3;
         } else {
             antall = args[args.length-1];
