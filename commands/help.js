@@ -20,29 +20,29 @@ module.exports = {
 
            
             var text = commands.filter(cmd => cmd.category == 'Text').array();
-            console.log("TEKST ARRAY: " + text);
+//            console.log("TEKST ARRAY: " + text);
             var textOut = "";
                 for (const cmd of text) {
                     textOut += cmd.name + "\n"
                 };
-            console.log("textout " + textOut);
+//            console.log("textout " + textOut);
 
             var voice = commands.filter(cmd => cmd.category == 'Voice').array();
-            console.log("VOICE ARRAY: " + voice);
+//            console.log("VOICE ARRAY: " + voice);
             var voiceOut = "";
                 for (const cmd of voice) {
                     voiceOut += cmd.name + "\n";
                 };
 
             var utility = commands.filter(cmd => cmd.category == 'Utility').array();
-            console.log("UTILITY ARRAY: " + utility);
+//            console.log("UTILITY ARRAY: " + utility);
             var utilityOut = "";
                 for (const cmd of utility) {
                     utilityOut += cmd.name + "\n";
                 };
 
             var help = commands.filter(cmd => cmd.category == 'Help').array();
-            console.log("HELP ARRAY: " + help);
+//            console.log("HELP ARRAY: " + help);
             var helpOut = "";
                 for (const cmd of help) {
                     helpOut += cmd.name + "\n";
