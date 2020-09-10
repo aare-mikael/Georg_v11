@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 	module.exports = {
 =======
 <<<<<<< HEAD
@@ -27,6 +28,8 @@ module.exports = {
 		}
 	},
 =======
+=======
+>>>>>>> c931b7fa109dadd1df63b9bf538aae1ac6af8524
 module.exports = {
 >>>>>>> b6b4272642284771e27439bf2f514f7d2bc8f8ff
     name: "reload",
@@ -53,5 +56,4 @@ module.exports = {
 			message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
 		}
 	},
->>>>>>> 162081be50e93303004d213456a09e9250e98d2f
 };
