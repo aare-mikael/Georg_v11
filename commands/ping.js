@@ -1,10 +1,10 @@
 module.exports = {
 	name: 'ping',
-	description: 'Ping!',
+	description: 'Gives the ping from the bot to the server!',
 	cooldown: 5,
 	args: true,
 //	usage: "<user> <role>",
-	execute(message, args) {
-		message.channel.send('Pong.');
+	execute(message, args, client) {
+		message.channel.send(Math.round(client.ws.ping) + " ms");
 	},
 };

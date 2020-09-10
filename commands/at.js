@@ -21,12 +21,12 @@ module.exports = {
             var i = 0;
             var j = 5;
             for (i = 0; i < j; i++) {
-                message.channel.send(args[0]);
+                message.channel.send(args.join(' '));
             }
         } else {
             var i = 0;
             for (i = 0; i < antall; i++) {
-                message.channel.send(args[0]);
+                message.channel.send(args.join(' '));
             }
         }
     },
