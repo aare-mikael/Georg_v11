@@ -1,3 +1,6 @@
+//INVITE LINK FOR THE BOT;
+//https://discord.com/api/oauth2/authorize?client_id=741703921877123164&permissions=2147483639&scope=bot
+
 // fs is Node's native file system module;
 const fs = require('fs');
 
