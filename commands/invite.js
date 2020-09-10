@@ -1,6 +1,7 @@
 module.exports = {
     name: 'invite',
     description: "Sends an invite link for inviting this bot to other discord servers!",
+    category: "Utility",
     execute(message, args) {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;

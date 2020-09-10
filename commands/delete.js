@@ -1,6 +1,7 @@
 module.exports = {
     name: 'delete',
     description: "Deletes messages",
+    category: "Text",
 execute(message, args) {
 
     const amount = args.join(' ');

@@ -1,6 +1,7 @@
 module.exports = {
     name: 'wdym',
     description: 'wdym',
+    category: "Text",
     execute(message, args) {
 
         message.channel.bulkDelete(1);

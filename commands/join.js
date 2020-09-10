@@ -1,6 +1,7 @@
 module.exports = {
     name: 'join',
     description: "Joiner voice channel",
+    category: "Utility",
     execute(message, args) {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;

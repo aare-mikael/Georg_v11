@@ -2,6 +2,7 @@ module.exports = {
     name: 'at',
     description: "@ personen du skriver etter -at",
     cooldown: 30,
+    category: "Text",
     execute(message, args) {
 
         // Returnerer tidlig om meldingen er sendt av en bot;

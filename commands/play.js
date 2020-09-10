@@ -8,7 +8,8 @@ module.exports = {
 	name: 'play',
     description: 'Plays the audio of either a youtube url or result upon search in Youtube, depending on your input.',
     usage: 'url OR search words + volume as the last argument',
-	cooldown: 10,
+    cooldown: 10,
+    category: "Voice",
 	args: true,
 //	usage: "<user> <role>",
 	execute(message, args) {

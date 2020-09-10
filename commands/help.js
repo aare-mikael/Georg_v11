@@ -6,6 +6,7 @@ module.exports = {
     aliases: ["commands"],
     usage: "[command name]",
     cooldown: 3,
+    category: "Help",
     execute(message, args) {
         const data = [];
         const { commands } = message.client;
@@ -13,7 +14,15 @@ module.exports = {
         if (!args.length) {
             // Sender i DM til author;
             data.push('**Here\'s a list of all my commands:\n**');
+
             data.push(commands.map(command => command.name).join('\n'));
+
+            for (i = 0; i < commands.length(); i++) {
+
+                
+
+            }
+            
             data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
             return message.author.send(data, { split: true })
@@ -40,6 +49,7 @@ module.exports = {
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
         if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+        if (command.category) data.push(`**Category:** ${prefix}${command.name} ${command.category}`);
 
         data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
 
