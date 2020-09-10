@@ -12,10 +12,16 @@ module.exports = {
 
         var msg = message.content.replace("-at ", "");
 
-        var antall = args[args.length-1];
+        var antall = 0;
 
-        // Pops the last argument, which in this command is the amount of times the user want's to tag the person;
-        args.pop();
+        if(!args[args.length - 1].match(/\d+.+\d/)) {
+            antall = 3;
+        } else {
+            antall = args[args.length-1];
+            // Pops the last argument, which in this command is the amount of times the user want's to tag the person;
+            args.pop();
+        }
+
 
         if (antall > 20) {
             message.channel.send("Sorry bud, but I'm not gonna spam this user more than 20 times at a time!");
