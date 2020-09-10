@@ -1,3 +1,6 @@
+//INVITE LINK FOR THE BOT;
+//https://discord.com/api/oauth2/authorize?client_id=741703921877123164&permissions=2147483639&scope=bot
+
 // fs is Node's native file system module;
 const fs = require('fs');
 
@@ -58,12 +61,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 //    console.log(newState.VoiceStateManager);
 
     const trashbot2 = '741703921877123164';
-    
-
-//    console.log(trashbot2.VoiceStateManager);
 
     if (newState.guild.voiceConnection) return;
-
 
     // Variable names should tell you what this does;
     var newserver = newState.guild.id.toString();
@@ -83,6 +82,10 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
         // If newChannel is either null or undefined, the person disconnected from voice;
         if (newChannel != null || newChannel != undefined) {
+
+            // Checks how many bots there are in the channel already and returns the amount;
+            var bots = newState.channel.members.filter(x => x.user.bot).size;
+            if (bots > 0) return;
 
             voiceChannel.join().then(connection => {
             dispatcher = connection.play('https://www.myinstants.com/media/sounds/challenger-approaching-super-smash-bros.mp3', { volume: 0.5 });
@@ -161,7 +164,7 @@ client.on('message', message => {
 
     // Tries to execute the command;
     try {
-        command.execute(message, args)
+        command.execute(message, args, client)
     } catch (error) {
         console.error(error);
         message.channel.send("There was an error trying to execute that command!");
