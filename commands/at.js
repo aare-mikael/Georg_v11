@@ -19,7 +19,7 @@ module.exports = {
         } else {
             antall = args[args.length-1];
             // Pops the last argument, which in this command is the amount of times the user want's to tag the person;
-            args.pop();
+//            args.pop();
         }
 
 
