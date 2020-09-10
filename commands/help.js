@@ -57,7 +57,7 @@ module.exports = {
            
             
 
-            data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
+            data.push(`You can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
             return message.author.send(data, { split: true })
             	.then(() => {
