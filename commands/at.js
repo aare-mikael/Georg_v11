@@ -12,7 +12,7 @@ module.exports = {
 
         var msg = message.content.replace("-at ", "");
 
-        var antall = 0;
+        var antall = 5;
 
         if(!args[args.length - 1].match(/\d+.+\d/)) {
             antall = 3;
