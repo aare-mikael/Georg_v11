@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'disconnect',
-    description: 'Disconnects bot from voicechannel',
+	description: 'Disconnects bot from voicechannel',
+	category: "Utility",
 	execute(message, args) {
 		// Sjekker om personen som skriver meldingen er i samme voice kanal;
 

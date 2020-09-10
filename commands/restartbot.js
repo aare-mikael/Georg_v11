@@ -1,6 +1,7 @@
 module.exports = {
     name: 'restartbot',
     description: "Restarts me, but only my maker can use this!",
+    category: "Private",
     execute(message, args) {
       
       var trashID = '227520275132973056'

@@ -1,6 +1,7 @@
 module.exports = {
     name: 'shrug',
     description: "¯\_(ツ)_/¯",
+    category: "Text",
     execute(message, args) {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;

@@ -1,7 +1,8 @@
 module.exports = {
     name: "reload",
     description: "Reloads the command you specify",
-    usage: "[reload command]",
+	usage: "[reload command]",
+	category: "Private",
     execute(message, args) {
         if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
             
