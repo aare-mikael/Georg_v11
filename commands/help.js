@@ -19,9 +19,9 @@ module.exports = {
 
             for (i = 0; i < commands.length(); i++) {
 
-                
 
-            }
+
+            };
             
             data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
