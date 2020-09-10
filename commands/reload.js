@@ -1,4 +1,4 @@
-module.exports = {
+	module.exports = {
     name: "reload",
     description: "Reloads the command you specify",
 	usage: "[reload command]",

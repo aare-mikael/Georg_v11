@@ -7,7 +7,7 @@ module.exports = {
     usage: "[command name]",
     cooldown: 3,
     category: "Help",
-    execute(message, args) {
+    execute(message, args, client) {
         const data = [];
         const { commands } = message.client;
 
@@ -15,14 +15,48 @@ module.exports = {
             // Sender i DM til author;
             data.push('**Here\'s a list of all my commands:\n**');
 
-            data.push(commands.map(command => command.name).join('\n'));
+            // Original way of pushing commands in DM's;
+//            data.push(commands.map(command => command.name).join('\n'));
 
-            for (i = 0; i < commands.length(); i++) {
+           
+            var text = commands.filter(cmd => cmd.category == 'Text').array();
+            console.log("TEKST ARRAY: " + text);
+            var textOut = "";
+                for (const cmd of text) {
+                    textOut += cmd.name + "\n"
+                };
+            console.log("textout " + textOut);
 
+            var voice = commands.filter(cmd => cmd.category == 'Voice').array();
+            console.log("VOICE ARRAY: " + voice);
+            var voiceOut = "";
+                for (const cmd of voice) {
+                    voiceOut += cmd.name + "\n";
+                };
 
+            var utility = commands.filter(cmd => cmd.category == 'Utility').array();
+            console.log("UTILITY ARRAY: " + utility);
+            var utilityOut = "";
+                for (const cmd of utility) {
+                    utilityOut += cmd.name + "\n";
+                };
 
-            };
+            var help = commands.filter(cmd => cmd.category == 'Help').array();
+            console.log("HELP ARRAY: " + help);
+            var helpOut = "";
+                for (const cmd of help) {
+                    helpOut += cmd.name + "\n";
+                };
+
+            var Out = "**TextCommands: **" + '\n' + textOut + '\n' + "**VoiceCommands: **" + '\n' + voiceOut + '\n' + "**UtilityCommands: **" + '\n' + utilityOut + '\n' + "**HelpCommands: **" + '\n' + helpOut + '\n';
             
+            // Pushes all commands;
+            data.push(Out);
+
+            
+           
+            
+
             data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
             return message.author.send(data, { split: true })
