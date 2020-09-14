@@ -99,9 +99,10 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 client.on('message', message => {
 
     // Stops Posterboy from using his tenor.com/view gifs in #whatevs;
-    if(message.content.includes("tenor.com/view") && message.channel.id == "615524562959990803") {
+    let postyID = "132193704860450817";
+    if(message.content.includes("tenor.com/view") /*&& message.channel.id == "615524562959990803"*/ && message.author.id == postyID) {
         message.channel.bulkDelete(1);
-//        message.channel.send("Tenor-gifs are not allowed in this channel!");
+        message.channel.send("Kordan e du ikkje lei av å spamme tenor-gifs enda posty, dei ekje morsomme engang");
     }
     
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
