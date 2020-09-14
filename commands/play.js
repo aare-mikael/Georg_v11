@@ -40,6 +40,8 @@ module.exports = {
 
         message.channel.bulkDelete(1);
 
+        message.channel.send(message.author + " requested this audio: ");
+
         if ( message.content.includes("youtube.com/watch" )) {
 
             voiceChannel.join().then(connection => {
