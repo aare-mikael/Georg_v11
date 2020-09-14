@@ -101,7 +101,7 @@ client.on('message', message => {
     // Stops Posterboy from using his tenor.com/view gifs in #whatevs;
     if(message.content.includes("tenor.com/view") && message.channel.id == "615524562959990803") {
         message.channel.bulkDelete(1);
-//        message.channel.send("Tenor-gifs are not allowed in this channel!");
+        message.channel.send("Tenor-gifs are not allowed in this channel, fuck off with your shitty attempts at humour");
     }
     
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
