@@ -40,7 +40,7 @@ module.exports = {
 
         message.channel.bulkDelete(1);
 
-        message.channel.reply("we here at Georg Music will now play your requested audio: ");
+        message.reply("we here at Georg Music will now play your requested audio: ");
 
         if ( message.content.includes("youtube.com/watch" )) {
 
