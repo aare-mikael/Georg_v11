@@ -1,6 +1,6 @@
 module.exports = {
     name: 'at',
-    description: "@ personen du skriver etter -at",
+    description: "@ personen du skriver etter -at, så mange ganger som du skriver bakerst.",
     cooldown: 30,
     category: "Text",
     execute(message, args) {
@@ -12,14 +12,14 @@ module.exports = {
 
         var msg = message.content.replace("-at ", "");
 
-        var antall = 0;
+        var antall = 5;
 
-        if(!args[args.length - 1].match(/\d+.+\d/)) {
+        if(!args[args.length - 1].match(/\d/)) {
             antall = 3;
         } else {
             antall = args[args.length-1];
             // Pops the last argument, which in this command is the amount of times the user want's to tag the person;
-            args.pop();
+//            args.pop();
         }
 
 
