@@ -80,6 +80,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
 
+/* This is commented out so the bot doesnt play intro sounds in discord anymore;
+
         // If newChannel is either null or undefined, the person disconnected from voice;
         if (newChannel != null || newChannel != undefined) {
 
@@ -92,18 +94,24 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             dispatcher.on("finish", end => voiceChannel.leave());
             }).catch(err => console.log(err));
         }
+        */
+    
     }
 })
 
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', message => {
 
+/*
     // Stops Posterboy from using his tenor.com/view gifs in #whatevs;
     let postyID = "132193704860450817";
-    if(message.content.includes("tenor.com/view") /*&& message.channel.id == "615524562959990803"*/ && message.author.id == postyID) {
+    if(message.content.includes("tenor.com/view") && message.author.id == postyID 
+    // && message.channel.id == "615524562959990803" 
+    ) {
         message.channel.bulkDelete(1);
         message.channel.send("Kordan e du ikkje lei av å spamme tenor-gifs enda posty, dei ekje morsomme engang");
     }
+*/
     
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
