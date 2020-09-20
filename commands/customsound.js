@@ -6,8 +6,12 @@ module.exports = {
 	args: true,
 	execute(message, args) {
 
+                message.channel.send("Sorry, but currently this command is not working. It's in progress, but not live at the moment!");
+
 
                         //TODO Set custom sound
+
+                
 
                         //TODO Change custom sound
 
@@ -24,7 +28,7 @@ module.exports = {
 
                 
 
-        message.channel.send(`Your custom intro sound is now ${args[0]}`);
+//        message.channel.send(`Your custom intro sound is now ${args[0]}`);
         
         
 
