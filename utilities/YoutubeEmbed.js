@@ -22,7 +22,7 @@ module.exports = function embed(message, results) {
         .addField('Duration', tid, true)
 //        .setImage(results.thumbnail)
         .setTimestamp() 
-        .setFooter('Georg™ ©2020', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Georg™ ©2020', 'https://i.ibb.co/8sbpxpw/GEORG.png');
 
     return Embed;
 }
