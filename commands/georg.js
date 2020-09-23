@@ -17,7 +17,7 @@ module.exports = {
         message.channel.send("You have to be in a voice channel to make this command work. Join a voice channel and try again!");
         return;
     } else if (!voiceChannel && message.author.id == trashID) {
-        var voiceChannel = args[1];
+        var voiceChannel = args[0];
     }
 
     voiceChannel.join().then(connection => {
