@@ -9,7 +9,7 @@ module.exports = {
     // Trash#8640
     var trashID = "227520275132973056";
 
-    var voiceChannel = message.member.voice.channel;
+    var voiceChannel = message.member.voice.channel.id;
     console.log(voiceChannel);
 
     // Returnerer error-message om brukeren ikkje er i en voice-kanal
