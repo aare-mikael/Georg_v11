@@ -11,7 +11,7 @@ module.exports = {
         category: "Voice",
 	args: true,
 	execute(message, args, client) {
-                        var name = message.author.tag
+                        var name = message.author.tag;
                         switch(args[0]){
 
                         //TODO Set custom sound
