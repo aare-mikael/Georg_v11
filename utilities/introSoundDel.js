@@ -1,6 +1,6 @@
 var path = require("path")
 const fs = require("fs")
-const userPath = (path.join(__dirname, "..", "customsounds"))
+const userPath = (path.join(__dirname, "..", "customsounds/"))
 
 module.exports = function intro(client, message){
     

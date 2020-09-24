@@ -25,11 +25,11 @@ module.exports = {
                                 }else{
                                   introSoundDel(client, message);
                                   introSoundAdd(client, message, name, url, true)
-                                  message.channel.send("introlyden din er lagret, kan brukes umiddelbart")
+                                  message.channel.send("Introlyden din er lagret, kan brukes umiddelbart")
                                 }
                                 }else{
                                   introSoundAdd(client, message, name, url, true)
-                                  message.channel.send("introlyden din er lagret, kan brukes umiddelbart")
+                                  message.channel.send("Introlyden din er lagret, kan brukes umiddelbart")
                                 }
                         break;
 
