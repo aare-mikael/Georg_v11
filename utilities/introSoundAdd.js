@@ -9,6 +9,6 @@ module.exports = function intro(client, message, name, url, bool){
 
     var intro = require(path.join(userPath, name + ".js"));
 
-    client.introSound.set(intro.id, intro)
+    client.intro.set(intro.id, intro)
     });
 }
