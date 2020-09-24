@@ -6,7 +6,7 @@ module.exports = function intro(client, message){
     
         var name = message.author.tag
         
-        const intro = client.introSound.get(message.author.tag)
+        const intro = client.intro.get(message.author.tag)
         if(!intro) return
         delete require.cache[require.resolve(`./${intro}.js`)]
 
