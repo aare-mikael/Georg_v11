@@ -25,6 +25,11 @@ const { cooldown } = require('./commands/ping');
 // Requires the token to log in, from a file that won't get pushed to github;
 const token = process.env.token;
 
+
+
+// Creates a new Discord client, essentially this is the bot;
+const client = new Discord.Client();
+
 // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
 client.intro = new Discord.Collection();
 const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
@@ -34,10 +39,6 @@ for (const file of introFiles) {
     // Set a new item in the collection with the key as the commandname and the value as the exported module;
     client.intro.set(intro.name, intro);
 }
-
-// Creates a new Discord client, essentially this is the bot;
-const client = new Discord.Client();
-
 // Creates a collection with all the commands;
 client.commands = new Discord.Collection();
 
