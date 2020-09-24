@@ -1,6 +1,8 @@
 module.exports = function play(voiceChannel, link, client){
 
     if(voiceChannel == undefined || voiceChannel == null) return;
+
+    let vol = 0.5;
  
     voiceChannel.join().then(connection => {
         console.log(link);
