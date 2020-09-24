@@ -4,6 +4,9 @@
 // fs is Node's native file system module;
 const fs = require('fs');
 
+// To get file paths of different classes and objects;
+var path = require("path");
+
 // Forces the use of env;
 const env = require('dotenv').config()
 
@@ -23,7 +26,14 @@ const { cooldown } = require('./commands/ping');
 const token = process.env.token;
 
 // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
-const intro = require('./commands/customsound');
+client.intro = new Discord.Collection();
+const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
+for (const file of introFiles) {
+    // Requires all files in intro;
+    const intro = require(`./customsounds/${file}`);
+    // Set a new item in the collection with the key as the commandname and the value as the exported module;
+    client.intro.set(intro.name, intro);
+}
 
 // Creates a new Discord client, essentially this is the bot;
 const client = new Discord.Client();

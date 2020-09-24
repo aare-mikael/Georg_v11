@@ -41,10 +41,26 @@ module.exports = {
                                         message.reply("introlyden din er fjernet fra databasen.")
                         break;
 
-                        //TODO toggle lyden
-                        case 'toggle':
+                        //TODO toggle lyden på
+                        case 'toggleon':
                         
+                                if(fs.existsSync(usersPath + name + ".js")){
+                                        var intro = require(path.join(usersPath + name +".js"))     
+                                        introSoundDel(client, message);
+                                        introSoundAdd(client, message, name, url, true)
+                                }
+
                         break;
+
+                        //TODO toggle lyden av
+                        case 'toggleoff':
+
+                                if(fs.existsSync(usersPath + name + ".js")){
+                                        var intro = require(path.join(usersPath + name +".js"))     
+                                        introSoundDel(client, message);
+                                        introSoundAdd(client, message, name, url, false)
+                                }
+
                         }
 
 
