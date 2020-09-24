@@ -1,4 +1,4 @@
-module.exports = function play(voiceChannel, name){
+module.exports = function play(voiceChannel, name, client){
  
     voiceChannel.join().then(connection => {
         const link = client.intro.get(name).url;
