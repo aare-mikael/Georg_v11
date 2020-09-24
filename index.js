@@ -17,7 +17,7 @@ const Discord = require('discord.js');
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
 
-const introSound = require('./utilities/introSoundPlayer');
+const introSound = require('./utilities/introPlayer');
 
 // Requires the prefix specified in config.json, to avoid issues where a command name is randomly said without meaning to invoke the command;
 const { prefix } = require('./config.json');
