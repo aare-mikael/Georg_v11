@@ -10,7 +10,7 @@ module.exports = function intro(client, message){
         if(!intro) return
         delete require.cache[require.resolve(`./${intro}.js`)]
 
-        fs.unlinkSync(userPath,`${name}.js`)
+        fs.unlinkSync(userPath, name, ".js")
 }
 
 
