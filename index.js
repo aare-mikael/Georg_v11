@@ -94,7 +94,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldChannel != newChannel) {
 
         // Just a player for the introsound, for aesthetic purposes;
-        var link = intro.get(name).url
+        var link = client.intro.get(name).url
         introSound(voiceChannel, newState.member.tag, client);
 
 /* This is commented out so the bot doesnt play intro sounds in discord anymore;
