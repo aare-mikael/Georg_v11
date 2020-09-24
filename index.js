@@ -34,12 +34,9 @@ const client = new Discord.Client();
 // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
 client.intro = new Discord.Collection();
 const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
-console.log(introFiles)
 for (const file of introFiles) {
     // Requires all files in intro;
-    console.log(file)
     const intro = require('./customsounds/' + file);
-    console.log(intro)
     // Set a new item in the collection with the key as the commandname and the value as the exported module;
     client.intro.set(intro.name, intro);
 }
@@ -97,10 +94,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldChannel != newChannel) {
 
         // Just a player for the introsound, for aesthetic purposes;
-        var name = newState.member.tag;
-        var link = client.intro.get(name)
-//        console.log(link)
-       // introSound(voiceChannel, newState.member.tag, client);
+        introSound(voiceChannel, client.intro.get(newState.member.tag).url, client);
 
 /* This is commented out so the bot doesnt play intro sounds in discord anymore;
 
