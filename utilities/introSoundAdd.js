@@ -7,7 +7,7 @@ module.exports = function intro(bot, msg, name, url, bool){
     //fs.writeFile()
     if (err) throw err;
 
-    var intro;
+    var intro = "";
 
     bot.introSound.set()
 
