@@ -1,8 +1,8 @@
 var path = require("path")
 const fs = require("fs")
-const usersPath = (path.join(__dirname, '..', '..', 'customsounds/'));
-const introSoundAdd = require(path.join(__dirname, '..', '..', 'utilities/introSoundAdd.js'));
-const introSoundDel = require(path.join(__dirname, '..', '..', 'utilities/introSoundDel.js'));
+const usersPath = (path.join(__dirname, '..', 'customsounds/'));
+const introSoundAdd = require(path.join(__dirname, '..', 'utilities/introSoundAdd.js'));
+const introSoundDel = require(path.join(__dirname, '..', 'utilities/introSoundDel.js'));
 
 module.exports = {
 	name: 'customsound',
