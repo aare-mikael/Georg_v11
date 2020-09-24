@@ -14,6 +14,8 @@ module.exports = {
         return;
     };
 
+    if(voiceChannel == undefined || voiceChannel == null) return;
+
     voiceChannel.join().then(connection => {
     const dispatcher = connection.play('./mp3/georg.mp3');
     dispatcher.on("finish", end => message.member.voice.channel.leave());
