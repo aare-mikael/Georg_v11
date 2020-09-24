@@ -94,6 +94,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldChannel != newChannel) {
 
         // Just a player for the introsound, for aesthetic purposes;
+        var name = newState.member.tag;
         var link = client.intro.get(name).url
         introSound(voiceChannel, newState.member.tag, client);
 
