@@ -17,6 +17,7 @@ const Discord = require('discord.js');
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
 
+const introSound = require('./utilities/introSoundPlayer');
 
 // Requires the prefix specified in config.json, to avoid issues where a command name is randomly said without meaning to invoke the command;
 const { prefix } = require('./config.json');
@@ -39,6 +40,7 @@ for (const file of introFiles) {
     // Set a new item in the collection with the key as the commandname and the value as the exported module;
     client.intro.set(intro.name, intro);
 }
+
 // Creates a collection with all the commands;
 client.commands = new Discord.Collection();
 
@@ -90,6 +92,9 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
+
+        // Just a player for the introsound, for aesthetic purposes;
+        introSound(voiceChannel, newState.member.tag);
 
 /* This is commented out so the bot doesnt play intro sounds in discord anymore;
 
