@@ -1,7 +1,8 @@
-module.exports = function play(voiceChannel, name, client){
+module.exports = function play(voiceChannel, link, client){
+
+    if(voiceChannel == undefined || voiceChannel == null) return;
  
     voiceChannel.join().then(connection => {
-        const link = intro.get(name).url;
         console.log(link);
         const dispatcher = connection.play(link, { volume: vol } );
         dispatcher.on('finish', () => voiceChannel.leave());
