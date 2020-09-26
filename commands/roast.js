@@ -27,6 +27,7 @@ var insults = [
 module.exports = {
     name: 'roast',
     description: "Skjønna du virkelig ikkje ka dinna gjør?",
+    category: "Text",
     execute(message, args) {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
