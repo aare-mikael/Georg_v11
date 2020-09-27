@@ -79,7 +79,7 @@ client.on('guildCreate', joinedGuild => {
         };
     }),
     // defaultchannel is the first channel object the client finds permissions for;
-    defaultchannel.send('Hello, I am Georg. Thanks for inviting me into your server!'));
+    message.defaultchannel.send('Hello, I am Georg. Thanks for inviting me into your server!'));
 
     
 
