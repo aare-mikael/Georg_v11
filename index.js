@@ -88,6 +88,7 @@ client.on('guildCreate', joinedGuild => {
     defaultChannel.send(embed());
 
 });
+/*
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
@@ -98,6 +99,8 @@ client.on('guildMemberAdd', member => {
     // Send the message, mentioning the member
     channel.send(`Welcome to the server, ${member}`);
   });
+
+  */
 
 // Makes the bot pay attention to whenever somebody joins a new channel;
 client.on('voiceStateUpdate', (oldState, newState) => {
