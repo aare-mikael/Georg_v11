@@ -84,7 +84,7 @@ client.on('guildCreate', joinedGuild => {
     let channel = client.channels.get(guild.systemChannelID || channelID);
     channel.send('Hello, I am Georg. Thanks for inviting me into your server!');   
 
-
+});
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
