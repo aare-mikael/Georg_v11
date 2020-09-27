@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const prefix = require('./config.prefix');
+
 
 module.exports = function embed() {
 
