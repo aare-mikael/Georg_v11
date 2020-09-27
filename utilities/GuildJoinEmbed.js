@@ -1,10 +1,6 @@
 const Discord = require('discord.js');
 
-module.exports = function embed(message, results) {
-
-    let rMin = Math.floor(results.duration / 60);
-    let rSek = results.duration % 60;
-    let tid = (rMin + ":" + rSek);
+module.exports = function embed() {
 
     const Embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
