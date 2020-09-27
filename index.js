@@ -73,7 +73,7 @@ client.on('guildCreate', joinedGuild => {
     let channelID = "";
     let allchannels = joinedGuild.channels;
     channelLoop:
-    for (let i of allchannels.size()) {
+    for (let i of allchannels.size) {
         let channelType = i[1].type;
         if(channelType === "text") {
             channelID = i[0];
