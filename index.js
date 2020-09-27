@@ -96,7 +96,7 @@ client.on('guildCreate', joinedGuild => {
         }
     })
 
-    defaultchannel.send("Hello, I'm Georg!");
+    defaultChannel.send("Hello, I'm Georg!");
 
     let channel = client.channels.get(guild.systemChannelID || channelID);
     channel.send('Hello, I am Georg. Thanks for inviting me into your server!');   
