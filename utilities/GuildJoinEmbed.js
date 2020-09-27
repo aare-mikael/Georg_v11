@@ -10,9 +10,9 @@ module.exports = function embed() {
         .setAuthor('Georg', 'https://i.ibb.co/8sbpxpw/GEORG.png', 'https://discord.com/api/oauth2/authorize?client_id=741703921877123164&permissions=2147483639&scope=bot')
         .setDescription(`My prefix is this: "${prefix}"`)
         .addFields(
-            { value: 'The first command you use should be the **help** command!' },
-            { value: 'I can moderate messages, join voice and play audio clips from youtube and more!' },
-            { value: 'All you have to do is use the help-command, and I should slide right into your DM\'s with more info!' },
+            { name: "", value: 'The first command you use should be the **help** command!' },
+            { name: "", value: 'I can moderate messages, join voice and play audio clips from youtube and more!' },
+            { name: "", value: 'All you have to do is use the help-command, and I should slide right into your DM\'s with more info!' },
         ) 
 //        .setImage(results.thumbnail)
         .setTimestamp() 
