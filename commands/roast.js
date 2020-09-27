@@ -8,7 +8,6 @@ var insults = [
     "du ser ut som du ikkje kunne talt til 11 uten å ta av deg sokkane, men når du gjør det kan du telle til 23",
     "du ser ut som den personen som jobba som lærer på barneskulen bare for å sjekke opp single mødre",
     "den dagen eg skal ha meg unga, skal eg spørre foreldra dine ka posisjon dei knulla i før dei fikk deg, så eg kan unngå den",
-//    "du e inspirasjonen Mariah Carey brukte til å lage 'All I want for Christmas'",
     "det e over 300 000 ord i det norske språket, og likevel kunne eg aldri satt sammen nok ord til å forklare kor mykje eg har lyst til å slå deg med et balltre",
     "du e akkurat som en avløpspumpe, du drar bare fram gammal drit",
     "du kunne ikkje organisert en sultestreik på et moteshow",
@@ -22,6 +21,7 @@ var insults = [
     "du e den personen foreldre bruka som et dårlig eksempel for ungane sine",
     "du e den personen som får damer til å vere redd for å dra på byn, i frykt for å møte deg",
     "eg hadde ikkje rørt deg med en fjernstyrt spiker engang",
+    "faren din burde heilt ærlig runka deg utfor et stup",
     ]
 
 module.exports = {
@@ -36,9 +36,7 @@ module.exports = {
     const msg = message.content.toLowerCase();
 
     // Finner ut ken som er nevnt i meldinga og tagger dei;
-    var bruker = message.mentions.users.first();
-    var brukernavn = bruker.username;
-    var brukerID = bruker.id;
+    var bruker = args[0];
 
     var antallInsults = insults.length;
     var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
@@ -48,7 +46,7 @@ module.exports = {
 //      message.channel.bulkDelete(1);
       
     // Spyr ut en tilfeldig insult fra insults[];      
-      message.channel.send('<@' + brukerID + '>, ' + spy);
+      message.channel.send(bruker + ", " + spy);
 
 
     },
