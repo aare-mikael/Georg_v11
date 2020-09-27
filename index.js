@@ -74,19 +74,6 @@ client.on("debug", (e) => console.info(e));
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
 
-    /*
-    let channelID = "";
-    let allchannels = joinedGuild.channels;
-    channelLoop:
-    for (let i of allchannels.length) {
-        let channelType = i[1].type;
-        if(channelType === "text") {
-            channelID = i[0];
-            break channelLoop;
-        }
-    }
-    */
-
     let defaultChannel = "";
     joinedGuild.channels.cache.forEach((channel) => {
         if(channel.type == "text" && defaultChannel == "") {
@@ -95,11 +82,10 @@ client.on('guildCreate', joinedGuild => {
             }
         }
     })
+    const embed = require(path.join(__dirname, '..', '/utilities', 'GuildJoinEmbed.js'));
 
     defaultChannel.send("Hello, I'm Georg!");
-
-    let channel = client.channels.get(guild.systemChannelID || channelID);
-    channel.send('Hello, I am Georg. Thanks for inviting me into your server!');   
+    defaultChannel.send(embed);
 
 });
 
