@@ -70,26 +70,19 @@ client.once('ready', () => {
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
 
-    let defaultchannel = "";
-    joinedGuild.channels.cache.forEach((channel => {
-        if(channel.type == 'text' && defaultchannel == "") {
-            if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-                defaultchannel = message.channel;
-            };
-        };
-    }),
-    // defaultchannel is the first channel object the client finds permissions for;
-    defaultchannel.send('Hello, I am Georg. Thanks for inviting me into your server!'));
+    let channelID = "";
+    let allchannels = guild.channels;
+    channelLoop:
+    for (var i of allchannels) {
+        let channelType = i[1].type;
+        if(channelType === "text") {
+            channelID = i[0];
+            break channelLoop;
+        }
+    }
 
-    
-
-})
-
-
-
-
-
-
+    let channel = client.channels.get(guild.systemChannelID || channelID);
+    channel.send('Hello, I am Georg. Thanks for inviting me into your server!');   
 
 
 
