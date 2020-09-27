@@ -71,7 +71,7 @@ client.once('ready', () => {
 client.on('guildCreate', joinedGuild => {
 
     let channelID = "";
-    let allchannels = guild.channels;
+    let allchannels = joinedGuild.channels;
     channelLoop:
     for (var i of allchannels) {
         let channelType = i[1].type;
