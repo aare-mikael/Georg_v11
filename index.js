@@ -74,6 +74,7 @@ client.on("debug", (e) => console.info(e));
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
 
+    /*
     let channelID = "";
     let allchannels = joinedGuild.channels;
     channelLoop:
@@ -84,6 +85,7 @@ client.on('guildCreate', joinedGuild => {
             break channelLoop;
         }
     }
+    */
 
     let defaultchannel = "";
     guild.channels.cache.forEach((channel) => {
