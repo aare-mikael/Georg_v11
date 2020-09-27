@@ -26,6 +26,8 @@ module.exports = {
             vol = 0.1;
         } else if (args[args.length-1] == 1) {
             vol = 1;
+        } else if(args[args.length-1] == NaN) {
+            vol = 0.1;
         } else {
             vol = Number(args[args.length - 1]);
             args.pop();
