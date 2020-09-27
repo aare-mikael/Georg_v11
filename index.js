@@ -87,7 +87,7 @@ client.on('guildCreate', joinedGuild => {
     }
     */
 
-    let defaultchannel = "";
+    let defaultChannel = "";
     joinedGuild.channels.cache.forEach((channel) => {
         if(channel.type == "text" && defaultChannel == "") {
             if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
