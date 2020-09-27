@@ -82,7 +82,7 @@ client.on('guildCreate', joinedGuild => {
             }
         }
     })
-    const embed = require(path.join(__dirname, '..', '/utilities', 'GuildJoinEmbed.js'));
+    const embed = require(path.join(__dirname, '/utilities', 'GuildJoinEmbed.js'));
 
     defaultChannel.send("Hello, I'm Georg!");
     defaultChannel.send(embed);
