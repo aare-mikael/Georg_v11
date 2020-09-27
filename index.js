@@ -13,6 +13,28 @@ const env = require('dotenv').config()
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
 
+// dirty workaround for fetching defaultchannel in new guild (https://github.com/AnIdiotsGuide/discordjs-bot-guide/blob/master/frequently-asked-questions.md)
+var Long = require("long");
+
+// This is what actually fetches the default channel, using Long;
+const getDefaultChannel = (guild) => {
+    // get "original" default channel
+    if(guild.channels.has(guild.id))
+      return guild.channels.get(guild.id)
+  
+    // Check for a "general" channel, which is often default chat
+    const generalChannel = guild.channels.find(channel => channel.name === "general");
+    if (generalChannel)
+      return generalChannel;
+    // Now we get into the heavy stuff: first channel in order where the bot can speak
+    // hold on to your hats!
+    return guild.channels
+     .filter(c => c.type === "text" &&
+       c.permissionsFor(guild.client.user).has("SEND_MESSAGES"))
+     .sort((a, b) => a.position - b.position ||
+       Long.fromString(a.id).sub(Long.fromString(b.id)).toNumber())
+     .first();
+  };
 
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
@@ -68,23 +90,13 @@ client.once('ready', () => {
 });
 
 // Eventlistener for whenever the bot joins a new server;
-client.on('guildCreate', joinedGuild => {
-
-    let channelID = "";
-    let allchannels = joinedGuild.channels;
-    channelLoop:
-    for (let i of allchannels.length) {
-        let channelType = i[1].type;
-        if(channelType === "text") {
-            channelID = i[0];
-            break channelLoop;
-        }
-    }
-
-    let channel = client.channels.get(guild.systemChannelID || channelID);
-    channel.send('Hello, I am Georg. Thanks for inviting me into your server!');   
-
+client.on("guildCreate", joinedGuild => {
+    const channel = getDefaultChannel(joinedGuild);
+    channel.send('Hello, I am Georg. Thanks for inviting me into your server!');
 });
+
+
+
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
