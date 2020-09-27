@@ -63,9 +63,25 @@ client.login(process.env.token);
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
     console.log('I solemnly swear I am up to no good.');
-    client.user.setActivity('your heartbeat', { type: 'LISTENING' });
-//    client.user.setActivity('with your heart');
+    client.user.setActivity('your heartbeat', { type: 'LISTENING' }); // Listening automatically adds "to" behind it, so this displays "Listening to your heartbeat";
+//    client.user.setActivity('with your heart', { type: 'PLAYING' }); // This displays "Playing with your heart";
 });
+
+// Eventlistener for whenever the bot joins a new server;
+client.on('guildCreate', joinedGuild => {
+
+    
+
+
+})
+
+
+
+
+
+
+
+
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
