@@ -105,9 +105,6 @@ client.on('guildMemberAdd', member => {
 // Makes the bot pay attention to whenever somebody joins a new channel;
 client.on('voiceStateUpdate', (oldState, newState) => {
 
-//    console.log(newState.guild.voiceStates);
-//    console.log(newState.VoiceStateManager);
-
     const trashbot2 = '741703921877123164';
 
     if (newState.guild.voiceConnection) return;
@@ -119,6 +116,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Collects the id of the person joining;
     const newPerson = newState.member.id.toString();
 
+    // This is myself!;
     if(newPerson == '741703921877123164') return;
 
     var oldChannel = oldState.channelID;
@@ -133,22 +131,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         var sound = client.intro.get(name);
         var link = sound.url;
         introSound(voiceChannel, link, client);
-
-/* This is commented out so the bot doesnt play intro sounds in discord anymore;
-
-        // If newChannel is either null or undefined, the person disconnected from voice;
-        if (newChannel != null || newChannel != undefined) {
-
-            // Checks how many bots there are in the channel already and returns the amount;
-            var bots = newState.channel.members.filter(x => x.user.bot).size;
-            if (bots > 0) return;
-
-            voiceChannel.join().then(connection => {
-            dispatcher = connection.play('https://www.myinstants.com/media/sounds/challenger-approaching-super-smash-bros.mp3', { volume: 0.5 });
-            dispatcher.on("finish", end => voiceChannel.leave());
-            }).catch(err => console.log(err));
-        }
-        */
     
     }
 })
@@ -156,20 +138,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', message => {
 
-/*
-    // Stops Posterboy from using his tenor.com/view gifs in #whatevs;
-    let postyID = "132193704860450817";
-    if(message.content.includes("tenor.com/view") && message.author.id == postyID 
-    // && message.channel.id == "615524562959990803" 
-    ) {
-        message.channel.bulkDelete(1);
-        message.channel.send("Kordan e du ikkje lei av å spamme tenor-gifs enda posty, dei ekje morsomme engang");
-    }
-*/
-    
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
-
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -179,21 +149,6 @@ client.on('message', message => {
     if (command.guildOnly && message.channel.type !== 'text') {
         return message.reply('I can\'t execute that command inside DMs!');
     }    
-
-    // Kommentert ut pga ukjent bug (09.08.20) som hindrer boten i å svare på meldinger når denne delen er implementert;
-    /*
-    if(command.args && !args.length) {
-        var reply = `You didn't provide any arguments, ${message.author}!`;
-
-        if(usage == true) {
-            if(command.usage) {
-            reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-            }
-        }
-
-        message.channel.send(reply);
-    }
-    */
 
     // This enters a command into an array of commands recently used, to limit spam and so forth;
     if (!cooldowns.has(command.name)) {
@@ -216,8 +171,9 @@ client.on('message', message => {
 
         // Checks if the command can be used again by the author, meaning that the expiration time has expired;
         if (now < expirationTime) {
-            const timeLeft = (expirationTime - now) ;
-            return message.reply(`please wait ${timeLeft.toFixed(1)} more milliseconds before using the \`${command.name}\` command again!`);
+            const timeLeft = (expirationTime - now);
+            timeLeft = timeLeft / 1000;
+            return message.reply(`please wait ${timeLeft.toFixed(1)} more seconds before using the \`${command.name}\` command again!`);
         }
     }
 
