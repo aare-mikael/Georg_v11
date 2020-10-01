@@ -42,7 +42,7 @@ module.exports = {
 
         if(voiceChannel == undefined || voiceChannel == null) return;
 
-        message.channel.bulkDelete(1);
+//        message.channel.bulkDelete(1);
 
         message.reply("we here at Georg Music will now play your requested audio at volume " + vol +   ": ");
 
