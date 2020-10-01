@@ -50,7 +50,7 @@ module.exports = {
 
             const search = args[0];
 
-            youtube.searchOne(search, { type: 'video' }).then(results => {
+            youtube.search(search, { type: 'video' }).then(results => {
                 var link = results.link;
 
                 const stream = ytdl(link, { filter: 'audioonly' });
