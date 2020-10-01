@@ -53,7 +53,7 @@ module.exports = {
             youtube.searchOne(search, { type: 'video' }).then(results => {
                 var link = results.link;
 
-                const stream = ytdl(link, { volume = vol, filter: 'audioonly' });
+                const stream = ytdl(link, { filter: 'audioonly' });
                 voiceChannel.join().then(connection => {
                     const dispatcher = connection.play(stream, { volume: vol });
 
