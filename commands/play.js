@@ -48,6 +48,24 @@ module.exports = {
 
         if ( message.content.includes("youtube.com/watch" )) {
 
+            const search = args[0];
+
+            youtube.searchOne(search, { type: 'video' }).then(results => {
+                var link = results.link;
+
+                const stream = ytdl(link, { volume = vol, filter: 'audioonly' });
+                voiceChannel.join().then(connection => {
+                    const dispatcher = connection.play(stream, { volume: vol });
+
+                    message.channel.send(embed(message, results));
+
+                    dispatcher.on("finish", end => message.member.voice.channel.leave());
+                }).catch(err => console.log(err));
+            })
+
+
+            /*
+
             voiceChannel.join().then(connection => {
                 const link = args.join(' ');
                 const stream = ytdl(link, { filter: 'audioonly', });
@@ -55,12 +73,14 @@ module.exports = {
                 dispatcher.on('finish', () => voiceChannel.leave());
             }).catch(err => console.log(err));
 
+            */
+
         } else {
 
-            const search = args.join(' ');
+            search = args.join(' ');
 
             youtube.searchOne(search, { type: 'video' }).then(results => {
-                console.log(results);
+//                console.log(results);
                 var link = results.link;
 
                 const stream = ytdl(link, { volume: vol, filter: 'audioonly' });
