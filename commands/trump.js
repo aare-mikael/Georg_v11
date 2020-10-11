@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const embed = require(path.join(__dirname, '..', '/utilities', 'TrumpEmbed.js'));
 
 module.exports = {
     name: 'trump',
@@ -13,12 +14,7 @@ module.exports = {
 
         let obj = await (await fetch("https://api.tronalddump.io/random/quote")).json();
 
-        console.log(obj);
-
-        let quote = obj.value;
-        console.log(quote);
-
-        message.channel.send(quote);
+        message.channel.send(embed);
 
     },
 };
