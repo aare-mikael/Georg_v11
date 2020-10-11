@@ -11,90 +11,64 @@ module.exports = {
         category: "Voice",
 	args: true,
 	execute(message, args, client) {
-                        var name = message.author.tag;
-                        switch(args[0]){
+        
+                var name = message.author.tag;
 
-                        //TODO Set custom sound
-                        case 'leggtil':
+                const embed = require(path.join(__dirname, '../utilities', 'CustomsoundEmbed.js'));
+
+                if (!args[0]) {
+
+                        message.channel.send(embed(message, args));
+
+                }                        
+
+                switch(args[0]){
+
+                        case 'add':
                                 var url = args[1]
                                 if(fs.existsSync(usersPath + name + ".js")){
                                 var intro = require(path.join(usersPath + name +".js"))
                                 if( intro.id !== message.author.id ){
-                                message.channel.send("Du kan ikke endre andres introsound!")
+                                message.channel.send("You can't change other users intro-sound!")
                                 return
                                 }else{
                                   introSoundDel(client, message);
                                   introSoundAdd(client, message, name, url, true)
-                                  message.channel.send("Introlyden din er lagret, kan brukes umiddelbart")
+                                  message.channel.send("Your intro-sound is saved, and available for use!")
                                 }
                                 }else{
                                   introSoundAdd(client, message, name, url, true)
-                                  message.channel.send("Introlyden din er lagret, kan brukes umiddelbart")
+                                  message.channel.send("Your intro-sound is saved, and available for use!")
                                 }
                         break;
 
-                        //TODO Delete custom sound
-                        case 'slett':
+                        case 'delete':
                                 if(fs.existsSync(usersPath + name + ".js")){
                                         introSoundDel(client, message);
                                         }
-                                        message.reply("introlyden din er fjernet fra databasen.")
+                                        message.reply("your sound is deleted.")
                         break;
 
-                        //TODO toggle lyden på
                         case 'toggleon':
                         
                                 if(fs.existsSync(usersPath + name + ".js")){
                                         var intro = require(path.join(usersPath + name +".js"))     
                                         introSoundDel(client, message);
                                         introSoundAdd(client, message, name, url, true)
+                                        message.reply("your sound is toggled on and will play from now on.")
                                 }
 
                         break;
 
-                        //TODO toggle lyden av
                         case 'toggleoff':
 
                                 if(fs.existsSync(usersPath + name + ".js")){
                                         var intro = require(path.join(usersPath + name +".js"))     
                                         introSoundDel(client, message);
                                         introSoundAdd(client, message, name, url, false)
+                                        message.reply("your sound is toggled off, and will not play from now on.")
                                 }
 
                         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        const filter = response => {
-//            return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-//       };
-
-                
-
-//        message.channel.send(`Your custom intro sound is now ${args[0]}`);
-        
-        
-
-        /*
-        var voiceChannel = message.member.voice.channel;
- 
-
-        voiceChannel.join().then(connection => {
-        const dispatcher = connection.play(`${m.content}`);
-        dispatcher.on("finish", end => message.member.voice.channel.leave());
-        }).catch(err => console.log(err));
-        */
 	},
 };
