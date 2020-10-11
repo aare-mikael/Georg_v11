@@ -11,11 +11,10 @@ module.exports = {
         // Retrieve a random quote from https://api.tronalddump.io/random/quote;
 //        let obj = await (await fetch("https://api.tronalddump.io/random/quote")).json();
 
-        let obj1 = fetch("https://api.tronalddump.io/random/quote");
-        let obj2 = obj1.json();
+        let obj = fetch("https://api.tronalddump.io/random/quote");
 
 
-        let quote = obj2.value;
+        let quote = obj.value;
 
         message.channel.send(quote);
 
