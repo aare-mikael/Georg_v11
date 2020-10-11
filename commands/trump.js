@@ -15,6 +15,7 @@ module.exports = {
 
 
         let quote = obj.value;
+        console.log(quote);
 
         message.channel.send(quote);
 
