@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 module.exports = {
     name: 'trump',
     description: "This fetches a random idiotic quote of our lord and saviour, Donald Trump.",
