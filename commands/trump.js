@@ -11,7 +11,7 @@ module.exports = {
         // Retrieve a random quote from https://api.tronalddump.io/random/quote;
 //        let obj = await (await fetch("https://api.tronalddump.io/random/quote")).json();
 
-        let obj = fetch("https://api.tronalddump.io/random/quote");
+        let obj = await fetch("https://api.tronalddump.io/random/quote");
         console.log(obj);
 
         let quote = obj.value;
