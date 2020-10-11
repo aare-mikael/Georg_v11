@@ -12,7 +12,7 @@ module.exports = {
 //        let obj = await (await fetch("https://api.tronalddump.io/random/quote")).json();
 
         let obj = fetch("https://api.tronalddump.io/random/quote");
-
+        console.log(obj);
 
         let quote = obj.value;
         console.log(quote);
