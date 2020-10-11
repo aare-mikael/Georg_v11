@@ -9,7 +9,7 @@ module.exports = function embed() {
         .setAuthor('Georg', 'https://i.ibb.co/8sbpxpw/GEORG.png', 'https://discord.com/api/oauth2/authorize?client_id=741703921877123164&permissions=2147483639&scope=bot')
         .addFields(
             { name: "--------------------", value: 'I have four subcommands:' },
-            { name: "--------------------", value: 'The first is **add**, and is used like this: "customsound add **yourlinkhere.mp4**"' },
+            { name: "--------------------", value: 'The first is **add**, and is used like this: "customsound add **yourlinkhere.mp3**"' },
             { name: "--------------------", value: 'The second is **delete**, and is used like this: "customsound delete"' },
             { name: "--------------------", value: 'The third is **toggleon**, and is used like this: "customsound toggleon"' },
             { name: "--------------------", value: 'The fourth is **toggleoff**, and is used like this: "customsound toggleoff"' },
