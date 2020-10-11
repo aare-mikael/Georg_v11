@@ -15,8 +15,6 @@ module.exports = {
 //        let obj = await (await fetch("https://api.tronalddump.io/random/quote")).json();
 
         let obj = await (await fetch("https://api.tronalddump.io/random/quote")).json();
-        console.log(obj)
-        console.log(obj._embedded.source[0].url);
 
         message.channel.send(embed(message, obj));
 

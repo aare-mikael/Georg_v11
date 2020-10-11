@@ -9,7 +9,7 @@ module.exports = function embed(message, obj) {
         .addFields(
             { name: "--------------------", value: obj.value },
             { name: "--------------------", value: obj.appeared_at },
-            { name: "--------------------", value: obj.url },
+            { name: "--------------------", value: obj._embedded.source[0].url },
         ) 
         .setTimestamp() 
         .setFooter('Georg™ ©2020', 'https://i.ibb.co/8sbpxpw/GEORG.png');
