@@ -6,12 +6,12 @@ module.exports = function embed(message, obj) {
 
     let StringDate = scuffedDate.toString();
 
-    let year = StringDate.substring(0,3);
-    let month = StringDate.substring(5,6);
-    let date = StringDate.substring(8,9);
-    let hour = StringDate.substring(11,12);
-    let min = StringDate.substring(14,15);
-    let sec = StringDate.substring(17,18);
+    let year = StringDate.substring(0,4);
+    let month = StringDate.substring(5,7);
+    let date = StringDate.substring(8,10);
+    let hour = StringDate.substring(11,13);
+    let min = StringDate.substring(14,16);
+    let sec = StringDate.substring(17,19);
 
     const Embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
