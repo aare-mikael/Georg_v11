@@ -36,7 +36,7 @@ module.exports = {
     const msg = message.content.toLowerCase();
 
     if ( !args[0] ) {
-      var bruker = message.member.displayname;
+      var bruker = message.author.tag;
     } else {
         // Henter ut personen som skal roastes;
         var bruker = args[0];
