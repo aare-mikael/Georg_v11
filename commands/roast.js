@@ -14,6 +14,7 @@ var insults = [
     "du ser ut som første halvparten av en reklame for antidepresjons-piller",
     "du får honey boo boo til å sjå bra ut",
     "du skuffa foreldrene dine bare ved å eksistere",
+    "eg trur du faktisk ville hatt problemer med å tømme vatnet utav en støvel med instruksjoner printa på hælen",
     "du e den personen klassa på ungdomsskulen tenkte mest sannsynlig kom til å mislykkes i livet, og dei fikk rett",
     "et klesmerke ville betalt deg for å ikkje bruke kledene deira",
     "du får mora di til å sjå slank ut",
