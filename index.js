@@ -172,7 +172,7 @@ client.on('message', async message => {
         // Checks if the command can be used again by the author, meaning that the expiration time has expired;
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now);
-            timeLeft = timeLeft / 1000;
+            const timeLeft = timeLeft / 1000;
             return message.reply(`please wait ${timeLeft.toFixed(1)} more seconds before using the \`${command.name}\` command again!`);
         }
     }
