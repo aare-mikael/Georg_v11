@@ -1,14 +1,27 @@
 const fs = require('fs');
 const ytdl = require('ytdl-core');
-const youtube = require('scrape-youtube').default;
+const youtube = require('youtube-api');
 const path = require('path');
 const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
 
+
+
+const search = require('youtube-search');
+const opts = {
+    maxResults: 25,
+    key: client.YoutubeApiKey,
+    type: 'video'
+};
+
+
+
+
+
 module.exports = {
-	name: 'play',
+	name: 'play2',
     description: 'Plays the audio of either a youtube url or result upon search in Youtube, depending on your input.',
     usage: 'url OR search words + volume as the last argument',
-    cooldown: 10,
+    cooldown: 5,
     category: "Voice",
 	args: true,
 //	usage: "<user> <role>",
@@ -19,6 +32,30 @@ module.exports = {
             console.log(message.author.username);
             return;
         }
+
+        let embed = new Discord.MessageEmbed()
+        .setColor('#6f4c78')
+        .setDescription("Please enter a search query, the more detailed the higher the chance of finding the correct video.")
+        .setTitle("Youtube search by Georg™ ©2020");
+        let embedMsg = await message.channel.send(embed);
+
+        let filter = m => m.author.id === message.author.id;
+        let query = await message.channel.awaitMessages(filter, { max: 1 });
+
+        let results = await search(query, opts).catch(err => console.log(err));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         let vol;
 
@@ -50,7 +87,7 @@ module.exports = {
 
             const search = args[0];
 
-            youtube.searchOne(search, { type: 'video' }).then(results => {
+            youtube.video(search, { type: 'video' }).then(results => {
                 var link = results.link;
 
                 const stream = ytdl(link, { filter: 'audioonly' });
@@ -62,6 +99,10 @@ module.exports = {
                     dispatcher.on("finish", end => message.member.voice.channel.leave());
                 }).catch(err => console.log(err));
             })
+
+            console.log(youtube.video);
+            console.log(link);
+
 
 
             /*
@@ -79,7 +120,7 @@ module.exports = {
 
             search = args.join(' ');
 
-            youtube.searchOne(search, { type: 'video' }).then(results => {
+            youtube.(search, { type: 'video' }).then(results => {
 //                console.log(results);
                 var link = results.link;
 

@@ -59,17 +59,21 @@ const cooldowns = new Discord.Collection();
 // Hide your token at all costs;
 client.login(process.env.token);
 
+client.YoutubeApi = process.env.YoutubeApiKey;
+
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
     console.log('I solemnly swear I am up to no good.');
-    client.user.setActivity('your heartbeat', { type: 'LISTENING' }); // Listening automatically adds "to" behind it, so this displays "Listening to your heartbeat";
+    client.user.setActivity('Sabaton', { type: 'LISTENING' }); // Listening automatically adds "to" behind it, so this displays "Listening to your heartbeat";
 //    client.user.setActivity('with your heart', { type: 'PLAYING' }); // This displays "Playing with your heart";
 });
 
+/*
 // Preventing full restart upon an error;
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 client.on("debug", (e) => console.info(e));
+*/
 
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
