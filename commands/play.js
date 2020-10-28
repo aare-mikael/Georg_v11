@@ -67,7 +67,11 @@ module.exports = {
 
             let selected = YoutubeResults[collected.first().content - 1];
 
-            var videoUrl = selected.link;
+            console.log(selected);
+
+            console.log(typeof selected.link);
+
+//            var videoUrl = selected.link;
 
             embed = new Discord.MessageEmbed()
                 .setColor('#6f4c78')
