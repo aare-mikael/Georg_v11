@@ -122,7 +122,7 @@ module.exports = {
 
             search = args.join(' ');
 
-            youtube.(search, { type: 'video' }).then(results => {
+            youtube(search, { type: 'video' }).then(results => {
 //                console.log(results);
                 var link = results.link;
 
