@@ -114,6 +114,8 @@ module.exports = {
                 dispatcher.on('finish', () => voiceChannel.leave());
             }).catch(err => console.log(err));
 
+            */
+
             
 
         } else {
