@@ -150,9 +150,9 @@ client.on('message', async message => {
 
     const command = client.commands.get(commandName)
 
-    if (command.guildOnly && message.channel.type !== 'text') {
-        return message.reply('I can\'t execute that command inside DMs!');
-    }    
+    // if (command.guildOnly && message.channel.type !== 'text') {
+    //     return message.reply('I can\'t execute that command inside DMs!');
+    // }    
 
     // This enters a command into an array of commands recently used, to limit spam and so forth;
     if (!cooldowns.has(command.name)) {
