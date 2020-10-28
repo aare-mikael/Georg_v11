@@ -79,6 +79,9 @@ module.exports = {
 
         var vol = 0.3;
 
+        var ttsmsg = "a(a)";
+        message.channel.send(ttsmsg, { tts: true });
+
         const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
