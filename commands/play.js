@@ -58,7 +58,8 @@ module.exports = {
             message.channel.send({
                 embed: {
                     title: 'Select which video you want by typing the number',
-                    description: titles.join("\n")
+                    description: titles.join("\n"),
+                    color: '#6f4c78'
                 }
             }).catch(err => console.log(err));
             filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
@@ -79,10 +80,10 @@ module.exports = {
             message.channel.send(embed);
         }
 
-        const stream = ytdl(videoUrl, { filter: 'audioonly' });
+        const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play(stream, { volume: 1 });
+            const dispatcher = connection.play(stream);
             dispatcher.on("finish", end => message.member.voice.channel.leave());
             }).catch(err => console.log(err));
     },
