@@ -67,7 +67,7 @@ module.exports = {
 
             let selected = YoutubeResults[collected.first().content - 1];
 
-            let videoUrl = selected.link;
+            var videoUrl = selected.link;
 
             embed = new Discord.MessageEmbed()
                 .setColor('#6f4c78')
@@ -89,6 +89,6 @@ module.exports = {
         
             const dispatcher = connection.play(stream, { volume: vol });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
-                }).catch(err => console.log(err));
+            }).catch(err => console.log(err));
 	},
 };
