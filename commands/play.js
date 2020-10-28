@@ -14,7 +14,6 @@ module.exports = {
 	args: true,
 //	usage: "<user> <role>",
 	async execute(message, args, client) {
-        console.log(args);
         if (message.author.bot) {
             message.channel.send ("I can't play links sent by discord bots!");
             console.log(message.author.username);
@@ -36,6 +35,8 @@ module.exports = {
             key: process.env.YoutubeApiKey,
             type: 'video'
         };
+
+        console.log(process.env.YoutubeApiKey);
 
         let embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
@@ -66,10 +67,6 @@ module.exports = {
             let collected = await message.channel.awaitMessages(filter, { maxMatches: 1 });
 
             let selected = YoutubeResults[collected.first().content - 1];
-
-            console.log(selected);
-
-            console.log(typeof selected.link);
 
 //            var videoUrl = selected.link;
 
