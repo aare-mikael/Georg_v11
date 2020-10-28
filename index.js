@@ -72,7 +72,7 @@ client.once('ready', () => {
 // Preventing full restart upon an error;
 client.on("error", (e) => console.error(e));
 // client.on("warn", (e) => console.warn(e));
-// client.on("debug", (e) => console.info(e));
+client.on("debug", (e) => console.info(e));
 
 
 // Eventlistener for whenever the bot joins a new server;
