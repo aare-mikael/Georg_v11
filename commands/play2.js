@@ -1,3 +1,6 @@
+/*
+
+
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 const youtube = require('scrape-youtube').default;
@@ -73,7 +76,7 @@ module.exports = {
                 dispatcher.on('finish', () => voiceChannel.leave());
             }).catch(err => console.log(err));
 
-            */
+            
 
         } else {
 
@@ -95,3 +98,5 @@ module.exports = {
         }
 	},
 };
+
+*/
