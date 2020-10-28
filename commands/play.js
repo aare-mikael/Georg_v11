@@ -69,7 +69,7 @@ module.exports = {
 
             let selected = YoutubeResults[collected.first().content - 1];
 
-            var videoUrl = selected.link;
+            var videoUrl = selected.link.toString();
 
             console.log(videoUrl);
 
@@ -85,7 +85,7 @@ module.exports = {
 
         var vol = 0.3;
 
-        const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
+        const stream = ytdl(videoUrl, { filter: 'audioonly' });
 
         console.log(stream);
         
