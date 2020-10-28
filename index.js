@@ -68,12 +68,12 @@ client.once('ready', () => {
 //    client.user.setActivity('with your heart', { type: 'PLAYING' }); // This displays "Playing with your heart";
 });
 
-/*
+
 // Preventing full restart upon an error;
 client.on("error", (e) => console.error(e));
-client.on("warn", (e) => console.warn(e));
-client.on("debug", (e) => console.info(e));
-*/
+// client.on("warn", (e) => console.warn(e));
+// client.on("debug", (e) => console.info(e));
+
 
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
