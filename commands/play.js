@@ -57,6 +57,12 @@ module.exports = {
                     color: '#6f4c78'
                 }
             }).catch(err => console.log(err));
+
+            voiceChannel.join().then(connection => {
+                const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3", { volume: 1 });
+                dispatcher.destroy;
+            }).catch(err => console.log(err));
+            
             filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
             
             let collected = await message.channel.awaitMessages(filter, { max: 1 });
@@ -79,15 +85,10 @@ module.exports = {
 
         var vol = 0.3;
 
-        voiceChannel.join().then(connection => {
-            const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3", { volume: 1 });
-            dispatcher.on("finish", end => message.member.voice.channel.leave());
-        }).catch(err => console.log(err));
-
         const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play(stream, { volume: 1 });
+            dispatcher = connection.play(stream, { volume: 1 });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
         }).catch(err => console.log(err));
     },
