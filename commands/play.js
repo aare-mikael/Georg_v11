@@ -79,18 +79,7 @@ module.exports = {
             message.channel.send(embed);
         }
 
-        let vol;
-
-        if(!args[args.length - 1].match(/\d+.+\d/)) {
-            vol = 0.1;
-        } else if (args[args.length-1] == 1) {
-            vol = 1;
-        } else if(args[args.length-1] == NaN) {
-            vol = 0.1;
-        } else {
-            vol = Number(args[args.length - 1]);
-            args.pop();
-        }
+        let vol = 0.1;
 
         message.reply("we here at Georg Music will now play your requested audio at volume " + vol +   ": ");
 
