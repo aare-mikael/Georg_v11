@@ -80,12 +80,13 @@ module.exports = {
             message.channel.send(embed);
         }
 
-        const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
+        var vol = 0.3;
+
+        const stream = ytdl(videoUrl, { volume: vol, filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play(stream);
+            const dispatcher = connection.play(stream, { volume: vol });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
             }).catch(err => console.log(err));
     },
-    
 };
