@@ -21,6 +21,15 @@ module.exports = {
             return;
         }
 
+        const voiceChannel = message.member.voice.channel;
+
+        if (!voiceChannel) {
+            message.channel.send("You have to be in a voice channel for me to join and play this video. Join a voice channel and try again!");
+            return;
+        }
+
+        if(voiceChannel == undefined || voiceChannel == null) return;
+
         const search = require('youtube-search');
         const opts = {
             maxResults: 25,
@@ -37,20 +46,38 @@ module.exports = {
         let filter = m => m.author.id === message.author.id;
         let query = await message.channel.awaitMessages(filter, { max: 1 });
 
-        let results = await search(query, opts).catch(err => console.log(err));
+        let results = await search(query.first().content, opts).catch(err => console.log(err));
 
+        if( results ) {
+            let YoutubeResults = results.results;
+            let i = 0;
+            let titles = YoutubeResults.map(result => {
+                i++;
+                return i + ") " + result.title;
+            });
+            message.channel.send({
+                embed: {
+                    title: 'Select which video you want by typing the number',
+                    description: titles.join("\n")
+                }
+            }).catch(err => console.log(err));
+            filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
+            
+            let collected = await message.channel.awaitMessages(filter, { maxMatches: 1 });
 
+            let selected = YoutubeResults[collected.first().content - 1];
 
+            let link = `${selected.link}`;
 
+            embed = new Discord.MessageEmbed()
+                .setColor('#6f4c78')
+                .setDescription(`${selected.description}`)
+                .setTitle(`${selected.title}`)
+                .setURL(`${selected.link}`)
+                .setThumbnail(`${selected.thumbnails.default.url}`);
 
-
-
-
-
-
-
-
-
+            message.channel.send(embed);
+        }
 
         let vol;
 
@@ -65,71 +92,14 @@ module.exports = {
             args.pop();
         }
 
-        const voiceChannel = message.member.voice.channel;
-
-        if (!voiceChannel) {
-            message.channel.send("You have to be in a voice channel to make this command work. Join a voice channel and try again!");
-            return;
-        }
-
-        if(voiceChannel == undefined || voiceChannel == null) return;
-
-//        message.channel.bulkDelete(1);
-
         message.reply("we here at Georg Music will now play your requested audio at volume " + vol +   ": ");
 
-        if ( message.content.includes("youtube.com/watch" )) {
-
-            const search = args[0];
-
-            youtube.video(search, { type: 'video' }).then(results => {
-                var link = results.link;
-
-                const stream = ytdl(link, { filter: 'audioonly' });
-                voiceChannel.join().then(connection => {
-                    const dispatcher = connection.play(stream, { volume: vol });
-
-                    message.channel.send(embed(message, results));
-
-                    dispatcher.on("finish", end => message.member.voice.channel.leave());
+        const stream = ytdl(link, { filter: 'audioonly' });
+        
+        voiceChannel.join().then(connection => {
+        
+            const dispatcher = connection.play(stream, { volume: vol });
+            dispatcher.on("finish", end => message.member.voice.channel.leave());
                 }).catch(err => console.log(err));
-            })
-
-            console.log(youtube.video);
-            console.log(link);
-
-
-
-            /*
-
-            voiceChannel.join().then(connection => {
-                const link = args.join(' ');
-                const stream = ytdl(link, { filter: 'audioonly', });
-                const dispatcher = connection.play(stream, { volume: vol } );
-                dispatcher.on('finish', () => voiceChannel.leave());
-            }).catch(err => console.log(err));
-
-            */
-
-            
-
-        } else {
-
-            search = args.join(' ');
-
-            youtube(search, { type: 'video' }).then(results => {
-//                console.log(results);
-                var link = results.link;
-
-                const stream = ytdl(link, { volume: vol, filter: 'audioonly' });
-                voiceChannel.join().then(connection => {
-                const dispatcher = connection.play(stream, { volume: vol });
-
-                message.channel.send(embed(message, results));
-
-                dispatcher.on("finish", end => message.member.voice.channel.leave());
-                }).catch(err => console.log(err));
-            });
-        }
 	},
 };
