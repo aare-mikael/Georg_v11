@@ -69,6 +69,10 @@ module.exports = {
 
             var videoUrl = selected.link;
 
+            console.log(videoUrl)
+
+            console.log(typeof videoUrl)
+
             embed = new Discord.MessageEmbed()
                 .setColor('#6f4c78')
                 .setDescription(`${selected.description}`)
