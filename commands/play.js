@@ -63,7 +63,7 @@ module.exports = {
             }).catch(err => console.log(err));
             filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
             
-            let collected = await message.channel.awaitMessages(filter, { maxMatches: 1 });
+            let collected = await message.channel.awaitMessages(filter, { max: 1 });
 
             let selected = YoutubeResults[collected.first().content - 1];
 
