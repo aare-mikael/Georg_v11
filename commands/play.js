@@ -82,7 +82,7 @@ module.exports = {
         const stream = ytdl(videoUrl, { filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play(stream, { volume: 0.1 });
+            const dispatcher = connection.play(stream, { volume: 1 });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
             }).catch(err => console.log(err));
     },
