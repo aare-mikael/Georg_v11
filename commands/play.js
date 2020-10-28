@@ -67,7 +67,7 @@ module.exports = {
 
             let selected = YoutubeResults[collected.first().content - 1];
 
-//            var videoUrl = selected.link;
+            var videoUrl = selected.link;
 
             embed = new Discord.MessageEmbed()
                 .setColor('#6f4c78')
@@ -83,7 +83,7 @@ module.exports = {
 
         message.reply("we here at Georg Music will now play your requested audio at volume " + vol +   ": ");
 
-        const stream = ytdl(LINK, { filter: 'audioonly' });
+        const stream = ytdl(videoUrl, { filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
         
