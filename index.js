@@ -59,8 +59,6 @@ const cooldowns = new Discord.Collection();
 // Hide your token at all costs;
 client.login(process.env.token);
 
-client.YoutubeApi = process.env.YoutubeApiKey;
-
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
     console.log('I solemnly swear I am up to no good.');
