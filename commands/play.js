@@ -3,6 +3,7 @@ const ytdl = require('ytdl-core');
 const youtube = require('youtube-api');
 const path = require('path');
 const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'play',
