@@ -4,7 +4,7 @@ const youtube = require('youtube-api');
 const path = require('path');
 const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
 const Discord = require('discord.js');
-const ApiKey = require(path.join(__dirname, '..', 'process.env.YoutubeApiKey'));
+const ApiKey = process.env.YoutubeApiKey;
 
 module.exports = {
 	name: 'play',
