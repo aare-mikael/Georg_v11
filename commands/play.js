@@ -33,7 +33,7 @@ module.exports = {
         const search = require('youtube-search');
         const opts = {
             maxResults: 25,
-            key: process.env.YoutubeApiKey,
+            key: ApiKey,
             type: 'video'
         };
 
