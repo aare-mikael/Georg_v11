@@ -4,6 +4,7 @@ const youtube = require('youtube-api');
 const path = require('path');
 const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
 const Discord = require('discord.js');
+const ApiKey = require(path.join(__dirname, '..', process.env.YoutubeApiKey));
 
 module.exports = {
 	name: 'play',
@@ -36,7 +37,7 @@ module.exports = {
             type: 'video'
         };
 
-        console.log(process.env.YoutubeApiKey);
+        console.log(ApiKey);
 
         let embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
