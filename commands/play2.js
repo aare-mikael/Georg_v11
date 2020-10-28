@@ -8,7 +8,7 @@ const path = require('path');
 const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
 
 module.exports = {
-	name: 'play',
+	name: 'play2',
     description: 'Plays the audio of either a youtube url or result upon search in Youtube, depending on your input.',
     usage: 'url OR search words + volume as the last argument',
     cooldown: 5,

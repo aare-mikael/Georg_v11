@@ -4,19 +4,6 @@ const youtube = require('youtube-api');
 const path = require('path');
 const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
 
-
-
-const search = require('youtube-search');
-const opts = {
-    maxResults: 25,
-    key: client.YoutubeApiKey,
-    type: 'video'
-};
-
-
-
-
-
 module.exports = {
 	name: 'play',
     description: 'Plays the audio of either a youtube url or result upon search in Youtube, depending on your input.',
@@ -32,6 +19,13 @@ module.exports = {
             console.log(message.author.username);
             return;
         }
+
+        const search = require('youtube-search');
+        const opts = {
+            maxResults: 25,
+            key: client.YoutubeApiKey,
+            type: 'video'
+        };
 
         let embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
