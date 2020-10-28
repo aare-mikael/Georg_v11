@@ -86,8 +86,6 @@ module.exports = {
         var vol = 0.3;
 
         const stream = ytdl(videoUrl, { filter: 'audioonly' });
-
-        console.log(stream);
         
         voiceChannel.join().then(connection => {
             dispatcher = connection.play(stream, { volume: 1 });
