@@ -12,7 +12,7 @@ module.exports = {
     category: "Voice",
 	args: true,
 //	usage: "<user> <role>",
-	async execute(message, args) {
+	async execute(message, args, client) {
         console.log(args);
         if (message.author.bot) {
             message.channel.send ("I can't play links sent by discord bots!");
