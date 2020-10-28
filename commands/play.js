@@ -37,8 +37,6 @@ module.exports = {
             type: 'video'
         };
 
-        console.log(ApiKey);
-
         let embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
         .setDescription("Please enter a search query, the more detailed the higher the chance of finding the correct video.")
@@ -81,8 +79,6 @@ module.exports = {
             message.channel.send(embed);
         }
 
-        /*
-
         let vol = 0.1;
 
         message.reply("we here at Georg Music will now play your requested audio at volume " + vol +   ": ");
@@ -94,8 +90,6 @@ module.exports = {
             const dispatcher = connection.play(stream, { volume: vol });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
             }).catch(err => console.log(err));
-
-            */
     },
     
 };
