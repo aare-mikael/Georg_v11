@@ -1,15 +1,10 @@
-const fs = require('fs');
 const ytdl = require('ytdl-core');
-const youtube = require('youtube-api');
-const path = require('path');
-const embed = require(path.join(__dirname, '..', '/utilities', 'YoutubeEmbed.js'));
 const Discord = require('discord.js');
 const ApiKey = process.env.YoutubeApiKey;
 
 module.exports = {
 	name: 'play',
-    description: 'Plays the audio of either a youtube url or result upon search in Youtube, depending on your input.',
-    usage: 'url OR search words + volume as the last argument',
+    description: 'Searches for Youtube videos',
     cooldown: 5,
     category: "Voice",
 	args: true,
@@ -84,10 +79,10 @@ module.exports = {
 
         var vol = 0.3;
 
-        const stream = ytdl(videoUrl, { volume: vol, filter: 'audioonly' });
+        const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play(stream, { volume: vol });
+            const dispatcher = connection.play(stream, { volume: 1 });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
             }).catch(err => console.log(err));
     },
