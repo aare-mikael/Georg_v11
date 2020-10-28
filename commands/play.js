@@ -79,14 +79,16 @@ module.exports = {
 
         var vol = 0.3;
 
-        var ttsmsg = "a(a)";
-        message.channel.send(ttsmsg, { tts: true });
+        voiceChannel.join().then(connection => {
+            const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3", { volume: 1 });
+            dispatcher.on("finish", end => message.member.voice.channel.leave());
+        }).catch(err => console.log(err));
 
         const stream = ytdl(videoUrl, { volume: 1, filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
             const dispatcher = connection.play(stream, { volume: 1 });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
-            }).catch(err => console.log(err));
+        }).catch(err => console.log(err));
     },
 };
