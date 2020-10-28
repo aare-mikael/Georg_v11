@@ -69,10 +69,6 @@ module.exports = {
 
             var videoUrl = selected.link;
 
-            console.log(videoUrl)
-
-            console.log(typeof videoUrl)
-
             embed = new Discord.MessageEmbed()
                 .setColor('#6f4c78')
                 .setDescription(`${selected.description}`)
@@ -83,15 +79,10 @@ module.exports = {
             message.channel.send(embed);
         }
 
-        let vol = 0.1;
-
-        message.reply("we here at Georg Music will now play your requested audio at volume " + vol +   ": ");
-
         const stream = ytdl(videoUrl, { filter: 'audioonly' });
         
         voiceChannel.join().then(connection => {
-        
-            const dispatcher = connection.play(stream, { volume: vol });
+            const dispatcher = connection.play(stream, { volume: 0.1 });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
             }).catch(err => console.log(err));
     },
