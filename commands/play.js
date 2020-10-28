@@ -1,5 +1,3 @@
-/*
-
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 const youtube = require('youtube-api');
@@ -20,14 +18,14 @@ const opts = {
 
 
 module.exports = {
-	name: 'play2',
+	name: 'play',
     description: 'Plays the audio of either a youtube url or result upon search in Youtube, depending on your input.',
     usage: 'url OR search words + volume as the last argument',
     cooldown: 5,
     category: "Voice",
 	args: true,
 //	usage: "<user> <role>",
-	execute(message, args) {
+	async execute(message, args) {
         console.log(args);
         if (message.author.bot) {
             message.channel.send ("I can't play links sent by discord bots!");
@@ -138,5 +136,3 @@ module.exports = {
         }
 	},
 };
-
-*/
