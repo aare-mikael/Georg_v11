@@ -86,7 +86,7 @@ module.exports = {
         
         voiceChannel.join().then(connection => {
             const dispatcher = connection.play(stream, { 
-                volume: 0.5,
+                volume: 1,
                 type: "opus"
             });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
