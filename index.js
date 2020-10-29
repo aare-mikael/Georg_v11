@@ -14,7 +14,7 @@ const env = require('dotenv').config()
 const Discord = require('discord.js');
 
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
-const ytdl = require('ytdl-core');
+const ytdl = require('discord-ytdl-core');
 
 const introSound = require('./utilities/introPlayer');
 
