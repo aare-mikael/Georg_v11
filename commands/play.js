@@ -74,8 +74,6 @@ module.exports = {
                 .setThumbnail(`${selected.thumbnails.default.url}`);
 
             message.channel.send(embed);
-
-            console.log(selected);
         }
 
         var vol = 0.3;
