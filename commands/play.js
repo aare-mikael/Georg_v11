@@ -1,4 +1,4 @@
-const ytdl = require('ytdl-core');
+const ytdl = require('discord-ytdl-core');
 const Discord = require('discord.js');
 const ApiKey = process.env.YoutubeApiKey;
 
@@ -69,7 +69,7 @@ module.exports = {
 
             let selected = YoutubeResults[collected.first().content - 1];
 
-            var videoUrl = `${selected.link}`
+            var videoUrl = selected.link;
 
             embed = new Discord.MessageEmbed()
                 .setColor('#6f4c78')
@@ -83,10 +83,17 @@ module.exports = {
 
         var vol = 0.3;
 
-        const stream = ytdl(videoUrl, { filter: 'audioonly' });
+        const stream = ytdl(videoUrl, {
+            filter: 'audioonly', 
+            opusEncoded: true, 
+            encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200'] 
+        });
         
         voiceChannel.join().then(connection => {
-            dispatcher = connection.play(stream, { volume: 1 });
+            dispatcher = connection.play(stream, { 
+                volume: 1,
+                type: "opus"
+            });
             dispatcher.on("finish", end => message.member.voice.channel.leave());
         }).catch(err => console.log(err));
     },
