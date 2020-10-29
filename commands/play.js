@@ -81,8 +81,7 @@ module.exports = {
         const stream = ytdl(videoUrl, {
             filter: 'audioonly', 
             opusEncoded: true, 
-            encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200'],
-            liveBuffer: '20000'
+            encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200']
         });
         
         voiceChannel.join().then(connection => {
