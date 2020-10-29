@@ -14,42 +14,10 @@ module.exports = {
         return;
     }
 
-
-    const axios = require('axios')
-
-    axios
-        .get('myinstants.com')
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.error(error)
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    const mp3link = args[0];
 
     voiceChannel.join().then(connection => {
-        const dispatcher = connection.play('MP3LINK HER');
+        const dispatcher = connection.play(mp3link);
         dispatcher.on("finish", end => message.member.voice.channel.leave());
         }).catch(err => console.log(err));
     },
