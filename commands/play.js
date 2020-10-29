@@ -33,10 +33,7 @@ module.exports = {
         };
 
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3", { 
-                volume: 1,
-                type: "opus"
-            });
+            const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3");
             dispatcher.destroy;
         });
 
