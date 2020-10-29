@@ -58,11 +58,6 @@ module.exports = {
                 }
             }).catch(err => console.log(err));
 
-            voiceChannel.join().then(connection => {
-                const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3", { volume: 1 });
-                dispatcher.destroy;
-            }).catch(err => console.log(err));
-
             filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
             
             let collected = await message.channel.awaitMessages(filter, { max: 1 });
@@ -81,6 +76,8 @@ module.exports = {
             message.channel.send(embed);
         }
 
+        message.channel.send(stream);
+
         var vol = 0.3;
 
         const stream = ytdl(videoUrl, {
@@ -90,7 +87,7 @@ module.exports = {
         });
         
         voiceChannel.join().then(connection => {
-            dispatcher = connection.play(stream, { 
+            const dispatcher = connection.play(stream, { 
                 volume: 1,
                 type: "opus"
             });
