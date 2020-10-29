@@ -76,7 +76,7 @@ module.exports = {
             message.channel.send(embed);
         }
 
-        message.channel.send(selected);
+        console.log(selected);
 
         var vol = 0.3;
 
