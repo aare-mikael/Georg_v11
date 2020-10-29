@@ -32,6 +32,14 @@ module.exports = {
             type: 'video'
         };
 
+        voiceChannel.join().then(connection => {
+            const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3", { 
+                volume: 1,
+                type: "opus"
+            });
+            dispatcher.destroy;
+        });
+
         let embed = new Discord.MessageEmbed()
         .setColor('#6f4c78')
         .setDescription("Please enter a search query, the more detailed the higher the chance of finding the correct video.")
@@ -74,7 +82,7 @@ module.exports = {
                 .setThumbnail(`${selected.thumbnails.default.url}`);
 
             message.channel.send(embed);
-        }
+        };
 
         var vol = 0.3;
 
@@ -85,7 +93,7 @@ module.exports = {
         });
         
         voiceChannel.join().then(connection => {
-            const dispatcher = connection.play(stream, { 
+            dispatcher = connection.play(stream, { 
                 volume: 1,
                 type: "opus"
             });
