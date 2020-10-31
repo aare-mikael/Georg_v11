@@ -131,8 +131,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
 
-        if (newState.channel.members.filter(m => m.user.id == trashbot2)) {
-            console.log("Unable to join");
+        if (newState.channel.members.filter(m => m.user.bot)) {
+            console.log("Unable to join because a bot already is there");
             return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
