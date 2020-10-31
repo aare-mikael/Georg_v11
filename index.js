@@ -126,9 +126,11 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var newChannel = newState.channelID;
     var voiceChannel = newState.channel;
 
+    if (voiceChannel = undefined || voiceChannel == null) return;
+
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
-/*
+
         if (newChannel.channel.members.filter(m => m.user.id == trashbot2)) {
             return;
         } else {
@@ -137,7 +139,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             var sound = client.intro.get(name);
             var link = sound.url;
             introSound(voiceChannel, link, client);
-        } */
+        } 
     }
 })
 
