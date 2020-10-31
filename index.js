@@ -128,7 +128,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
 
-        if (newChannel.channel.members.filter(m => m.id == trashbot2)) {
+        if (newChannel.channel.members.filter(m => m.user.id == trashbot2)) {
             return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
