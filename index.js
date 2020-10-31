@@ -110,11 +110,11 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     const trashbot2 = '741703921877123164';
 
-    if (newState.channel.members.filter(m => m.user.id == "123456789")) {
-        console.log("User 123456789 is in the channel");
-    } else {
-        console.log("User 123456789 is NOT in the channel");
-    }
+    // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
+    //     console.log("User 123456789 is in the channel");
+    // } else {
+    //     console.log("User 123456789 is NOT in the channel");
+    // }
 
     if (newState.guild.voiceConnection) return;
 
@@ -137,15 +137,16 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
 
-        if (newState.channel.members.filter(m => m.user.bot)) {
-            console.log("Unable to join because a bot already is there");
-        } else {
+        // if (newState.channel.members.filter(m => m.user.bot)) {
+        //     console.log("Unable to join because a bot already is there");
+        //     return;
+        // } else {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
             var link = sound.url;
             introSound(voiceChannel, link, client);
-        } 
+        // } 
     }
 })
 
