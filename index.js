@@ -132,6 +132,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldChannel != newChannel) {
 
         if (newState.channel.members.filter(m => m.user.id == trashbot2)) {
+            console.log("Unable to join");
             return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
