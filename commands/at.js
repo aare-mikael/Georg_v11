@@ -23,8 +23,8 @@ module.exports = {
         }
 
 
-        if (antall > 20) {
-            message.channel.send("Sorry bud, but I'm not gonna spam this user more than 20 times at a time!");
+        if (antall > 10) {
+            message.channel.send("Sorry bud, but I'm not gonna spam this user more than 10 times at a time!");
         } else if (!antall) {
             var i = 0;
             var j = 5;
