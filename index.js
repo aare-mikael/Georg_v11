@@ -110,8 +110,10 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     const trashbot2 = '741703921877123164';
 
-    if (newState.channel.members.filter(m => m.user.bot)) {
-        console.log("Just unable to join");
+    if (newState.channel.members.filter(m => m.user.id == "123456789")) {
+        console.log("User 123456789 is in the channel");
+    } else {
+        console.log("User 123456789 is NOT in the channel");
     }
 
     if (newState.guild.voiceConnection) return;
