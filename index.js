@@ -128,12 +128,15 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
 
-        // Just a player for the introsound, for aesthetic purposes;
-        var name = newState.member.id.toString();
-        var sound = client.intro.get(name);
-        var link = sound.url;
-        introSound(voiceChannel, link, client);
-    
+        if (newChannel.members.filter(m => m.id == trashbot2)) {
+            return;
+        } else {
+            // Just a player for the introsound, for aesthetic purposes;
+            var name = newState.member.id.toString();
+            var sound = client.intro.get(name);
+            var link = sound.url;
+            introSound(voiceChannel, link, client);
+        }
     }
 })
 
