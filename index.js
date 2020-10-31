@@ -104,6 +104,7 @@ client.on('guildMemberAdd', member => {
 
   */
 
+
 // Makes the bot pay attention to whenever somebody joins a new channel;
 client.on('voiceStateUpdate', (oldState, newState) => {
 
@@ -127,7 +128,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     // Checks if the new channel is the same as the old, in case a bug happens;
     if (oldChannel != newChannel) {
-
+/*
         if (newChannel.channel.members.filter(m => m.user.id == trashbot2)) {
             return;
         } else {
@@ -136,7 +137,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             var sound = client.intro.get(name);
             var link = sound.url;
             introSound(voiceChannel, link, client);
-        }
+        } */
     }
 })
 
