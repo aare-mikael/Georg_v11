@@ -110,6 +110,10 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     const trashbot2 = '741703921877123164';
 
+    if (newState.channel.members.filter(m => m.user.bot)) {
+        console.log("Just unable to join");
+    }
+
     if (newState.guild.voiceConnection) return;
 
     // Variable names should tell you what this does;
@@ -133,7 +137,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
         if (newState.channel.members.filter(m => m.user.bot)) {
             console.log("Unable to join because a bot already is there");
-            return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
