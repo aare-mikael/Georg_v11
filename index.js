@@ -130,7 +130,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     var oldChannel = oldState.channelID;
     var newChannel = newState.channelID;
-    var voiceChannel = newState.channel;
+    const voiceChannel = newState.channel;
 
     if (voiceChannel = undefined || voiceChannel == null) return;
 
