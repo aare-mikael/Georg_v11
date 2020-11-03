@@ -1,10 +1,11 @@
-module.exports = function play(voiceChannel, link, client){
+module.exports = function play(newState, link, client){
 
-    console.log(voiceChannel);
-    console.log(typeof voiceChannel);
+    console.log(newState);
+    console.log(typeof newState);
 
-    if(voiceChannel == undefined || voiceChannel == null) return;
+//    if(voiceChannel == undefined || voiceChannel == null) return;
 
+    var voiceChannel = newState.channel;
     console.log(voiceChannel);
     console.log(typeof voiceChannel);
 
