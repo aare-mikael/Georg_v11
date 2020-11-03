@@ -134,8 +134,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     if (voiceChannel = undefined || voiceChannel == null) return;
 
-    // Checks if the new channel is the same as the old, in case a bug happens;
-//    if (oldChannel != newChannel) {
+    // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
+    if (oldChannel != newChannel) {
 
         // if (newState.channel.members.filter(m => m.user.bot)) {
         //     console.log("Unable to join because a bot already is there");
@@ -147,7 +147,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             var link = sound.url;
             introSound(voiceChannel, link, client);
         // } 
-//    }
+    }
 })
 
 // Makes the bot react when a textmessage pops into a channel it has access to;
