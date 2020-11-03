@@ -4,7 +4,7 @@ module.exports = function play(message, args, voiceChannel, link, client){
 
     let vol = 0.5;
  
-    message.member.voice.channel.join().then(connection => {
+    voiceChannel.join().then(connection => {
         const dispatcher = connection.play(link, { volume: vol } );
         dispatcher.on('finish', () => voiceChannel.leave());
     }).catch(err => console.log(err));
