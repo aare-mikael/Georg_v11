@@ -1,4 +1,4 @@
-module.exports = function play(message, args, voiceChannel, link, client){
+module.exports = function play(voiceChannel, link, client){
 
     if(voiceChannel == undefined || voiceChannel == null) return;
 
