@@ -6,8 +6,6 @@ module.exports = function play(newState, link, client){
 //    if(voiceChannel == undefined || voiceChannel == null) return;
 
     var voiceChannel = newState.channel;
-    console.log(voiceChannel);
-    console.log(typeof voiceChannel);
 
     let vol = 0.5;
  
