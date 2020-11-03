@@ -108,6 +108,8 @@ client.on('guildMemberAdd', member => {
 // Makes the bot pay attention to whenever somebody joins a new channel;
 client.on('voiceStateUpdate', (oldState, newState) => {
 
+    console.log(newState);
+
     const trashbot2 = '741703921877123164';
 
     // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
@@ -130,7 +132,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     var oldChannel = oldState.channelID;
     var newChannel = newState.channelID;
-    let voiceChannel = newState.channel;
+    var voiceChannel = newState.channel;
 
     if (voiceChannel = undefined || voiceChannel == null) return;
 
