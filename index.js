@@ -147,7 +147,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
             var link = sound.url;
-            introSound(voiceChannel, link, client);
+            introSound(newState, link, client);
         // } 
     }
 })
