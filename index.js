@@ -136,8 +136,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
     if (oldChannel != newChannel) {
-
-        console.log("testing")
         // if (newState.channel.members.filter(m => m.user.bot)) {
         //     console.log("Unable to join because a bot already is there");
         //     return;
