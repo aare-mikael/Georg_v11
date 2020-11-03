@@ -132,9 +132,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var newChannel = newState.channelID;
     var voiceChannel = newState.channel;
 
-    console.log(voiceChannel);
-    console.log(typeof voiceChannel);
-
     if (voiceChannel = undefined || voiceChannel == null) return;
 
     // Checks if the new channel is the same as the old, in case a bug happens;
