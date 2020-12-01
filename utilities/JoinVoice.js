@@ -12,5 +12,4 @@ module.exports = function play(message, args){
     }
 
     voiceChannel.join().catch(err => console.log(err));
-    },
 };
