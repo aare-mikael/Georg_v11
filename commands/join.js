@@ -1,5 +1,5 @@
 var path = require("path");
-const JoinVoice = require('./utilities/JoinVoice');
+const JoinVoice = require('../utilities/JoinVoice');
 
 module.exports = {
     name: 'join',
