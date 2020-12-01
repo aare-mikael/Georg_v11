@@ -1,8 +1,5 @@
-module.exports = {
-    name: 'JoinVoice',
-    description: "Joiner voice-kanalen til brukeren",
-    category: "Utility",
-    execute(message) {
+module.exports = function play(message, args){
+
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
 
