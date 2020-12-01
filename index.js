@@ -108,7 +108,10 @@ client.on('guildMemberAdd', member => {
 // Makes the bot pay attention to whenever somebody joins a new channel;
 client.on('voiceStateUpdate', (oldState, newState) => {
 
-    const trashbot2 = '741703921877123164';
+    const georg = '741703921877123164';
+
+    const team10Discord = '612947002853949458';
+    const georgland = '773672843576606721';
 
     // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
     //     console.log("User 123456789 is in the channel");
@@ -125,14 +128,15 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     // Collects the id of the person joining;
     const newPerson = newState.member.id.toString();
 
-    // This is myself!;
-    if(newPerson == '741703921877123164') return;
-
     var oldChannel = oldState.channelID;
     var newChannel = newState.channelID;
     var voiceChannel = newState.channel;
 
-    if (voiceChannel = undefined || voiceChannel == null) return;
+    if (voiceChannel = undefined || voiceChannel == null) {
+        if(oldserver == team10Discord) {
+            
+        }
+    }
 
     // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
     if (oldChannel != newChannel) {
