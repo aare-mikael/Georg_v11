@@ -132,24 +132,25 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var newChannel = newState.channelID;
     var voiceChannel = newState.channel;
 
+    /*
     if (voiceChannel = undefined || voiceChannel == null) {
         if(oldserver == team10Discord) {
             
         }
     }
+    */
 
     // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
     if (oldChannel != newChannel) {
-        // if (newState.channel.members.filter(m => m.user.bot)) {
-        //     console.log("Unable to join because a bot already is there");
-        //     return;
-        // } else {
+        if (newPerson == georg) {
+            return;
+        } else {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
             var link = sound.url;
             introSound(newState, link, client);
-        // } 
+        }
     }
 })
 
