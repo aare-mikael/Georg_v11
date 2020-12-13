@@ -1,4 +1,4 @@
-module.exports = function play(message, args){
+module.exports = function VoiceJoin(message, args){
 
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
