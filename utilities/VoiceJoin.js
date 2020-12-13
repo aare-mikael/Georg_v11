@@ -1,3 +1,5 @@
+const VoiceConnection = require("./VoiceConnection");
+
 module.exports = function VoiceJoin(message, args){
 
     // Returnerer tidlig om meldingen er sendt av en bot;
@@ -11,5 +13,5 @@ module.exports = function VoiceJoin(message, args){
         return;
     }
 
-    voiceChannel.join().catch(err => console.log(err));
+    VoiceConnection(voiceChannel);
 };
