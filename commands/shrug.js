@@ -1,3 +1,5 @@
+const VoiceSpeaking = require("../utilities/VoiceSpeaking");
+
 module.exports = {
     name: 'shrug',
     description: "¯\_(ツ)_/¯",
@@ -8,5 +10,7 @@ module.exports = {
 
       message.channel.bulkDelete(1);  
       message.channel.send('¯\\_(ツ)_/¯');
+
+      VoiceSpeaking();
     },
 };
