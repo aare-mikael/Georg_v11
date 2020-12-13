@@ -1,4 +1,5 @@
 const VoiceConnection = require("./VoiceConnection");
+const VoiceSpeaking = require("./VoiceSpeaking");
 
 module.exports = function VoiceJoin(message, audio){
 
@@ -12,6 +13,8 @@ module.exports = function VoiceJoin(message, audio){
         message.channel.send("You have to be in a voice channel to make this command work. Join a voice channel and try again!");
         return;
     }
+
+    VoiceSpeaking(message);
 
     VoiceConnection(voiceChannel, audio);
 };
