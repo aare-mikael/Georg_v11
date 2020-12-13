@@ -24,16 +24,9 @@ module.exports = {
         // dispatcher.on("finish", end => message.member.voice.channel.leave());
         // }).catch(err => console.log(err));
 
+        const audio = './mp3/georg.mp3'
 
-        const connected = Boolean(VoiceSpeaking(message));
-
-        if(connected) {
-            message.channel.send("As I'm currently already speaking I will not rudely interrupt myself.");
-        } else {
-        VoiceJoin(message).then(connection => {
-        const dispatcher = connection.play('./mp3/georg.mp3');
-        dispatcher.on("finish", end => message.member.voice.channel.leave());
-        }).catch(err => console.log(err));
-        }
+        VoiceJoin(message, audio);
+        
     },
 };
