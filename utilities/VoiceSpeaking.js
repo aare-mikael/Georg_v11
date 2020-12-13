@@ -1,4 +1,4 @@
-module.exports = function VoiceConnected(message, args){
+module.exports = function VoiceSpeaking(message, args){
 
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
