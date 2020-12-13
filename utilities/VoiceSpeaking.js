@@ -1,3 +1,5 @@
+const VoiceConnection = require("./VoiceConnection");
+
 module.exports = function VoiceSpeaking(message, args){
 
     // Returnerer tidlig om meldingen er sendt av en bot;
@@ -19,7 +21,14 @@ module.exports = function VoiceSpeaking(message, args){
 
 //    return connected;
 
-    const voiceChannel = message.member.voice.channel.members;
-    console.log(voiceChannel);
+//    const voiceChannel = message.member.voice.channel.members;
+//    console.log(voiceChannel);
+
+
+    const playing = Boolean(VoiceConnection);
+    const playing2 = Boolean(VoiceConnection);
+
+    console.log(playing);
+    console.log(playing2);
 
 };
