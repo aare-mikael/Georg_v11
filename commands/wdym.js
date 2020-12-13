@@ -13,7 +13,5 @@ module.exports = {
         message.channel.send("***wdym***");
         message.channel.send("**wdym**");
         message.channel.send("*wdym*");
-
-        VoiceSpeaking(message);
     }
 }
