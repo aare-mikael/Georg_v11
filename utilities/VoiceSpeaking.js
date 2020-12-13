@@ -7,7 +7,7 @@ module.exports = function VoiceSpeaking(message, args){
     const discordServer = message.guild;
 
     // Sjekker om bot'en har en aktiv dispatcher i den gjeldende serveren;
-   const connection = discordServer.voice;
+   const connection = discordServer.voice.speaking;
 
    console.log(connection);
 
