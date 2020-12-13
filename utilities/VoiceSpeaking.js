@@ -4,7 +4,7 @@ module.exports = function VoiceSpeaking(message, args){
     if (message.author.bot) return;
 
     // Må få tak i guild id for å sjekke dispatcher;
-    const speaking = Boolean(message.guild.me.voice.speaking);
+    let speaking = message.guild.me.voice.speaking;
 
     if (speaking) {
         message.channel.send("I am currently speaking");
