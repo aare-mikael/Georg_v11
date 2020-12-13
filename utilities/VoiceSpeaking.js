@@ -6,16 +6,20 @@ module.exports = function VoiceSpeaking(message, args){
     // Må få tak i guild id for å sjekke dispatcher;
     const discordServer = message.guild;
 
-    // Sjekker om bot'en har en aktiv dispatcher i den gjeldende serveren;
-   const connection = discordServer.voice;
+//     // Sjekker om bot'en har en aktiv dispatcher i den gjeldende serveren;
+//    const connection = discordServer.voice;
 
-   console.log(connection);
+//    console.log(connection);
 
-   if (connection) {
-       console.log("Dispatcher is already connected")
-   }
+//    if (connection) {
+//        console.log("Dispatcher is already connected")
+//    }
 
-   const connected = Boolean(connection);
+//    const connected = Boolean(connection);
 
-   return connected;
+//    return connected;
+
+    const voiceChannel = message.member.voice.channel;
+    console.log(voiceChannel);
+
 };
