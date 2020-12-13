@@ -26,9 +26,9 @@ module.exports = function VoiceSpeaking(message, args){
 
 
     const playing = Boolean(VoiceConnection);
-    const playing2 = Boolean(VoiceConnection);
 
     console.log(playing);
-    console.log(playing2);
+
+    console.log(VoiceConnection); // console.log(VoiceConnection(message));
 
 };
