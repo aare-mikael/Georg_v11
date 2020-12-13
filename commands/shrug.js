@@ -11,6 +11,6 @@ module.exports = {
       message.channel.bulkDelete(1);  
       message.channel.send('¯\\_(ツ)_/¯');
 
-      VoiceSpeaking();
+      VoiceSpeaking(message);
     },
 };
