@@ -1,5 +1,5 @@
 var path = require("path");
-const JoinVoice = require('../utilities/JoinVoice');
+const VoiceJoin = require("../utilities/VoiceJoin");
 
 module.exports = {
     name: 'join',
@@ -7,7 +7,7 @@ module.exports = {
     category: "Utility",
     execute(message, args) {
 
-        JoinVoice(message)
+        VoiceJoin(message)
 
     },
 };
