@@ -1,6 +1,6 @@
 const VoiceConnection = require("./VoiceConnection");
 
-module.exports = function VoiceJoin(message, args){
+module.exports = function VoiceJoin(message, audio){
 
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
@@ -13,5 +13,5 @@ module.exports = function VoiceJoin(message, args){
         return;
     }
 
-    VoiceConnection(voiceChannel);
+    VoiceConnection(voiceChannel, audio);
 };
