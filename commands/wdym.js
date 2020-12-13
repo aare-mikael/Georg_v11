@@ -1,3 +1,5 @@
+const VoiceSpeaking = require("../utilities/VoiceSpeaking");
+
 module.exports = {
     name: 'wdym',
     description: 'wdym',
@@ -11,5 +13,7 @@ module.exports = {
         message.channel.send("***wdym***");
         message.channel.send("**wdym**");
         message.channel.send("*wdym*");
+
+        VoiceSpeaking(message);
     }
 }
