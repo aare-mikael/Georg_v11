@@ -19,7 +19,7 @@ module.exports = function VoiceSpeaking(message, args){
 
 //    return connected;
 
-    const voiceChannel = message.member.voice.channel;
+    const voiceChannel = message.member.voice.channel.members;
     console.log(voiceChannel);
 
 };
