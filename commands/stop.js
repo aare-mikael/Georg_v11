@@ -9,6 +9,8 @@ module.exports = {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (!serverQueue) return message.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('Stop command has been used!');
+        serverQueue.connection.dispatcher.end('Stop command has been used!');
+        
+        message.channel.send("🎶 **Stopping all music and deleting queue!**")
 	}
 };
