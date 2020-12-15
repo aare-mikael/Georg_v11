@@ -51,49 +51,51 @@ module.exports = {
             let collected = await message.channel.awaitMessages(filter, { max: 1 });
             let selected = YoutubeResults[collected.first().content - 1];
             var videoUrl = selected.link;
-        }
 
-        const serverQueue = message.client.queue.get(message.guild.id);
-        const songInfo = await ytdl.getInfo(videoUrl.replace(/<(.+)>/g, '$1'));
-        const song = {
-            id: songInfo.videoDetails.video_id,
-            title: Util.escapeMarkdown(songInfo.videoDetails.title),
-            url: songInfo.videoDetails.video_url
-        };
-
-        if(serverQueue) {
-            serverQueue.songs.push(song);
-            return message.channel.send(`✅ **${song.title}** has been added to the queue!`);
-        }
-
-        const queueConstruct = {
-			textChannel: message.channel,
-			voiceChannel: channel,
-			connection: null,
-			songs: [],
-			volume: 2,
-			playing: true
-        };
-        message.client.queue.set(message.guild.id, queueConstruct);
-        queueConstruct.songs.push(song);
-        
-        const play = async song => {
-			const queue = message.client.queue.get(message.guild.id);
-			if (!song) {
-				queue.voiceChannel.leave();
-				message.client.queue.delete(message.guild.id);
-				return;
+            const serverQueue = message.client.queue.get(message.guild.id);
+            const songInfo = await ytdl.getInfo(videoUrl.replace(/<(.+)>/g, '$1'));
+            const song = {
+                id: songInfo.videoDetails.video_id,
+                title: Util.escapeMarkdown(songInfo.videoDetails.title),
+                url: songInfo.videoDetails.video_url
+            };
+    
+            if(serverQueue) {
+                serverQueue.songs.push(song);
+                return message.channel.send(`✅ **${song.title}** has been added to the queue!`);
             }
+    
+            const queueConstruct = {
+                textChannel: message.channel,
+                voiceChannel: channel,
+                connection: null,
+                songs: [],
+                volume: 2,
+                playing: true
+            };
+            message.client.queue.set(message.guild.id, queueConstruct);
+            queueConstruct.songs.push(song);
             
-            const dispatcher = queue.connection.play(ytdl(song.url))
-				.on('finish', () => {
-					queue.songs.shift();
-					play(queue.songs[0]);
-				})
-				.on('error', error => console.error(error));
-			dispatcher.setVolumeLogarithmic(queue.volume / 5);
-			queue.textChannel.send(`🎶 Starting: **${song.title}**`);
-        };
+            const play = async song => {
+                const queue = message.client.queue.get(message.guild.id);
+                if (!song) {
+                    queue.voiceChannel.leave();
+                    message.client.queue.delete(message.guild.id);
+                    return;
+                }
+                
+                const dispatcher = queue.connection.play(ytdl(song.url))
+                    .on('finish', () => {
+                        queue.songs.shift();
+                        play(queue.songs[0]);
+                    })
+                    .on('error', error => console.error(error));
+                dispatcher.setVolumeLogarithmic(queue.volume / 5);
+                queue.textChannel.send(`🎶 Starting: **${song.title}**`);
+            };
+    
+        }
+
 
         try {
 			const connection = await channel.join();
