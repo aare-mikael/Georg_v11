@@ -1,4 +1,4 @@
-const ytdl = require('discord-ytdl-core');
+const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const ApiKey = process.env.YoutubeApiKey;
 
@@ -27,27 +27,12 @@ module.exports = {
 
         const search = require('youtube-search');
         const opts = {
-            maxResults: 25,
+            maxResults: 10,
             key: ApiKey,
             type: 'video'
         };
 
-        voiceChannel.join().then(connection => {
-            const dispatcher = connection.play("https://www.myinstants.com/media/sounds/emptyish-sound.mp3");
-            dispatcher.destroy;
-        });
-
-        let embed = new Discord.MessageEmbed()
-        .setColor('#6f4c78')
-        .setDescription("Please enter a search query, the more detailed the higher the chance of finding the correct video.")
-        .setTitle("Youtube search by Georg™ ©2020");
-        let embedMsg = await message.channel.send(embed);
-
-        let filter = m => m.author.id === message.author.id;
-        let query = await message.channel.awaitMessages(filter, { max: 1 });
-
-        let results = await search(query.first().content, opts).catch(err => console.log(err));
-
+        let results = await search(args.join(' '), opts).catch(err => console.log(err));;
         if( results ) {
             let YoutubeResults = results.results;
             let i = 0;
@@ -55,46 +40,86 @@ module.exports = {
                 i++;
                 return i + ") " + result.title;
             });
-            message.channel.send({
-                embed: {
-                    title: 'Select which video you want by typing the number',
-                    description: titles.join("\n"),
-                    color: '#6f4c78'
-                }
-            }).catch(err => console.log(err));
-
-            filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
-            
+    
+            let embed = new Discord.MessageEmbed()
+            .setColor('#6f4c78')
+            .setDescription(titles.join("\n"))
+            .setTitle("Youtube search by Georg™ ©2020 --- I found these videos based on your message, which one do you want?");
+            let embedMsg = await message.channel.send(embed);
+        
+            let filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
             let collected = await message.channel.awaitMessages(filter, { max: 1 });
-
             let selected = YoutubeResults[collected.first().content - 1];
-
             var videoUrl = selected.link;
-
-            embed = new Discord.MessageEmbed()
-                .setColor('#6f4c78')
-                .setDescription(`${selected.description}`)
-                .setTitle(`${selected.title}`)
-                .setURL(`${selected.link}`)
-                .setThumbnail(`${selected.thumbnails.default.url}`);
-
-            message.channel.send(embed);
+        }
+        
+        const serverQueue = message.client.queue.get(message.guild.id);
+        const songInfo = await ytdl.getInfo(videoUrl);
+        const song = {
+            id: songInfo.videoDetails.video_id,
+            title: Util.escapeMarkdown(songInfo.videoDetails.title),
+            url: songInfo.videoDetails.video_url
         };
 
-        var vol = 0.3;
+        if(serverQueue) {
+            serverQueue.songs.push(song);
+            return message.channel.send(`✅ **${song.title}** has been added to the queue!`);
+        }
 
-        const stream = ytdl(videoUrl, {
-            filter: 'audioonly', 
-            opusEncoded: true, 
-            encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200']
-        });
+        const queueConstruct = {
+			textChannel: message.channel,
+			voiceChannel: channel,
+			connection: null,
+			songs: [],
+			volume: 2,
+			playing: true
+        };
+        message.client.queue.set(message.guild.id, queueConstruct);
+        queueConstruct.songs.push(song);
         
-        voiceChannel.join().then(connection => {
-            dispatcher = connection.play(stream, { 
-                volume: 1,
-                type: "opus"
-            });
-            dispatcher.on("finish", end => message.member.voice.channel.leave());
-        }).catch(err => console.log(err));
-    },
+        const play = async song => {
+			const queue = message.client.queue.get(message.guild.id);
+			if (!song) {
+				queue.voiceChannel.leave();
+				message.client.queue.delete(message.guild.id);
+				return;
+            }
+            
+            const dispatcher = queue.connection.play(ytdl(song.url))
+				.on('finish', () => {
+					queue.songs.shift();
+					play(queue.songs[0]);
+				})
+				.on('error', error => console.error(error));
+			dispatcher.setVolumeLogarithmic(queue.volume / 5);
+			queue.textChannel.send(`🎶 Starting: **${song.title}**`);
+        };
+
+        try {
+			const connection = await channel.join();
+			queueConstruct.connection = connection;
+			play(queueConstruct.songs[0]);
+		} catch (error) {
+			console.error(`I could not join the voice channel: ${error}`);
+			message.client.queue.delete(message.guild.id);
+			await channel.leave();
+			return message.channel.send(`I could not join the voice channel: ${error}`);
+		}
+
+        // var vol = 0.3;
+
+        // const stream = ytdl(videoUrl, {
+        //     filter: 'audioonly', 
+        //     opusEncoded: true, 
+        //     encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200']
+        // });
+        
+        // voiceChannel.join().then(connection => {
+        //     dispatcher = connection.play(stream, { 
+        //         volume: 1,
+        //         type: "opus"
+        //     });
+        //     dispatcher.on("finish", end => message.member.voice.channel.leave());
+        // }).catch(err => console.log(err));
+    }
 };
