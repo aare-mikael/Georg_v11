@@ -53,7 +53,7 @@ module.exports = {
             var videoUrl = selected.link;
         }
         
-        const serverQueue = message.client.queue.get(message.guild.id);
+        const serverQueue = message.queue.get(message.guild.id);
         const songInfo = await ytdl.getInfo(videoUrl);
         const song = {
             id: songInfo.videoDetails.video_id,
