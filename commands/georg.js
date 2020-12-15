@@ -9,7 +9,5 @@ module.exports = {
         const audio = './mp3/georg.mp3'
 
         VoiceJoin(message, audio);
-        
-        console.log(args);
     },
 };
