@@ -36,10 +36,11 @@ module.exports = {
         };
 
         let results = await search(args.join(' '), opts).catch(err => console.log(err));;
+        let titles;
         if( results ) {
             let YoutubeResults = results.results;
             let i = 0;
-            let titles = YoutubeResults.map(result => {
+            titles = YoutubeResults.map(result => {
                 i++;
                 return i + ") " + result.title;
             });
