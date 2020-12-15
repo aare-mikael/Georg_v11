@@ -25,10 +25,11 @@ const { cooldown } = require('./commands/ping');
 // Requires the token to log in, from a file that won't get pushed to github;
 const token = process.env.token;
 
-
-
 // Creates a new Discord client, essentially this is the bot;
 const client = new Discord.Client();
+
+// Music queue;
+this.queue = new Map();
 
 // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
 client.intro = new Discord.Collection();
