@@ -70,7 +70,7 @@ module.exports = {
     
             const queueConstruct = {
                 textChannel: message.channel,
-                voiceChannel: channel,
+                voiceChannel: message.member.voice.channel,
                 connection: null,
                 songs: [],
                 volume: 2,
