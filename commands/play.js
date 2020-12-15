@@ -17,6 +17,8 @@ module.exports = {
             return;
         }
 
+        const { channel } = message.member.voice;
+        
         const voiceChannel = message.member.voice.channel;
 
         if (!voiceChannel) {
@@ -70,7 +72,7 @@ module.exports = {
     
             const queueConstruct = {
                 textChannel: message.channel,
-                voiceChannel: message.member.voice.channel,
+                voiceChannel: channel,
                 connection: null,
                 songs: [],
                 volume: 2,
