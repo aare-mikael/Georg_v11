@@ -10,5 +10,6 @@ module.exports = {
 
         VoiceJoin(message, audio);
         
+        console.log(args);
     },
 };
