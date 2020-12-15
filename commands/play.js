@@ -1,6 +1,7 @@
 const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const ApiKey = process.env.YoutubeApiKey;
+const { Util } = require('discord.js');
 
 module.exports = {
 	name: 'play',
