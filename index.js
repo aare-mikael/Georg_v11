@@ -3,6 +3,7 @@
 
 // fs is Node's native file system module;
 const fs = require('fs');
+const { readdirSync } = require('fs');
 
 // To get file paths of different classes and objects;
 var path = require("path");
@@ -13,8 +14,10 @@ const env = require('dotenv').config()
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
 
+const GeorgBot = require('./struct/Client');
+
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
-const ytdl = require('discord-ytdl-core');
+const ytdl = require('ytdl-core');
 
 const introSound = require('./utilities/introPlayer');
 
@@ -26,7 +29,8 @@ const { cooldown } = require('./commands/ping');
 const token = process.env.token;
 
 // Creates a new Discord client, essentially this is the bot;
-const client = new Discord.Client();
+// const client = new Discord.Client();
+const client = new GeorgBot({ token: process.env.token });
 
 // Music queue;
 this.queue = new Map();
