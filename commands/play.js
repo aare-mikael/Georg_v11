@@ -54,7 +54,7 @@ module.exports = {
         }
         
         const serverQueue = message.client.queue.get(message.guild.id);
-        const songInfo = await ytdl.getInfo(videoUrl);
+        const songInfo = ytdl.getInfo(videoUrl);
         const song = {
             id: songInfo.videoDetails.video_id,
             title: Util.escapeMarkdown(songInfo.videoDetails.title),
