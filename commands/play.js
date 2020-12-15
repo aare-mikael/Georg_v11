@@ -37,8 +37,9 @@ module.exports = {
 
         let results = await search(args.join(' '), opts).catch(err => console.log(err));;
         let titles;
+        let YoutubeResults;
         if( results ) {
-            let YoutubeResults = results.results;
+            YoutubeResults = results.results;
             let i = 0;
             titles = YoutubeResults.map(result => {
                 i++;
