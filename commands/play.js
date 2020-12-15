@@ -18,7 +18,7 @@ module.exports = {
         }
 
         const { channel } = message.member.voice;
-        
+
         const voiceChannel = message.member.voice.channel;
 
         if (!voiceChannel) {
@@ -43,6 +43,9 @@ module.exports = {
                 i++;
                 return i + ") " + result.title;
             });
+    
+            
+            };
     
             let embed = new Discord.MessageEmbed()
             .setColor('#6f4c78')
@@ -97,8 +100,7 @@ module.exports = {
                     .on('error', error => console.error(error));
                 dispatcher.setVolumeLogarithmic(queue.volume / 5);
                 queue.textChannel.send(`🎶 Starting: **${song.title}**`);
-            };
-    
+
         }
 
 
