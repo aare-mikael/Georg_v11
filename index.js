@@ -68,7 +68,7 @@ client.login(process.env.token);
 client.once('ready', () => {
     console.log('I solemnly swear I am up to no good.');
 //    client.user.setActivity('', { type: 'LISTENING' }); // Listening automatically adds "to" behind it, so this displays "Listening to xxx";
-    client.user.setActivity('with your feelings', { type: 'PLAYING' }); // This displays "Playing with your heart";
+    client.user.setActivity('Christmas music 24/7', { type: 'PLAYING' }); // This displays "Playing with your heart";
 });
 
 
