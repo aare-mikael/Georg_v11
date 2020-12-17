@@ -1,8 +1,3 @@
-var name = newState.member.id.toString();
-var sound = client.intro.get(name);
-var link = sound.url;
-introSound(newState, link, client);
-
 module.exports = {
 	name: 'intro',
 	description: 'Play your own intro, again!',
