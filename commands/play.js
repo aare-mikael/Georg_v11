@@ -52,7 +52,8 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
             .setColor('#6f4c78')
             .setDescription(titles.join("\n"))
-            .setTitle("Youtube search by Georg™ ©2020 --- I found these videos based on your message, which one do you want?");
+            .setTitle("I found these videos based on your message, which one do you want?");
+            // Youtube search by Georg™ ©2020 --- //
             let embedMsg = await message.channel.send(embed);
         
             let filter = m => (m.author.id === message.author.id) && m.content >= 1 && m.content <= YoutubeResults.length; 
