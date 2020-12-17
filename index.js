@@ -145,6 +145,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     }
     */
 
+    // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
    const serverQueue = newState.client.queue.get(newState.guild.id);
 
     // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
