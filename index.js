@@ -145,9 +145,13 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     }
     */
 
+   const serverQueue = message.client.queue.get(newState.guild.id);
+
     // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
     if (oldChannel != newChannel) {
         if (newPerson == georg) {
+            return;
+        } else if (serverQueue) {
             return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
