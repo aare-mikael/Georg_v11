@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Play your own intro, again!',
 	category: 'Voice',
 	cooldown: 5,
-	execute(message) {
+	execute(message, client) {
         const serverQueue = message.client.queue.get(message.guild.id);
         
 		if (!serverQueue) {
