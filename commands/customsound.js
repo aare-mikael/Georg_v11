@@ -31,14 +31,14 @@ module.exports = {
                                 if( intro.id !== message.author.id ){
                                 message.channel.send("You can't change other users intro-sound!")
                                 return
-                                }else{
+                                } else {
                                   introSoundDel(client, message);
                                   introSoundAdd(client, message, name, url, true)
-                                  message.reply('your intro-sound is saved, and available for use!')
+                                  message.reply('if you had an intro sound previously, you have to delete it first, and then add your new sound! Your intro-sound is saved, and available for use!')
                                 }
-                                }else{
+                                } else {
                                   introSoundAdd(client, message, name, url, true)
-                                  message.reply("your intro-sound is saved, and available for use!")
+                                  message.reply("if you had an intro sound previously, you have to delete it first, and then add your new sound! Your intro-sound is saved, and available for use!")
                                 }
                         break;
 
