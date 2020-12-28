@@ -65,10 +65,17 @@ const cooldowns = new Discord.Collection();
 client.login(process.env.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
-client.once('ready', () => {
+client.on('ready', () => {
     console.log('I solemnly swear I am up to no good.');
 //    client.user.setActivity('', { type: 'LISTENING' }); // Listening automatically adds "to" behind it, so this displays "Listening to xxx";
-    client.user.setActivity('Christmas music 24/7', { type: 'PLAYING' }); // This displays "Playing with your heart";
+//    client.user.setActivity('Christmas music 24/7', { type: 'PLAYING' }); // This displays "Playing with your heart";
+    client.user.setPresence({
+        status: 'online',
+        game: {
+            name: 'commands zoom by',
+            type: 'WATCHING'
+        }
+    })
 });
 
 
