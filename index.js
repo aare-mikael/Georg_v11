@@ -28,18 +28,6 @@ const { cooldown } = require('./commands/ping');
 // Requires the token to log in, from a file that won't get pushed to github;
 const token = process.env.token;
 
-const mongo = require('./utilities/mongo.js')
-
-const connectToMongoDB = async () => {
-    await mongo().then((mongoose) => {
-        try {
-            console.log('Connected to MongoDB');
-        } finally {
-            mongoose.connection.close();
-        }
-    })
-}
-
 // Creates a new Discord client, essentially this is the bot;
 // const client = new Discord.Client();
 const client = new GeorgBot({ token: process.env.token });
@@ -98,6 +86,17 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
+const mongo = require('./utilities/mongo.js')
+
+const connectToMongoDB = async () => {
+    await mongo().then((mongoose) => {
+        try {
+            console.log('Connected to MongoDB');
+        } finally {
+            mongoose.connection.close();
+        }
+    })
+}
 
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
