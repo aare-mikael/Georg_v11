@@ -28,6 +28,18 @@ const { cooldown } = require('./commands/ping');
 // Requires the token to log in, from a file that won't get pushed to github;
 const token = process.env.token;
 
+const mongo = require('./utilities/mongo.js')
+
+const connectToMongoDB = async () => {
+    await mongo().then((mongoose) => {
+        try {
+            console.log('Connected to MongoDB');
+        } finally {
+            mongoose.connection.close();
+        }
+    })
+}
+
 // Creates a new Discord client, essentially this is the bot;
 // const client = new Discord.Client();
 const client = new GeorgBot({ token: process.env.token });
@@ -175,6 +187,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', async message => {
+
+    connectToMongoDB();
 
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
