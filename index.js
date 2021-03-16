@@ -179,7 +179,15 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
             console.log(sound);
-            if (sound == undefined) return;
+            if (sound == undefined) {
+
+                const message = "-customsound add https://www.myinstants.com/media/sounds/movie_1.mp3";
+                const args = message.content.slice(prefix.length).trim().split(/ +/);
+
+                command.execute(message, args, client)
+
+                return;
+            }
             var link = sound.url;
             introSound(newState, link, client);
         }
