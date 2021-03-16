@@ -37,7 +37,7 @@ module.exports = {
 
         let results = await search(args.join(' '), opts).catch(err => console.log(err));
 
-        setTimeout(results, 1000);
+        setTimeout(1000);
 
 //        if( results ) {
             
