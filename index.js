@@ -181,7 +181,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             var sound = client.intro.get(name);
             console.log(sound);
             if (sound == undefined) {
-                console.log("Lag en customsound for " + `${name}`);
+                console.log("Lag en customsound for " + newState.member);
                 return;
             }
             var link = sound.url;
