@@ -50,17 +50,17 @@ module.exports = {
         let titles;
         let YoutubeResults;
 
-//        if( results ) {
+        if( results ) {
             
-            YoutubeResults = results.results;
+            YoutubeResults = results.results;    
+            
+            };
+
             let i = 0;
             titles = YoutubeResults.map(result => {
                 i++;
                 return i + ") " + result.title;
             });
-    
-            
-//            };
     
             let embed = new Discord.MessageEmbed()
             .setColor('#6f4c78')
