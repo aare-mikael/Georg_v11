@@ -179,9 +179,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
-            console.log(sound);
             if (sound == undefined) {
-                console.log("Lag en customsound for " + newState.member.username);
+                console.log("Lag en customsound for den som nettopp kom inn i voice: " + newPerson);
                 return;
             }
             var link = sound.url;
