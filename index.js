@@ -182,7 +182,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             if (sound == undefined) {
 
                 const message = "-customsound add https://www.myinstants.com/media/sounds/movie_1.mp3";
-                const args = message.content.slice(prefix.length).trim().split(/ +/);
+                const args = message.slice(prefix.length).trim().split(/ +/);
 
                 command.execute(message, args, client)
 
