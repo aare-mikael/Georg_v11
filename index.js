@@ -174,13 +174,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             return;
         } else if (serverQueue) {
             return;
-        } else if (client.intro.get(name) == undefined) {
-            return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
             console.log(sound);
+            if (sound == undefined) return;
             var link = sound.url;
             introSound(newState, link, client);
         }
