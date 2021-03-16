@@ -58,12 +58,7 @@ module.exports = {
                 i++;
                 return i + ") " + result.title;
             });
-    
-            
-            };
 
-            sleep(1000);
-    
             let embed = new Discord.MessageEmbed()
             .setColor('#6f4c78')
             .setDescription(titles.join("\n"))
@@ -148,5 +143,10 @@ module.exports = {
         //     });
         //     dispatcher.on("finish", end => message.member.voice.channel.leave());
         // }).catch(err => console.log(err));
+    
+            
+            };
+    
+
     }
 };
