@@ -37,7 +37,15 @@ module.exports = {
 
         let results = await search(args.join(' '), opts).catch(err => console.log(err));
 
-        setTimeout(1000);
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+              currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+          }
+
+          sleep(1000);
 
 //        if( results ) {
             
