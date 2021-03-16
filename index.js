@@ -174,6 +174,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             return;
         } else if (serverQueue) {
             return;
+        } else if (!client.into.get(name)) {
+            return;
         } else {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
