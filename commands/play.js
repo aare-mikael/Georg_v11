@@ -38,7 +38,8 @@ module.exports = {
         let results = await search(args.join(' '), opts).catch(err => console.log(err));;
         let titles;
         let YoutubeResults; 
-        if( results ) {
+//        if( results ) {
+            
             YoutubeResults = results.results;
             let i = 0;
             titles = YoutubeResults.map(result => {
@@ -47,7 +48,7 @@ module.exports = {
             });
     
             
-            };
+//            };
     
             let embed = new Discord.MessageEmbed()
             .setColor('#6f4c78')
