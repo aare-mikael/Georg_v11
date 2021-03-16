@@ -37,6 +37,8 @@ module.exports = {
 
         let results = await search(args.join(' '), opts).catch(err => console.log("Noke skjedde"));
 
+        console.log(search(args.join(' '), opts));
+
         function sleep(milliseconds) {
             const date = Date.now();
             let currentDate = null;
