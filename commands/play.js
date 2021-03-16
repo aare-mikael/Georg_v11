@@ -43,15 +43,18 @@ module.exports = {
             do {
               currentDate = Date.now();
             } while (currentDate - date < milliseconds);
-          }
+        }
 
-          sleep(1000);
+        sleep(1000);
+
+        let titles;
+        let YoutubeResults;
 
         if( results ) {
             
-            let YoutubeResults = results.results;
+            YoutubeResults = results.results;
             let i = 0;
-            let titles = YoutubeResults.map(result => {
+            titles = YoutubeResults.map(result => {
                 i++;
                 return i + ") " + result.title;
             });
