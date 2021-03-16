@@ -179,6 +179,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
+
+            // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
             if (sound == undefined) {
                 console.log("Lag en customsound for den som nettopp kom inn i voice: " + newPerson);
                 return;
