@@ -86,7 +86,8 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
-const mongo = require('./utilities/mongo.js')
+const mongo = require('./utilities/mongo.js');
+const customsound = require('./commands/customsound');
 
 const connectToMongoDB = async () => {
     await mongo().then((mongoose) => {
@@ -184,7 +185,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 const message = "-customsound add https://www.myinstants.com/media/sounds/movie_1.mp3";
                 const args = message.slice(prefix.length).trim().split(/ +/);
 
-                command.execute(message, args, client)
+                customsound.execute(message, args, client)
 
                 return;
             }
