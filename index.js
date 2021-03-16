@@ -180,6 +180,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             // Just a player for the introsound, for aesthetic purposes;
             var name = newState.member.id.toString();
             var sound = client.intro.get(name);
+            console.log(sound);
             var link = sound.url;
             introSound(newState, link, client);
         }
