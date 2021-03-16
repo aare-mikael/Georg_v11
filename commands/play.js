@@ -35,7 +35,7 @@ module.exports = {
             type: 'video'
         };
 
-        let results = await search(args.join(' '), opts).catch(err => console.log(err));;
+        let results = await search(args.join(' '), opts).catch(err => console.log(err));
         let titles;
         let YoutubeResults; 
 //        if( results ) {
