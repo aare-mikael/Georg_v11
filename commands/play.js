@@ -47,7 +47,7 @@ module.exports = {
 
           sleep(1000);
 
-//        if( results ) {
+        if( results ) {
             
             let YoutubeResults = results.results;
             let i = 0;
@@ -57,7 +57,7 @@ module.exports = {
             });
     
             
-//            };
+            };
     
             let embed = new Discord.MessageEmbed()
             .setColor('#6f4c78')
