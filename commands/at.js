@@ -3,7 +3,7 @@ module.exports = {
     description: "@ personen du skriver etter -at, så mange ganger som du skriver bakerst.",
     cooldown: 30,
     category: "Text",
-    execute(message, args) {
+    async execute(message, args) {
 
         // Returnerer tidlig om meldingen er sendt av en bot;
         if (message.author.bot) return;
