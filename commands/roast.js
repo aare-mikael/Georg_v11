@@ -36,6 +36,8 @@ module.exports = {
     const msg = message.content.toLowerCase();
 
     const bruker = message.mentions.users.first() || message.author;
+    const brukerID = bruker.id;
+    const brukerNavn = bruker.username;
 
     // if ( !args[0] ) {
     //   var bruker = message.author.username;
@@ -49,6 +51,6 @@ module.exports = {
     var spy =  insults[insult];
       
     // Spyr ut en tilfeldig insult fra insults[];      
-      message.channel.send(bruker + ", " + spy);
+      message.channel.send(brukerNavn + ", " + spy);
     },
 };
