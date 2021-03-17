@@ -37,7 +37,7 @@ module.exports = {
 
         let results = await search(args.join(' '), opts).catch(err => console.log("Noke skjedde"));
 
-        function sleep(milliseconds) {
+/*        function sleep(milliseconds) {
             const date = Date.now();
             let currentDate = null;
             do {
@@ -46,6 +46,7 @@ module.exports = {
         }
 
         sleep(1000);
+*/
 
         let titles;
         let YoutubeResults;
