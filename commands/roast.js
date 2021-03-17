@@ -35,12 +35,14 @@ module.exports = {
     //Endrer alle meldinger til lowercase for å hindre case-sensitive commands;
     const msg = message.content.toLowerCase();
 
-    if ( !args[0] ) {
-      var bruker = message.author.username;
-    } else {
-        // Henter ut personen som skal roastes;
-        var bruker = args[0];
-    }
+    const bruker = message.mentions.users.first() || message.author;
+
+    // if ( !args[0] ) {
+    //   var bruker = message.author.username;
+    // } else {
+    //     // Henter ut personen som skal roastes;
+    //     var bruker = args[0];
+    // }
 
     var antallInsults = insults.length;
     var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
