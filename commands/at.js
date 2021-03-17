@@ -1,11 +1,3 @@
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-}
-
 module.exports = {
     name: 'at',
     description: "@ personen du skriver etter -at, så mange ganger som du skriver bakerst.",
@@ -28,6 +20,14 @@ module.exports = {
             antall = args[args.length-1];
             // Pops the last argument, which in this command is the amount of times the user want's to tag the person;
             args.pop();
+        }
+
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+              currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
         }
 
 
