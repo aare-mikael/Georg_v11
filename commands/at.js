@@ -38,13 +38,13 @@ module.exports = {
             var j = 5;
             for (i = 0; i < j; i++) {
                 message.channel.send(args.join(' '));
-                sleep(500);
+                sleep(1000);
             }
         } else {
             var i = 0;
             for (i = 0; i < antall; i++) {
                 message.channel.send(args.join(' '));
-                sleep(500);
+                sleep(1000);
             }
         }
     },
