@@ -72,13 +72,7 @@ module.exports = {
 
     ranNums = shuffle(insultsAlleTall);
 
-    var ranNumsArray = ranNums.keys(ranNums);
-
-    var roast = insults[ranNums[13]];
-
-    // var antallInsults = insults.length;
-    // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
-    // var spy =  insults[insult];
+    var roast = insults[ranNums[1]];
       
     // Spyr ut en tilfeldig insult fra insults[];      
       message.channel.send(brukerNavn + ", " + roast);
