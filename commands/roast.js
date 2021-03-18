@@ -83,13 +83,13 @@ module.exports = {
     console.log(typeof ranNumsArray);
 
 
-//    var roast = ranNums.next().value;
+    var roast = ranNumsArray.next().value;
 
     // var antallInsults = insults.length;
     // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
     // var spy =  insults[insult];
       
     // Spyr ut en tilfeldig insult fra insults[];      
-//      message.channel.send(brukerNavn + ", " + roast);
+      message.channel.send(brukerNavn + ", " + roast);
     },
 };
