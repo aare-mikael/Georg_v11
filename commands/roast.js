@@ -60,6 +60,7 @@ module.exports = {
 
 
     var insultsAlleTall = new Array();
+    console.log(typeof insultsAlleTall);
 
     var i = insults.length;
     var j = -1;
@@ -70,10 +71,9 @@ module.exports = {
 
     var ranNums = new Array();
 
-    console.log(insultsAlleTall);
+    console.log(typeof insultsAlleTall);
     ranNums = shuffle(insultsAlleTall);
-    console.log(insultsAlleTall);
-    console.log(ranNums);
+    console.log(typeof insultsAlleTall);
     console.log(typeof ranNums);
 
     var roast = ranNums.next().value;
