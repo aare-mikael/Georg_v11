@@ -24,6 +24,25 @@ var insults = [
     "faren din burde heilt ærlig runka deg utfor et stup",
     ]
 
+function shuffle(array) {
+  var i = array.length,
+        j = 0,
+        temp;
+
+    while (i--) {
+
+        j = Math.floor(Math.random() * (i+1));
+
+        // swap randomly chosen element with current element
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+
+    }
+
+    return array;
+}
+
 module.exports = {
     name: 'roast',
     description: "Skjønna du virkelig ikkje ka dinna gjør?",
@@ -39,12 +58,17 @@ module.exports = {
     const brukerID = bruker.id;
     const brukerNavn = bruker.username;
 
-    // if ( !args[0] ) {
-    //   var bruker = message.author.username;
-    // } else {
-    //     // Henter ut personen som skal roastes;
-    //     var bruker = args[0];
-    // }
+
+    var insultsAlleTall = [];
+
+    var i = insults.length;
+    var j = 0;
+    while (i--) {
+      j++;
+      insultsAlleTall[j] = j;
+    }
+    console.log(insultsAlleTall);
+
 
     var antallInsults = insults.length;
     var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
