@@ -87,7 +87,7 @@ module.exports = {
                 return message.channel.send(`✅ **${song.title}** has been added to the queue!`);
             }
 
-            console.log(`${song.title}`);
+            console.log(message.author.username + " requested: " + `${song.title}`);
     
             const queueConstruct = {
                 textChannel: message.channel,
