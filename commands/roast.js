@@ -73,7 +73,7 @@ module.exports = {
 
     ranNums = shuffle(insultsAlleTall);
 
-    console.log(ranNums);
+    console.log(ranNums.first);
 
     var ranNumsArray = ranNums.keys(ranNums);
 
