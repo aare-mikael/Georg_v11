@@ -72,8 +72,9 @@ module.exports = {
     var ranNums = shuffle(insultsAlleTall);
     console.log(insultsAlleTall);
     console.log(ranNums);
+    console.log(typeof ranNums);
 
-    var roast = ranNums.next().value;
+    var roast = ranNums.value;
 
     // var antallInsults = insults.length;
     // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
