@@ -20,8 +20,8 @@ var videos = [
     "https://medal.tv/clips/45911244/d1337ahWniO3",
     "https://medal.tv/clips/46163782/d13378CIpPjq",
     "https://medal.tv/clips/46348453/d1337paAAvye",
-    "https://medal.tv/clips/46450492/d1337wLepf5K",
-    "https://medal.tv/clips/46450787/d1337f8UeCNV"
+    "https://medal.tv/clips/46450492/d1337wLepf5K", // Da eg sto bak lemmi i 30 sek, minst
+    "https://medal.tv/clips/46450787/d1337f8UeCNV" // denne er pikaboo fra 5v5 inhouse
     ];
 
 module.exports = {
