@@ -76,13 +76,16 @@ module.exports = {
     console.log(typeof insultsAlleTall);
     console.log(typeof ranNums);
 
-    var roast = ranNums.next().value;
+    Object.keys(ranNums);
+    console.log(ranNums);
+
+//    var roast = ranNums.next().value;
 
     // var antallInsults = insults.length;
     // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
     // var spy =  insults[insult];
       
     // Spyr ut en tilfeldig insult fra insults[];      
-      message.channel.send(brukerNavn + ", " + roast);
+//      message.channel.send(brukerNavn + ", " + roast);
     },
 };
