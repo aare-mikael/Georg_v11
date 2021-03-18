@@ -71,7 +71,7 @@ module.exports = {
     var ranNums = [];
 
     console.log(insultsAlleTall);
-    ranNums = shuffle(insultsAlleTall);
+    ranNums = shuffle([insultsAlleTall]);
     console.log(insultsAlleTall);
     console.log(ranNums);
     console.log(typeof ranNums);
