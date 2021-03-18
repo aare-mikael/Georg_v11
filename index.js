@@ -186,6 +186,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
 
                 introSound(newState, link, client);
+                return;
 
                 // console.log("Lag en customsound for den som nettopp kom inn i voice: " + newPerson);
                 // return;
