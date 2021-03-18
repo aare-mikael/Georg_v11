@@ -35,6 +35,8 @@ module.exports = {
     var antallVideos = videos.length;
     var videoNumber = Math.floor(Math.random() * antallVideos - 1) + 1;
     var video =  videos[videoNumber];
+
+    console.log(message.author.username);
       
     // Spyr ut en tilfeldig insult fra insults[];      
       message.channel.send(video);
