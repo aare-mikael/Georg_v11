@@ -67,15 +67,19 @@ module.exports = {
       j++;
       insultsAlleTall[j] = j;
     }
-    shuffle(insultsAlleTall);
 
-    var roast = insultsAlleTall.next().value;
+    console.log(insultsAlleTall);
+    var ranNums = shuffle([insultsAlleTall]);
+    console.log(insultsAlleTall);
+    console.log(ranNums);
+
+//    var roast = insultsAlleTall.next().value;
 
     // var antallInsults = insults.length;
     // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
     // var spy =  insults[insult];
       
     // Spyr ut en tilfeldig insult fra insults[];      
-      message.channel.send(brukerNavn + ", " + roast);
+//      message.channel.send(brukerNavn + ", " + roast);
     },
 };
