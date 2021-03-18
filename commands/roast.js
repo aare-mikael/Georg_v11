@@ -76,7 +76,7 @@ module.exports = {
     console.log(typeof insultsAlleTall);
     console.log(typeof ranNums);
 
-    var ranNumsArray = ranNums.values(ranNums);
+    var ranNumsArray = ranNums.keys(ranNums);
     console.log(typeof ranNums);
 
     console.log(ranNumsArray);
