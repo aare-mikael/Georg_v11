@@ -71,16 +71,11 @@ module.exports = {
 
     var ranNums = [];
 
-    console.log(insultsAlleTall);
     ranNums = shuffle(insultsAlleTall);
-    console.log(insultsAlleTall);
+
     console.log(ranNums);
 
     var ranNumsArray = ranNums.keys(ranNums);
-    console.log(ranNums);
-
-    console.log(ranNumsArray);
-
 
     var roast = insults[ranNums];
 
