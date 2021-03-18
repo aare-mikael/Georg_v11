@@ -36,7 +36,14 @@ module.exports = {
     var videoNumber = Math.floor(Math.random() * antallVideos - 1) + 1;
     var video =  videos[videoNumber];
 
-    console.log(message.author.username);
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+
+    var timeString = ("" + hours + ":" + minutes + ":" + seconds);
+
+    console.log(message.author.username + " requested a video from #skrytevideoer at: " + timeString);
       
     // Spyr ut en tilfeldig insult fra insults[];      
       message.channel.send(video);
