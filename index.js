@@ -187,9 +187,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
                 introSound(newState, link, client);
                 return;
-
-                // console.log("Lag en customsound for den som nettopp kom inn i voice: " + newPerson);
-                // return;
             }
             var link = sound.url;
             introSound(newState, link, client);
