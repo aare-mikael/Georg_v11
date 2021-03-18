@@ -68,11 +68,13 @@ module.exports = {
       insultsAlleTall[j] = j;
     }
 
+    var ranNums = [];
+
     console.log(insultsAlleTall);
-    var ranNums = shuffle(insultsAlleTall);
+    ranNums = shuffle(insultsAlleTall);
     console.log(insultsAlleTall);
     console.log(ranNums);
-    console.log(typeof insultsAlleTall);
+    console.log(typeof ranNums);
 
     var roast = ranNums.value;
 
