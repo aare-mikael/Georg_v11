@@ -76,8 +76,12 @@ module.exports = {
     console.log(typeof insultsAlleTall);
     console.log(typeof ranNums);
 
-    Object.keys(ranNums);
+    var ranNumsArray = Object.values(ranNums);
     console.log(typeof ranNums);
+
+    console.log(ranNumsArray);
+    console.log(typeof ranNumsArray);
+
 
 //    var roast = ranNums.next().value;
 
