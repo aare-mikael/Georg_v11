@@ -67,17 +67,15 @@ module.exports = {
       j++;
       insultsAlleTall[j] = j;
     }
+    shuffle(insultsAlleTall);
 
-    var shuffletInsultsAlleTall = shuffle(insultsAlleTall);
-    console.log(insultsAlleTall);
-    console.log(shuffletInsultsAlleTall);
+    var roast = insultsAlleTall.next().value;
 
-
-    var antallInsults = insults.length;
-    var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
-    var spy =  insults[insult];
+    // var antallInsults = insults.length;
+    // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
+    // var spy =  insults[insult];
       
     // Spyr ut en tilfeldig insult fra insults[];      
-      message.channel.send(brukerNavn + ", " + spy);
+      message.channel.send(brukerNavn + ", " + roast);
     },
 };
