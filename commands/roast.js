@@ -60,7 +60,6 @@ module.exports = {
 
 
     var insultsAlleTall = [];
-    console.log(typeof insultsAlleTall);
 
     var i = insults.length;
     var j = -1;
@@ -73,7 +72,7 @@ module.exports = {
 
     ranNums = shuffle(insultsAlleTall);
 
-    console.log(ranNums.first);
+    console.log(ranNums[0]);
 
     var ranNumsArray = ranNums.keys(ranNums);
 
