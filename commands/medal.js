@@ -37,7 +37,7 @@ module.exports = {
     var video =  videos[videoNumber];
 
     var date = new Date();
-    var hours = date.getHours();
+    var hours = date.getHours() + 1; // because of the timezone :)
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
 
