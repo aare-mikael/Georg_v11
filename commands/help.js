@@ -83,7 +83,8 @@ module.exports = {
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
         if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
-        if (command.category) data.push(`**Category:** ${prefix}${command.name} ${command.category}`);
+        if (command.category) data.push(`**Category:** ${command.category}`);
+        // ${prefix}${command.name} <- just in case of error, this was right after **Category** in the line above^
 
         data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
 
