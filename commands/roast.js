@@ -59,7 +59,7 @@ module.exports = {
     const brukerNavn = bruker.username;
 
 
-    var insultsAlleTall = new Array();
+    var insultsAlleTall = [];
     console.log(typeof insultsAlleTall);
 
     var i = insults.length;
@@ -69,7 +69,7 @@ module.exports = {
       insultsAlleTall[j] = j;
     }
 
-    var ranNums = new Array();
+    var ranNums = [];
 
     console.log(typeof insultsAlleTall);
     ranNums = shuffle(insultsAlleTall);
