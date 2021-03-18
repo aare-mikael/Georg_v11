@@ -72,7 +72,7 @@ module.exports = {
     var ranNums = shuffle(insultsAlleTall);
     console.log(insultsAlleTall);
     console.log(ranNums);
-    console.log(typeof ranNums);
+    console.log(typeof insultsAlleTall);
 
     var roast = ranNums.value;
 
