@@ -62,7 +62,7 @@ module.exports = {
     var insultsAlleTall = [];
 
     var i = insults.length;
-    var j = 1;
+    var j = -1;
     while (i--) {
       j++;
       insultsAlleTall[j] = j;
