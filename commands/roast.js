@@ -67,7 +67,10 @@ module.exports = {
       j++;
       insultsAlleTall[j] = j;
     }
+
+    var shuffletInsultsAlleTall = shuffle(insultsAlleTall);
     console.log(insultsAlleTall);
+    console.log(shuffletInsultsAlleTall);
 
 
     var antallInsults = insults.length;
