@@ -69,7 +69,7 @@ module.exports = {
     }
 
     console.log(insultsAlleTall);
-    var ranNums = shuffle([insultsAlleTall]);
+    var ranNums = shuffle(insultsAlleTall);
     console.log(insultsAlleTall);
     console.log(ranNums);
 
