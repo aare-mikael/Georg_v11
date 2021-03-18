@@ -59,7 +59,7 @@ module.exports = {
     const brukerNavn = bruker.username;
 
 
-    var insultsAlleTall = [];
+    var insultsAlleTall = new Array();
 
     var i = insults.length;
     var j = -1;
@@ -68,15 +68,15 @@ module.exports = {
       insultsAlleTall[j] = j;
     }
 
-    var ranNums = [];
+    var ranNums = new Array();
 
     console.log(insultsAlleTall);
-    ranNums = shuffle([insultsAlleTall]);
+    ranNums = shuffle(insultsAlleTall);
     console.log(insultsAlleTall);
     console.log(ranNums);
     console.log(typeof ranNums);
 
-    var roast = ranNums.value;
+    var roast = ranNums.next().value;
 
     // var antallInsults = insults.length;
     // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
