@@ -182,8 +182,13 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
             // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
             if (sound == undefined) {
-                console.log("Lag en customsound for den som nettopp kom inn i voice: " + newPerson);
-                return;
+
+                var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
+
+                introSound(newState, link, client);
+
+                // console.log("Lag en customsound for den som nettopp kom inn i voice: " + newPerson);
+                // return;
             }
             var link = sound.url;
             introSound(newState, link, client);
