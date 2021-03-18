@@ -83,7 +83,7 @@ module.exports = {
     console.log(typeof ranNumsArray);
 
 
-    var roast = ranNumsArray.next().keys;
+    var roast = ranNums.next().keys;
 
     // var antallInsults = insults.length;
     // var insult = Math.floor(Math.random() * antallInsults - 1) + 1;
