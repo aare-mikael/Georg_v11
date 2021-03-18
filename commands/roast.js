@@ -77,7 +77,7 @@ module.exports = {
     console.log(typeof ranNums);
 
     Object.keys(ranNums);
-    console.log(ranNums);
+    console.log(typeof ranNums);
 
 //    var roast = ranNums.next().value;
 
