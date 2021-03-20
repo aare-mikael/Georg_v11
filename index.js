@@ -89,15 +89,9 @@ client.on("warn", (e) => console.warn(e));
 const mongo = require('./utilities/mongo.js');
 const customsound = require('./commands/customsound');
 
-const connectToMongoDB = async () => {
-    await mongo().then((mongoose) => {
-        try {
-            console.log('Connected to MongoDB');
-        } finally {
-            mongoose.connection.close();
-        }
-    })
-}
+const discordUsers = require('./mongoschemas/discordUsers');
+
+const connectToMongoDB = require('utilities\connectToMongoDB.js');
 
 connectToMongoDB();
 
