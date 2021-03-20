@@ -4,7 +4,7 @@ module.exports = {
 	category: "Utility",
 	
 //	usage: "<user> <role>",
-	execute(message, instance) {
+	execute(message, args, client) {
 		message.channel.send(Math.round(client.ws.ping) + " ms");
 	},
 };
