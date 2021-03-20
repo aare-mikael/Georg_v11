@@ -86,12 +86,12 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
-const mongo = require('./utilities/mongo.js');
+const mongo = require('./utilities/mongo');
 const customsound = require('./commands/customsound');
 
 const discordUsers = require('./mongoschemas/discordUsers');
 
-const connectToMongoDB = require('utilities\connectToMongoDB.js');
+const connectToMongoDB = require('./utilities/connectToMongoDB');
 
 connectToMongoDB();
 
