@@ -8,7 +8,11 @@ const reqString = {
 const discordUsers = mongoose.Schema({
     user: reqString,
     id: reqString,
-    username: reqString
+    username: reqString,
+//    sentMessages: Number,
+//    commandsUsed: Number,
+    nameHistory: [String],
+    introSound: [String],
 });
 
 module.exports = mongoose.model('discordUsers', discordUsers);

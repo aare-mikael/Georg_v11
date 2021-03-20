@@ -1,9 +1,11 @@
 module.exports = {
     name: 'at',
+    minArgs: 1,
+    expectedArgs: "<Target user's @>",
     description: "@ personen du skriver etter -at, så mange ganger som du skriver bakerst.",
-    cooldown: 30,
+    cooldown: 15,
     category: "Text",
-    async execute(message, args) {
+    async execute(message, args, text, client, prefix, instance) {
 
         // Returnerer tidlig om meldingen er sendt av en bot;
         if (message.author.bot) return;

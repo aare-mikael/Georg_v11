@@ -16,14 +16,16 @@ const Discord = require('discord.js');
 
 const GeorgBot = require('./struct/Client');
 
+const WOKCommands = require('wokcommands');
+
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
 
 const introSound = require('./utilities/introPlayer');
 
 // Requires the prefix specified in config.json, to avoid issues where a command name is randomly said without meaning to invoke the command;
-const { prefix } = require('./config.json');
-const { cooldown } = require('./commands/ping');
+// const { prefix } = require('./config.json');
+// const { cooldown } = require('./commands/ping');
 
 // Requires the token to log in, from a file that won't get pushed to github;
 const token = process.env.token;
@@ -46,20 +48,20 @@ for (const file of introFiles) {
 }
 
 // Creates a collection with all the commands;
-client.commands = new Discord.Collection();
+// client.commands = new Discord.Collection();
 
 // Declares an array which contains all files in commands which ends in .js, which is Javascript-files;
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+// const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
-    // Requires all files in commands;
-    const command = require(`./commands/${file}`);
+// for (const file of commandFiles) {
+//     // Requires all files in commands;
+//     const command = require(`./commands/${file}`);
 
-    // Set a new item in the collection with the key as the commandname and the value as the exported module;
-    client.commands.set(command.name, command);
-}
+//     // Set a new item in the collection with the key as the commandname and the value as the exported module;
+//     client.commands.set(command.name, command);
+// }
 
-const cooldowns = new Discord.Collection();
+// const cooldowns = new Discord.Collection();
 
 // Hide your token at all costs;
 client.login(process.env.token);
@@ -67,17 +69,15 @@ client.login(process.env.token);
 // When client is ready, this code will be run and will only trigger once after logging in;
 client.once('ready', () => {
     console.log('I solemnly swear I am up to no good.');
-//    client.user.setActivity('', { type: 'LISTENING' }); // Listening automatically adds "to" behind it, so this displays "Listening to xxx";
-//    client.user.setActivity('Christmas music 24/7', { type: 'PLAYING' }); // This displays "Playing with your heart";
+    
     client.user.setStatus('online');
+    
     client.user.setActivity('channel activity', { type: 'WATCHING' });
-    // client.user.setPresence({
-    //     status: 'online',
-    //     game: {
-    //         name: 'commands zoom by',
-    //         type: 'WATCHING'
-    //     }
-    // })
+
+    new WOKCommands(client, 'commands', 'features')
+    .setMongoPath(process.env.mongoPath)
+    .setSyntaxError('Incorrect syntax! Please use {PREFIX}{COMMAND} {ARGUMENTS}')
+
 });
 
 
@@ -96,23 +96,23 @@ const insertUser = require('./utilities/mongoutilities/insertUser');
 
 connectToMongoDB();
 
-// Eventlistener for whenever the bot joins a new server;
-client.on('guildCreate', joinedGuild => {
+// // Eventlistener for whenever the bot joins a new server;
+// client.on('guildCreate', joinedGuild => {
 
-    let defaultChannel = "";
-    joinedGuild.channels.cache.forEach((channel) => {
-        if(channel.type == "text" && defaultChannel == "") {
-            if(channel.permissionsFor(joinedGuild.me).has("SEND_MESSAGES")) {
-              defaultChannel = channel;
-            }
-        }
-    })
-    const embed = require(path.join(__dirname, '/utilities', 'GuildJoinEmbed.js'));
+//     let defaultChannel = "";
+//     joinedGuild.channels.cache.forEach((channel) => {
+//         if(channel.type == "text" && defaultChannel == "") {
+//             if(channel.permissionsFor(joinedGuild.me).has("SEND_MESSAGES")) {
+//               defaultChannel = channel;
+//             }
+//         }
+//     })
+//     const embed = require(path.join(__dirname, '/utilities', 'GuildJoinEmbed.js'));
 
-    defaultChannel.send("Hello, I'm Georg!");
-    defaultChannel.send(embed());
+//     defaultChannel.send("Hello, I'm Georg!");
+//     defaultChannel.send(embed());
 
-});
+// });
 /*
 
 // Create an event listener for new guild members
@@ -128,123 +128,123 @@ client.on('guildMemberAdd', member => {
   */
 
 
-// Makes the bot pay attention to whenever somebody joins a new channel;
-client.on('voiceStateUpdate', (oldState, newState) => {
+// // Makes the bot pay attention to whenever somebody joins a new channel;
+// client.on('voiceStateUpdate', (oldState, newState) => {
 
-    const georg = '741703921877123164';
+//     const georg = '741703921877123164';
 
-    const team10Discord = '612947002853949458';
-    const georgland = '773672843576606721';
+//     const team10Discord = '612947002853949458';
+//     const georgland = '773672843576606721';
 
-    // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
-    //     console.log("User 123456789 is in the channel");
-    // } else {
-    //     console.log("User 123456789 is NOT in the channel");
-    // }
+//     // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
+//     //     console.log("User 123456789 is in the channel");
+//     // } else {
+//     //     console.log("User 123456789 is NOT in the channel");
+//     // }
 
-    if (newState.guild.voiceConnection) return;
+//     if (newState.guild.voiceConnection) return;
 
-    // Variable names should tell you what this does;
-    var newserver = newState.guild.id.toString();
-    var oldserver = oldState.guild.id.toString();
+//     // Variable names should tell you what this does;
+//     var newserver = newState.guild.id.toString();
+//     var oldserver = oldState.guild.id.toString();
 
-    // Collects the id of the person joining;
-    const newPerson = newState.member.id.toString();
+//     // Collects the id of the person joining;
+//     const newPerson = newState.member.id.toString();
 
-    var oldChannel = oldState.channelID;
-    var newChannel = newState.channelID;
-    var voiceChannel = newState.channel;
+//     var oldChannel = oldState.channelID;
+//     var newChannel = newState.channelID;
+//     var voiceChannel = newState.channel;
 
-    /*
-    if (voiceChannel = undefined || voiceChannel == null) {
-        if(oldserver == team10Discord) {
+//     /*
+//     if (voiceChannel = undefined || voiceChannel == null) {
+//         if(oldserver == team10Discord) {
             
-        }
-    }
-    */
+//         }
+//     }
+//     */
 
-    // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
-   const serverQueue = newState.client.queue.get(newState.guild.id);
+//     // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
+//    const serverQueue = newState.client.queue.get(newState.guild.id);
 
-    // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
-    if (oldChannel != newChannel) {
-        if (newPerson == georg) {
-            return;
-        } else if (serverQueue) {
-            return;
-        } else {
-            // Just a player for the introsound, for aesthetic purposes;
-            var name = newState.member.id.toString();
-            var sound = client.intro.get(name);
+//     // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
+//     if (oldChannel != newChannel) {
+//         if (newPerson == georg) {
+//             return;
+//         } else if (serverQueue) {
+//             return;
+//         } else {
+//             // Just a player for the introsound, for aesthetic purposes;
+//             var name = newState.member.id.toString();
+//             var sound = client.intro.get(name);
 
-            // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
-            if (sound == undefined) {
+//             // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
+//             if (sound == undefined) {
 
-                var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
+//                 var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
 
-                introSound(newState, link, client);
-                return;
-            }
-            var link = sound.url;
-            introSound(newState, link, client);
-        }
-    }
-})
+//                 introSound(newState, link, client);
+//                 return;
+//             }
+//             var link = sound.url;
+//             introSound(newState, link, client);
+//         }
+//     }
+// })
 
-// Makes the bot react when a textmessage pops into a channel it has access to;
-client.on('message', async message => {
+// // Makes the bot react when a textmessage pops into a channel it has access to;
+// client.on('message', async message => {
 
-//    insertUser(message);
+// //    insertUser(message);
 
-    // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
-    if (!message.content.startsWith(prefix)) return;
+//     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
+//     if (!message.content.startsWith(prefix)) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const commandName = args.shift().toLowerCase();
+//     const args = message.content.slice(prefix.length).trim().split(/ +/);
+//     const commandName = args.shift().toLowerCase();
 
-    const command = client.commands.get(commandName)
+//     const command = client.commands.get(commandName)
 
-    // if (command.guildOnly && message.channel.type !== 'text') {
-    //     return message.reply('I can\'t execute that command inside DMs!');
-    // }    
+//     // if (command.guildOnly && message.channel.type !== 'text') {
+//     //     return message.reply('I can\'t execute that command inside DMs!');
+//     // }    
 
-    // This enters a command into an array of commands recently used, to limit spam and so forth;
-    if (!cooldowns.has(command.name)) {
-        cooldowns.set(command.name, new Discord.Collection());
-    }
+//     // This enters a command into an array of commands recently used, to limit spam and so forth;
+//     if (!cooldowns.has(command.name)) {
+//         cooldowns.set(command.name, new Discord.Collection());
+//     }
 
-    // Just retrieves a variable with the time as of right now;
-    const now = Date.now();
+//     // Just retrieves a variable with the time as of right now;
+//     const now = Date.now();
 
-    // Retrieves the timestamp of a cooldown recently used and the author who used it;
-    const timestamps = cooldowns.get(command.name);
+//     // Retrieves the timestamp of a cooldown recently used and the author who used it;
+//     const timestamps = cooldowns.get(command.name);
 
-    // Sets the cooldown amount in seconds from milliseconds;
-    // First checks if the cooldown amount has been specified in the command file, if not the cooldown defaults to 3 seconds;
-    const cooldownAmount = (command.cooldown || 3) * 1000;
+//     // Sets the cooldown amount in seconds from milliseconds;
+//     // First checks if the cooldown amount has been specified in the command file, if not the cooldown defaults to 3 seconds;
+//     const cooldownAmount = (command.cooldown || 3) * 1000;
 
-    // Checks if the author recently used the command, and sets the expirationtime;
-    if (timestamps.has(message.author.id)) {
-        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+//     // Checks if the author recently used the command, and sets the expirationtime;
+//     if (timestamps.has(message.author.id)) {
+//         const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
-        // Checks if the command can be used again by the author, meaning that the expiration time has expired;
-        if (now < expirationTime) {
-            const timeLeft = (expirationTime - now);
-            const timeLeftSec = timeLeft / 1000;
-            return message.reply(`please wait ${timeLeftSec.toFixed(1)} more seconds before using the \`${command.name}\` command again!`);
-        }
-    }
+//         // Checks if the command can be used again by the author, meaning that the expiration time has expired;
+//         if (now < expirationTime) {
+//             const timeLeft = (expirationTime - now);
+//             const timeLeftSec = timeLeft / 1000;
+//             return message.reply(`please wait ${timeLeftSec.toFixed(1)} more seconds before using the \`${command.name}\` command again!`);
+//         }
+//     }
 
-    // Just to make sure the author ID of a used command gets deleted from the cooldown array after time has expired;
-    timestamps.set(message.author.id, now);
-    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+//     // Just to make sure the author ID of a used command gets deleted from the cooldown array after time has expired;
+//     timestamps.set(message.author.id, now);
+//     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-    // Tries to execute the command;
-    try {
-        command.execute(message, args, client)
-    } catch (error) {
-        console.error(error);
-        message.channel.send("There was an error trying to execute that command!");
-    }
+//     // Tries to execute the command;
+//     try {
+//         command.execute(message, args, client)
+//     } catch (error) {
+//         console.error(error);
+//         message.channel.send("There was an error trying to execute that command!");
+//     }
     
-});
+// });
