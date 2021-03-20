@@ -6,7 +6,7 @@ const mongo = require('./mongo');
 module.exports = async (message) => {
     await mongo().then(async (mongoose) => {
         try {
-            await discordUsers.update({
+            await discordUsers.updateOne({ // updateMany vil oppdatere alle matchene den finner;
                 username: 'Trash',
             }, {
                 username: 'Trash2',
