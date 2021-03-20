@@ -6,9 +6,8 @@ const mongo = require('./mongo');
 module.exports = async (message) => {
     await mongo().then(async (mongoose) => {
         try {
-            console.log('Ready to insert user to the database');
-
             const user = {
+                user: message.author,
                 id: message.author.id,
                 username: message.author.username,
             }
