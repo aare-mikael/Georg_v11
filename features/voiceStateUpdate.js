@@ -9,6 +9,8 @@ module.exports = (client) => {
     // To get file paths of different classes and objects;
     var path = require("path");
 
+    const introSound = require('./utilities/introPlayer');
+
     // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
     client.intro = new Discord.Collection();
     const introFiles = fs.readdirSync('../customsounds/').filter(file => file.endsWith('.js'));
@@ -18,8 +20,6 @@ module.exports = (client) => {
         // Set a new item in the collection with the key as the commandname and the value as the exported module;
         client.intro.set(intro.id, intro);
     }
-
-    const introSound = require('./utilities/introPlayer');
 
     // Makes the bot pay attention to whenever somebody joins a new channel;
     client.on('voiceStateUpdate', (oldState, newState) => {
