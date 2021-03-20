@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
+const reqString = {
+    type: String,
+    required: true
+};
+
 const discordUsers = mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    }
+    id: reqString,
+    username: reqString
 });
 
 module.exports = mongoose.model('discordUsers', discordUsers);
