@@ -6,6 +6,9 @@ module.exports = (client) => {
     const fs = require('fs');
     const { readdirSync } = require('fs');
 
+    // To get file paths of different classes and objects;
+    var path = require("path");
+
     // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
     client.intro = new Discord.Collection();
     const introFiles = fs.readdirSync('../customsounds/').filter(file => file.endsWith('.js'));
