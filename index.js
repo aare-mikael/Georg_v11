@@ -78,7 +78,7 @@ client.on('ready', () => {
     
     client.user.setActivity('channel activity', { type: 'WATCHING' });
 
-    const messagesPath = "";
+    const messagesPath = "messages.json";
 
     const dbOptions = {
         keepAlive: true,
