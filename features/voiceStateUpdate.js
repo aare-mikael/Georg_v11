@@ -9,7 +9,7 @@ module.exports = (client) => {
     // To get file paths of different classes and objects;
     var path = require("path");
 
-    const introSound = require('./utilities/introPlayer');
+    const introSound = require('../utilities/introPlayer');
 
     // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
     client.intro = new Discord.Collection();
