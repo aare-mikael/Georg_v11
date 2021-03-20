@@ -9,8 +9,8 @@ const discordUsers = mongoose.Schema({
     user: reqString,
     id: reqString,
     username: [reqString],
-    sentMessages: Number,
-    commandsUsed: Number,
+//    sentMessages: Number,
+//    commandsUsed: Number,
     nameHistory: [String],
     introSound: [String],
 });
