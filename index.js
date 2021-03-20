@@ -92,6 +92,7 @@ const customsound = require('./commands/customsound');
 const discordUsers = require('./mongoschemas/discordUsers');
 
 const connectToMongoDB = require('./utilities/mongoutilities/connectToMongoDB');
+const insertUser = require('./utilities/mongoutilities/insertUser');
 
 connectToMongoDB();
 
@@ -193,7 +194,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', async message => {
 
-    connectToMongoDB(message);
+    insertUser(message);
 
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
