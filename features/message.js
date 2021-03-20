@@ -1,3 +1,5 @@
+const WOKCommands = require("wokcommands");
+
 module.exports = (client) => {
 
     // Makes the bot react when a textmessage pops into a channel it has access to;
@@ -50,7 +52,8 @@ module.exports = (client) => {
     
         // // Tries to execute the command;
         try {
-            command.execute(message, args, client)
+            // command.execute(message, args, client)
+            WOKCommands()
         } catch (error) {
             console.error(error);
             message.channel.send("There was an error trying to execute that command!");
