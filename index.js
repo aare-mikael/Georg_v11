@@ -81,6 +81,21 @@ client.on('ready', () => {
 
     const messagesPath = "";
 
+    const dbOptions = {
+        keepAlive: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+      }
+
+      const disabledDefaultCommands = [
+        // 'help',
+        // 'command',
+        // 'language',
+        // 'prefix',
+        // 'requiredrole'
+      ]
+
     new WOKCommands(client, {
         commandsDir: 'commands',
         featureDir: 'features',
