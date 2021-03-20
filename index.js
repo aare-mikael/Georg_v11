@@ -16,8 +16,7 @@ const Discord = require('discord.js');
 
 // const GeorgBot = require('./struct/Client');
 
-const WOKCommands = require('wokcommands')
-require('dotenv').config()
+const WOKCommands = require('wokcommands');
 
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
@@ -129,15 +128,15 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
-const mongo = require('./utilities/mongoutilities/mongo');
-const customsound = require('./commands/customsound');
+// const mongo = require('./utilities/mongoutilities/mongo');
+// const customsound = require('./commands/customsound');
 
-const discordUsers = require('./mongoschemas/discordUsers');
+// const discordUsers = require('./mongoschemas/discordUsers');
 
-const connectToMongoDB = require('./utilities/mongoutilities/connectToMongoDB');
-const insertUser = require('./utilities/mongoutilities/insertUser');
+// const connectToMongoDB = require('./utilities/mongoutilities/connectToMongoDB');
+// const insertUser = require('./utilities/mongoutilities/insertUser');
 
-connectToMongoDB();
+// connectToMongoDB();
 
 // // Eventlistener for whenever the bot joins a new server;
 // client.on('guildCreate', joinedGuild => {
