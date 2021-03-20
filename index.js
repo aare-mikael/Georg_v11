@@ -33,7 +33,7 @@ const token = process.env.token;
 
 // Creates a new Discord client, essentially this is the bot;
 // const client = new Discord.Client();
-const client = new Discord.client({
+const client = new Discord.Client({
     partials: ['MESSAGE', 'REACTION'],
 });
 
