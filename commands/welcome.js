@@ -2,13 +2,13 @@ const mongo = require('../utilities/mongoutilities/mongo');
 
 const welcomeSchema = require('../mongoschemas/welcomeSchema');
 
-const { member, channel, content, guild } = message;
-
 module.exports = {
     name: 'welcome',
     description: "Change welcome message in your server",
     category: "Text",
     async execute(message, args) {
+
+        const { member, channel, content, guild } = message;
 
         if(!member.hasPermission('ADMINISTRATOR')) {
             channel.send("Sorry, but you do not have the necessary permissions to run this command. You need administrator permissions!");
