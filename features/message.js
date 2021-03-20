@@ -51,13 +51,13 @@ module.exports = (client) => {
         // setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     
         // // Tries to execute the command;
-        try {
-            // command.execute(message, args, client)
-            WOKCommands()
-        } catch (error) {
-            console.error(error);
-            message.channel.send("There was an error trying to execute that command!");
-        }
+        // try {
+        //     // command.execute(message, args, client)
+        //     WOKCommands()
+        // } catch (error) {
+        //     console.error(error);
+        //     message.channel.send("There was an error trying to execute that command!");
+        // }
         
     });
 
