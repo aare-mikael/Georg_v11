@@ -2,7 +2,6 @@ module.exports = {
 	name: 'resume',
     description: 'Resume command.',
     category: 'Voice',
-	cooldown: 5,
 	execute(message) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && !serverQueue.playing) {

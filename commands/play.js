@@ -6,7 +6,6 @@ const { Util } = require('discord.js');
 module.exports = {
 	name: 'play',
     description: 'Searches for Youtube videos',
-    cooldown: 5,
     category: "Voice",
 	args: true,
 //	usage: "<user> <role>",
