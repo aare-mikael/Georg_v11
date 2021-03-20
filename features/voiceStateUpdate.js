@@ -19,6 +19,8 @@ module.exports = (client) => {
         client.intro.set(intro.id, intro);
     }
 
+    const introSound = require('./utilities/introPlayer');
+
     // Makes the bot pay attention to whenever somebody joins a new channel;
     client.on('voiceStateUpdate', (oldState, newState) => {
 
