@@ -14,9 +14,10 @@ const env = require('dotenv').config()
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
 
-const GeorgBot = require('./struct/Client');
+// const GeorgBot = require('./struct/Client');
 
-const WOKCommands = require('wokcommands');
+const WOKCommands = require('wokcommands')
+require('dotenv').config()
 
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
@@ -32,20 +33,24 @@ const token = process.env.token;
 
 // Creates a new Discord client, essentially this is the bot;
 // const client = new Discord.Client();
-const client = new GeorgBot({ token: process.env.token });
+const client = new Discord.client({
+    partials: ['MESSAGE', 'REACTION'],
+});
+
+
 
 // Music queue;
 this.queue = new Map();
 
-// Requires the customsound array, so the bot knows which sound to play when a user joins voice;
-client.intro = new Discord.Collection();
-const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
-for (const file of introFiles) {
-    // Requires all files in intro;
-    const intro = require('./customsounds/' + file);
-    // Set a new item in the collection with the key as the commandname and the value as the exported module;
-    client.intro.set(intro.id, intro);
-}
+// // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
+// client.intro = new Discord.Collection();
+// const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
+// for (const file of introFiles) {
+//     // Requires all files in intro;
+//     const intro = require('./customsounds/' + file);
+//     // Set a new item in the collection with the key as the commandname and the value as the exported module;
+//     client.intro.set(intro.id, intro);
+// }
 
 // Creates a collection with all the commands;
 // client.commands = new Discord.Collection();
@@ -67,7 +72,7 @@ for (const file of introFiles) {
 client.login(process.env.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
-client.once('ready', () => {
+client.on('ready', () => {
     console.log('I solemnly swear I am up to no good.');
     
     client.user.setStatus('online');
@@ -77,9 +82,14 @@ client.once('ready', () => {
     new WOKCommands(client, {
         commandsDir: 'commands',
         featureDir: 'features',
+        messagesPath,
+        showWarns: true,
+        dbOptions,
+        disabledDefaultCommands
     })
     .setMongoPath(process.env.mongoPath)
     .setDefaultPrefix('-')
+    .setColor(0x6f4c78)
     .setCategorySettings([
         {
             name: 'text',
