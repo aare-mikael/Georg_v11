@@ -74,10 +74,26 @@ client.once('ready', () => {
     
     client.user.setActivity('channel activity', { type: 'WATCHING' });
 
-    new WOKCommands(client, 'commands', 'features')
+    new WOKCommands(client, {
+        commandsDir: 'commands',
+        featureDir: 'features',
+    })
     .setMongoPath(process.env.mongoPath)
-    ._defaultPrefix('-')
-
+    .setDefaultPrefix('-')
+    .setCategorySettings([
+        {
+            name: 'text',
+            emoji: '⌨️'
+        },
+        {
+            name: 'voice',
+            emoji: '🎧'
+        },
+        {
+            name: 'utility',
+            emoji: '🏗️'
+        }
+    ])
 });
 
 
