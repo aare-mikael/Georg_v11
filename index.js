@@ -86,12 +86,12 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
-const mongo = require('./utilities/mongo');
+const mongo = require('./utilities/mongoutilities/mongo');
 const customsound = require('./commands/customsound');
 
 const discordUsers = require('./mongoschemas/discordUsers');
 
-const connectToMongoDB = require('./utilities/connectToMongoDB');
+const connectToMongoDB = require('./utilities/mongoutilities/connectToMongoDB');
 
 connectToMongoDB();
 
@@ -193,7 +193,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', async message => {
 
-//    connectToMongoDB();
+    connectToMongoDB(message);
 
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
