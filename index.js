@@ -76,7 +76,7 @@ client.once('ready', () => {
 
     new WOKCommands(client, 'commands', 'features')
     .setMongoPath(process.env.mongoPath)
-    .setSyntaxError('Incorrect syntax! Please use {PREFIX}{COMMAND} {ARGUMENTS}')
+    ._defaultPrefix('-')
 
 });
 
