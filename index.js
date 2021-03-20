@@ -194,7 +194,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 // Makes the bot react when a textmessage pops into a channel it has access to;
 client.on('message', async message => {
 
-    insertUser(message);
+//    insertUser(message);
 
     // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
     if (!message.content.startsWith(prefix)) return;
