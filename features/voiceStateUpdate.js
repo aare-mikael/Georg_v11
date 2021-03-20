@@ -11,7 +11,7 @@ module.exports = (client) => {
     const introFiles = fs.readdirSync('customsounds').filter(file => file.endsWith('.js'));
     for (const file of introFiles) {
         // Requires all files in intro;
-        const intro = require('./customsounds/' + file);
+        const intro = require('customsounds/' + file);
         // Set a new item in the collection with the key as the commandname and the value as the exported module;
         client.intro.set(intro.id, intro);
     }
