@@ -7,7 +7,6 @@ const introSoundDel = require(path.join(__dirname, '..', 'utilities/introSoundDe
 module.exports = {
 	name: 'customsound',
 	description: "Choose a sound you want to play when you enter a voice channel.",
-        cooldown: 5,
         category: "Voice",
 	args: true,
 	execute(message, args, client) {

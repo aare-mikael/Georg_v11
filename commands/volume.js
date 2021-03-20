@@ -2,7 +2,6 @@ module.exports = {
 	name: 'volume',
     description: 'Volume command.',
     category: 'Voice',
-	cooldown: 5,
 	execute(message, args) {
 		const { channel } = message.member.voice;
 		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
