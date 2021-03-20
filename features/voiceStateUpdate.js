@@ -1,15 +1,15 @@
-// Requires the customsound array, so the bot knows which sound to play when a user joins voice;
-client.intro = new Discord.Collection();
-const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
-for (const file of introFiles) {
-    // Requires all files in intro;
-    const intro = require('./customsounds/' + file);
-    // Set a new item in the collection with the key as the commandname and the value as the exported module;
-    client.intro.set(intro.id, intro);
-}
-
 module.exports = (client) => {
     
+    // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
+    client.intro = new Discord.Collection();
+    const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
+    for (const file of introFiles) {
+        // Requires all files in intro;
+        const intro = require('./customsounds/' + file);
+        // Set a new item in the collection with the key as the commandname and the value as the exported module;
+        client.intro.set(intro.id, intro);
+    }
+
     // Makes the bot pay attention to whenever somebody joins a new channel;
     client.on('voiceStateUpdate', (oldState, newState) => {
 
