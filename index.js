@@ -79,6 +79,8 @@ client.on('ready', () => {
     
     client.user.setActivity('channel activity', { type: 'WATCHING' });
 
+    const messagesPath = "";
+
     new WOKCommands(client, {
         commandsDir: 'commands',
         featureDir: 'features',
