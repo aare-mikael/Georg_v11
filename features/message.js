@@ -6,7 +6,7 @@ module.exports = (client) => {
 //      insertUser(message);
     
         // Forces the bot to return immediately when the message doesn't contain the specified prefix, which saves resources;
-        if (!message.content.startsWith(prefix)) return;
+//        if (!message.content.startsWith('PREFIX')) return;
     
         const args = message.content.slice(prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();
