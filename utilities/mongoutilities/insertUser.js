@@ -3,7 +3,7 @@ const discordUsers = require('../../mongoschemas/discordUsers');
 const mongoPath = process.env.mongoPath;
 const mongo = require('./mongo');
 
-module.exports = async () => {
+module.exports = async (message) => {
     await mongo().then(async (mongoose) => {
         try {
             console.log('Ready to insert user to the database');
