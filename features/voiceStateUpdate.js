@@ -1,5 +1,7 @@
 module.exports = (client) => {
     
+    const Discord = require('discord.js');
+
     // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
     client.intro = new Discord.Collection();
     const introFiles = fs.readdirSync('./customsounds').filter(file => file.endsWith('.js'));
