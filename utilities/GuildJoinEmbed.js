@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
-const { prefix } = require('../config.json');
 
+const mongo = require('./mongoutilities/mongo');
+
+const welcomeSchema = require('../mongoschemas/welcomeSchema');
+
+const { prefix } = require('../config.json');
 
 module.exports = function embed() {
 
