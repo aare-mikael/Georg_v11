@@ -99,6 +99,8 @@ const connectToMongoDB = async () => {
     })
 }
 
+connectToMongoDB();
+
 // Eventlistener for whenever the bot joins a new server;
 client.on('guildCreate', joinedGuild => {
 
