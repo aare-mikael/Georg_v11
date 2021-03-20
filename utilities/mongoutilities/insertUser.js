@@ -4,7 +4,7 @@ const mongoPath = process.env.mongoPath;
 const mongo = require('./mongo');
 
 module.exports = async () => {
-    await mongo().then((mongoose) => {
+    await mongo().then(async (mongoose) => {
         try {
             console.log('Ready to insert user to the database');
 
