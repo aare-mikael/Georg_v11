@@ -8,8 +8,6 @@ module.exports = {
 
         var trashID = '227520275132973056';
 
-        var msg = message.content.replace("-at ", "");
-
         var antall = 5;
 
         if(!args[args.length - 1].match(/\d/)) {
