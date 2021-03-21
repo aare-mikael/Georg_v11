@@ -22,7 +22,7 @@ module.exports = {
 
 		console.log('volume2 is: ' + volume2);
 
-		const newVolume = volume2 / 5;
+		const newVolume = volume2;
 
 		// Changes volume somewhere between the number specified and 0;
 		serverQueue.volume = newVolume
