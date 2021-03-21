@@ -120,6 +120,7 @@ client.on('ready', () => {
             emoji: '🏗️'
         }
     ])
+    .setBotOwner('227520275132973056')
 
 });
 
