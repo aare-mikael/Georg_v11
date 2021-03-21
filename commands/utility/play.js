@@ -64,6 +64,8 @@ callback: async ({ message, args, text, client, prefix, instance, interaction, q
 
             const serverQueue = message.client.queue.get(message.guild.id);
             const songInfo = await ytdl.getInfo(videoUrl.replace(/<(.+)>/g, '$1'));
+            // If console error at line 66, sign 30 "Unable to retrieve video metadata"; Just uninstall and reinstall ytdl-core!
+
             const song = {
                 id: songInfo.videoDetails.video_id,
                 title: Util.escapeMarkdown(songInfo.videoDetails.title),
