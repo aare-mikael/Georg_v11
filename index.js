@@ -112,56 +112,15 @@ this.queue = new Map();
 client.login(process.env.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
-client.on('ready', () => {
+wok.on('ready', () => {
     console.log('I solemnly swear I am up to no good.');
     
-    client.user.setStatus('online');
+    wok.user.setStatus('online');
     
-    client.user.setActivity('channel activity', { type: 'WATCHING' });
+    wok.user.setActivity('channel activity', { type: 'WATCHING' });
 
-    const messagesPath = "messages.json";
-
-    const dbOptions = {
-        keepAlive: true,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-      }
-
-      const disabledDefaultCommands = [
-        // 'help',
-        // 'command',
-        // 'language',
-        // 'prefix',
-        // 'requiredrole'
-      ]
-
-    const wok = new WOKCommands(client, {
-        commandsDir: 'commands',
-        featureDir: 'features',
-        messagesPath,
-        showWarns: true,
-        dbOptions,
-        disabledDefaultCommands
-    })
-    .setMongoPath(process.env.mongoPath)
-    .setDefaultPrefix('-')
-    .setColor(0x6f4c78)
-    .setCategorySettings([
-        {
-            name: 'text',
-            emoji: '⌨️'
-        },
-        {
-            name: 'voice',
-            emoji: '🎧'
-        },
-        {
-            name: 'utility',
-            emoji: '🏗️'
-        }
-    ])
 });
+
 
 
 // Preventing full restart upon an error;
