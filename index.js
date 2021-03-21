@@ -36,7 +36,48 @@ const client = new Discord.Client({
     partials: ['MESSAGE', 'REACTION'],
 });
 
+const messagesPath = "messages.json";
 
+    const dbOptions = {
+        keepAlive: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+      }
+
+      const disabledDefaultCommands = [
+        // 'help',
+        // 'command',
+        // 'language',
+        // 'prefix',
+        // 'requiredrole'
+      ]
+
+    const wok = new WOKCommands(client, {
+        commandsDir: 'commands',
+        featureDir: 'features',
+        messagesPath,
+        showWarns: true,
+        dbOptions,
+        disabledDefaultCommands
+    })
+    .setMongoPath(process.env.mongoPath)
+    .setDefaultPrefix('-')
+    .setColor(0x6f4c78)
+    .setCategorySettings([
+        {
+            name: 'text',
+            emoji: '⌨️'
+        },
+        {
+            name: 'voice',
+            emoji: '🎧'
+        },
+        {
+            name: 'utility',
+            emoji: '🏗️'
+        }
+    ])
 
 // Music queue;
 this.queue = new Map();
