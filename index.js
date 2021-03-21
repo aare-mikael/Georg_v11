@@ -109,6 +109,10 @@ client.on('ready', () => {
     .setColor(0x6f4c78)
     .setCategorySettings([
         {
+            name: 'Funny',
+            emoji: '😂'
+        },
+        {
             name: 'Text',
             emoji: '⌨️'
         },
@@ -119,6 +123,10 @@ client.on('ready', () => {
         {
             name: 'Utility',
             emoji: '🏗️'
+        },
+        {
+            name: 'Private',
+            emoji: '🔒'
         }
     ])
 
