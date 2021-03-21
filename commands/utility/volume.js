@@ -14,16 +14,6 @@ module.exports = {
 
 		if (!args[0]) return message.channel.send(`The current volume is: **${serverQueue.volume}**`);
 
-		serverQueue.volume = args[0]; // eslint-disable-line
-
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 5);
-
-		return message.channel.send(`I set the volume to: **${args[0]}**`);
-	}
-};
-
-		if (!args[0]) return message.channel.send(`The current volume is: **${serverQueue.volume}**`);
-
 		const volume = args[0] + 1;
 
 		console.log('Volume is: ' + volume)
