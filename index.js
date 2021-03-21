@@ -9,7 +9,7 @@ const { readdirSync } = require('fs');
 var path = require("path");
 
 // Forces the use of env;
-// const env = require('dotenv').config()
+ const env = require('dotenv').config()
 
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
