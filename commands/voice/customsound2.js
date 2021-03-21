@@ -31,9 +31,9 @@ module.exports = {
                     try {
                         const result = await discordUsers.findOneAndUpdate({
                         
-                            user: message.author,
+                            id: message.author.id,
                             }, {
-                                user: message.author,
+                                user: message.author.tag,
                                 id: message.author.id,
                                 username: message.author.username,
                                 introSound: url,
