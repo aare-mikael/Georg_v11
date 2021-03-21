@@ -8,6 +8,11 @@ module.exports = {
 
         const audio = '../../mp3/georg.mp3';
 
-        VoiceJoin(message, audio);
+        const voiceChannel = message.member.voice.channel;
+
+        voiceChannel.join().then(connection => {
+            const dispatcher = connection.play(audio);
+            dispatcher.on('finish', () => voiceChannel.leave());
+        }).catch(err => console.log(err));
     },
 };
