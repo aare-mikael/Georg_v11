@@ -2,6 +2,7 @@ const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const ApiKey = process.env.YoutubeApiKey;
 const { Util } = require('discord.js');
+const search = require('youtube-search');
 
 module.exports = {
 	name: 'play',
@@ -27,7 +28,6 @@ callback: async ({ message, args, text, client, prefix, instance, interaction })
 
         if(voiceChannel == undefined || voiceChannel == null) return;
 
-        const search = require('youtube-search');
         const opts = {
             maxResults: 10,
             key: ApiKey,
