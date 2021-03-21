@@ -4,7 +4,7 @@ module.exports = {
     name: 'georg',
     description: "Joins voice channel and plays georg.mp3",
     category: "Funny",
-    callback: (message) => {
+    callback: ({ message} ) => {
 
         const audio = '../../mp3/georg.mp3';
 
