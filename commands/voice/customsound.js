@@ -1,15 +1,15 @@
 var path = require("path")
 const fs = require("fs")
-const usersPath = (path.join(__dirname, '..', 'customsounds/'));
-const introSoundAdd = require(path.join(__dirname, '..', 'utilities/introSoundAdd.js'));
-const introSoundDel = require(path.join(__dirname, '..', 'utilities/introSoundDel.js'));
+const usersPath = require('../../customsounds');
+const introSoundAdd = require('../../utilities/introSoundAdd');
+const introSoundDel = require('../../utilities/introSoundDel');
 
 module.exports = {
 	name: 'customsound',
 	description: "Choose a sound you want to play when you enter a voice channel.",
         category: "Voice",
 	args: true,
-	callback: (message) => {
+	callback: ({ message }) => {
         
                 var name = message.author.tag;
 
