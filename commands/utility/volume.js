@@ -17,14 +17,12 @@ module.exports = {
 		const volume = args[0];
 
 		console.log('Volume is: ' + volume)
-		
-		volume2 = volume / 5;
 
-		console.log('Volume2 is: ' + volume2)
+		const volume2 = Math.floor(Math.random() * volume);
 
-		const newVolume = Math.floor(Math.random() * volume2);
+		console.log('volume2 is: ' + volume2);
 
-		console.log('newVolume is: ' + newVolume)
+		const newVolume = volume2 / 5;
 
 		// Changes volume somewhere between the number specified and 0;
 		serverQueue.volume = newVolume
