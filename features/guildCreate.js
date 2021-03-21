@@ -1,3 +1,5 @@
+const { db } = require('../mongoschemas/welcomeSchema');
+
 module.exports = (client, instance) => {
     
     // Eventlistener for whenever the bot joins a new server;
@@ -17,4 +19,10 @@ module.exports = (client, instance) => {
     defaultChannel.send(embed());
 
     });
+}
+
+module.exports.config = {
+    displayName: "Georg's database",
+    dbName: 'Georg-DB',
+    loadDBfirst: true,
 }
