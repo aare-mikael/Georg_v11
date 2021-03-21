@@ -1,6 +1,5 @@
 const mongo = require('../utilities/mongoutilities/mongo');
 const mongoose = require('mongoose');
-const mongoPath = require(process.env.mongoPath);
 
 module.exports = (client, instance) => {
     
