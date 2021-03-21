@@ -2,7 +2,7 @@ module.exports = (client) => {
     
     client.on('message', message => {
 
-        console.log(message.content);
+        console.log(message.author.tag + " wrote: " + message.content);
 
     })
 

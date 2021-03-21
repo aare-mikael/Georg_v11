@@ -22,7 +22,7 @@ module.exports = (client, instance) => {
     // }
 
     // Makes the bot pay attention to whenever somebody joins a new channel;
-    client.on('voiceStateUpdate', (oldState, newState) => {
+    client.on('voiceStateUpdate', async (oldState, newState) => {
 
         const georg = '741703921877123164';
 
@@ -43,7 +43,7 @@ module.exports = (client, instance) => {
 
         // Collects the id of the person joining;
         const newPerson = newState.member.id.toString();
-        console.log(newPerson);
+        console.log("Somebody new joined voice: " + newPerson);
 
         var oldChannel = oldState.channelID;
         var newChannel = newState.channelID;
@@ -60,29 +60,51 @@ module.exports = (client, instance) => {
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
     const serverQueue = newState.client.queue.get(newState.guild.id);
 
-        // // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
-        // if (oldChannel != newChannel) {
-        //     if (newPerson == georg) {
-        //         return;
-        //     } else if (serverQueue) {
-        //         return;
-        //     } else {
-        //         // Just a player for the introsound, for aesthetic purposes;
-        //         var name = newState.member.id.toString();
-        //         var sound = client.intro.get(name);
+        // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
+        if (oldChannel != newChannel) {
+            if (newPerson == georg) {
+                return;
+            } else if (serverQueue) {
+                return;
+            } else {
 
-        //         // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
-        //         if (sound == undefined) {
+                // bruk mongodb til å hente ut introlink og spill av
 
-        //             var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
+                // om han ikkje finns, spill av default lyd
 
-        //             introSound(newState, link, client);
-        //             return;
-        //         }
-        //         var link = sound.url;
-        //         introSound(newState, link, client);
-        //     }
-        // }
+                await mongo().then(async (mongoose) => {
+                    try {
+                        const result = await discordUsers.findOne({
+                            id: newPerson,
+                        })
+                    } finally {
+                        mongoose.connection.close();
+                    }
+                })
+
+
+
+
+
+
+
+
+                // Just a player for the introsound, for aesthetic purposes;
+                var name = newState.member.id.toString();
+                var sound = client.intro.get(name);
+
+                // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
+                if (sound == undefined) {
+
+                    var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
+
+                    introSound(newState, link, client);
+                    return;
+                }
+                var link = sound.url;
+                introSound(newState, link, client);
+            }
+        }
     })
 }
 
