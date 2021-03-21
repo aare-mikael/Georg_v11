@@ -4,7 +4,7 @@ module.exports = {
     expectedArgs: "<Target user's @>",
     description: "@ personen du skriver etter -at, så mange ganger som du skriver bakerst.",
     category: "Text",
-    async execute(message, args, text, client, prefix, instance) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         var trashID = '227520275132973056';
 

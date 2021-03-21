@@ -2,7 +2,7 @@ module.exports = {
     name: 'mp3',
     description: "Plays the mp3-file you provide the link to",
     category: "Voice",
-    execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
 

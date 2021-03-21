@@ -2,7 +2,7 @@ module.exports = {
 	name: 'volume',
     description: 'Volume command.',
     category: 'Voice',
-	execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 		const { channel } = message.member.voice;
 		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
 		const serverQueue = message.client.queue.get(message.guild.id);

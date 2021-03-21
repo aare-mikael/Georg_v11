@@ -2,7 +2,7 @@ module.exports = {
 	name: 'stop',
     description: 'Stop command for the music playing.',
     category: 'Voice',
-	execute(message) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 		const { channel } = message.member.voice;
 		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
 		const serverQueue = message.client.queue.get(message.guild.id);

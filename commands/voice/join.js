@@ -5,7 +5,7 @@ module.exports = {
     name: 'join',
     description: "Joiner voice channel",
     category: "Utility",
-    execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         VoiceJoin(message)
 

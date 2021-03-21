@@ -6,7 +6,7 @@ module.exports = {
     name: 'welcome',
     description: "Change welcome message in your server",
     category: "Text",
-    async execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         const { member, channel, content, guild } = message;
 
