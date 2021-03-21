@@ -36,17 +36,6 @@ callback: async ({ message, args, text, client, prefix, instance, interaction })
 
         let results = await search(args.join(' '), opts).catch(err => console.log("Noke skjedde"));
 
-/*        function sleep(milliseconds) {
-            const date = Date.now();
-            let currentDate = null;
-            do {
-              currentDate = Date.now();
-            } while (currentDate - date < milliseconds);
-        }
-
-        sleep(1000);
-*/
-
         let titles;
         let YoutubeResults;
 
