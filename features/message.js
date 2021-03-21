@@ -1,6 +1,10 @@
-const WOKCommands = require("wokcommands");
+module.exports = (client) => {
+    
+    client.on('message', message => {
 
-module.exports = (wok) => {
+        console.log(message.content);
+
+    })
 
     // Makes the bot react when a textmessage pops into a channel it has access to;
 //    wok.on('message', async message => {
