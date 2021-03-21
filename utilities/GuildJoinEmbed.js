@@ -16,11 +16,11 @@ module.exports = function embed() {
         .addFields(
             { name: "--------------------", value: 'The first command you use should be the **help** command!' },
             { name: "--------------------", value: 'I can moderate messages, join voice and play audio clips from youtube and more!' },
-            { name: "--------------------", value: 'All you have to do is use the help-command, and I should slide right into your DM\'s with more info!' },
+            { name: "--------------------", value: 'All you have to do is use the help-command, and I will tell you more!' },
         ) 
 //        .setImage(results.thumbnail)
         .setTimestamp() 
-        .setFooter('Georg™ ©2020', 'https://i.ibb.co/8sbpxpw/GEORG.png');
+        .setFooter('Georg™ ©2021', 'https://i.ibb.co/8sbpxpw/GEORG.png');
 
     return Embed;
 }

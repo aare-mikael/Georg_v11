@@ -1,7 +1,7 @@
-module.exports = (wok) => {
+module.exports = (client, instance) => {
     
     // Eventlistener for whenever the bot joins a new server;
-    wok.on('guildCreate', joinedGuild => {
+    client.on('guildCreate', joinedGuild => {
 
     let defaultChannel = "";
     joinedGuild.channels.cache.forEach((channel) => {
@@ -11,7 +11,7 @@ module.exports = (wok) => {
             }
         }
     })
-    const embed = require(path.join(__dirname, '/utilities', 'GuildJoinEmbed.js'));
+    const embed = require('../utilities/GuildJoinEmbed');
 
     defaultChannel.send("Hello, I'm Georg!");
     defaultChannel.send(embed());
