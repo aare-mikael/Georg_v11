@@ -42,7 +42,8 @@ const client = new Discord.Client(
 
     
 // Music queue;
-this.queue = new Map();
+client.queue = new Map();
+// this.queue = new Map();
 
 // // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
 // client.intro = new Discord.Collection();
