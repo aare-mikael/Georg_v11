@@ -32,9 +32,11 @@ const token = process.env.token;
 
 // Creates a new Discord client, essentially this is the bot;
 // const client = new Discord.Client();
-const client = new Discord.Client({
-    partials: ['MESSAGE', 'REACTION'],
-});
+const client = new Discord.Client(
+//     {
+//     partials: ['MESSAGE', 'REACTION'],
+// }
+);
 
 const messagesPath = "messages.json";
 
@@ -53,32 +55,7 @@ const messagesPath = "messages.json";
         // 'requiredrole'
       ]
 
-    const wok = new WOKCommands(client, {
-        commandsDir: 'commands',
-        featureDir: 'features',
-        messagesPath,
-        showWarns: true,
-        dbOptions,
-        disabledDefaultCommands
-    })
-    .setMongoPath(process.env.mongoPath)
-    .setDefaultPrefix('-')
-    .setColor(0x6f4c78)
-    .setCategorySettings([
-        {
-            name: 'text',
-            emoji: '⌨️'
-        },
-        {
-            name: 'voice',
-            emoji: '🎧'
-        },
-        {
-            name: 'utility',
-            emoji: '🏗️'
-        }
-    ])
-
+    
 // Music queue;
 this.queue = new Map();
 
@@ -108,16 +85,39 @@ this.queue = new Map();
 
 // const cooldowns = new Discord.Collection();
 
-// Hide your token at all costs;
-client.login(process.env.token);
-
 // When client is ready, this code will be run and will only trigger once after logging in;
-wok.on('ready', () => {
+client.on('ready', () => {
     console.log('I solemnly swear I am up to no good.');
     
-    wok.user.setStatus('online');
+    client.user.setStatus('online');
     
-    wok.user.setActivity('channel activity', { type: 'WATCHING' });
+    client.user.setActivity('channel activity', { type: 'WATCHING' });
+
+    const wok = new WOKCommands(client, {
+        commandsDir: 'commands',
+        featureDir: 'features',
+        messagesPath,
+        showWarns: true,
+        dbOptions,
+        disabledDefaultCommands
+    })
+    .setMongoPath(process.env.mongoPath)
+    .setDefaultPrefix('-')
+    .setColor(0x6f4c78)
+    .setCategorySettings([
+        {
+            name: 'text',
+            emoji: '⌨️'
+        },
+        {
+            name: 'voice',
+            emoji: '🎧'
+        },
+        {
+            name: 'utility',
+            emoji: '🏗️'
+        }
+    ])
 
 });
 
@@ -288,5 +288,8 @@ client.on('guildMemberAdd', member => {
 //         console.error(error);
 //         message.channel.send("There was an error trying to execute that command!");
 //     }
+
+// Hide your token at all costs;
+client.login(process.env.token);
     
 // });
