@@ -8,8 +8,6 @@ module.exports = {
     category: "Text",
 	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
-        const { member, channel, content, guild } = message;
-
         if(!member.hasPermission('ADMINISTRATOR')) {
             channel.send("Sorry, but you do not have the necessary permissions to run this command. You need administrator permissions!");
             return;
