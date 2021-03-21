@@ -55,7 +55,7 @@ module.exports = {
                         const result = await discordUsers.findOneAndUpdate({
                             id: message.author,
                         }, {
-                            $set: { introSound: "https://www.myinstants.com/media/sounds/tf_nemesis.mp3" }
+                            introSound: "https://www.myinstants.com/media/sounds/tf_nemesis.mp3",
                         })
                     } finally {
                         mongoose.connection.close();
