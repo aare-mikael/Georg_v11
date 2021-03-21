@@ -6,7 +6,9 @@ module.exports = {
     category: "Funny",
     callback: ({ message} ) => {
 
-        const audio = '../../mp3/georg.mp3';
+        // const audio = '../../mp3/georg.mp3';
+
+        const audio = 'https://www.myinstants.com/media/sounds/corpse-saying-what-up-baby3.mp3';
 
         const { voice } = message.member;
 
