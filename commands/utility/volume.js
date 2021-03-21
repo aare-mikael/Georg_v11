@@ -18,9 +18,9 @@ module.exports = {
 
 		console.log('Volume is: ' + volume)
 		
-		volume2 = volume / 10;
+		volume2 = volume / 5;
 
-		console.log('Volume is: ' + volume2)
+		console.log('Volume2 is: ' + volume2)
 
 		const newVolume = Math.floor(Math.random() * volume2);
 
