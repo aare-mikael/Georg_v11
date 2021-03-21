@@ -86,6 +86,7 @@ module.exports = (client, instance) => {
                     }
                 })
 
+                console.log(result);
 
 
 
