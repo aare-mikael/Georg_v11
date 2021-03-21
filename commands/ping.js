@@ -1,5 +1,5 @@
 module.exports = {
-	// name: 'ping',
+	name: 'ping',
 	description: 'Gives the ping from the bot to the server!',
 	category: "Utility",
 
