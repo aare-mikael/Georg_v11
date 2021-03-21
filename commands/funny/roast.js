@@ -47,7 +47,7 @@ module.exports = {
     name: 'roast',
     description: "Skjønna du virkelig ikkje ka dinna gjør?",
     category: "Text",
-    execute(message, args) {
+    callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
 
