@@ -66,3 +66,9 @@ module.exports = (client) => {
 //    });
 
 }
+
+module.exports.config = {
+    displayName: "Georg's database",
+    dbName: 'Georg-DB',
+    loadDBfirst: true,
+}
