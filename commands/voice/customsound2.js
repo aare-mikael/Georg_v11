@@ -34,7 +34,6 @@ module.exports = {
                             id: message.author.id,
                             }, {
                                 user: message.author.tag,
-                                id: message.author.id,
                                 username: message.author.username,
                                 introSound: url,
                             }, {
