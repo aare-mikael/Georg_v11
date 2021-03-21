@@ -8,9 +8,13 @@ module.exports = {
 
         const audio = '../../mp3/georg.mp3';
 
-        const voiceChannel = message.member.voice.channel;
+        const { voice } = message.member;
 
-        voiceChannel.join().then(connection => {
+        if (!voice.channelID) {
+            message.channel.send('Sorry, but you have to be in a voicechannel to use this command!');
+        }
+
+        voice.channel.join().then(connection => {
             const dispatcher = connection.play(audio);
             dispatcher.on('finish', () => voiceChannel.leave());
         }).catch(err => console.log(err));
