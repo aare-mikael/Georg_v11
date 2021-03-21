@@ -10,6 +10,9 @@ module.exports = {
                 var name = message.author.tag;
                 console.log(name);
 
+                var id = message.author;
+                console.log(id);
+
                 if (!args) {
                         message.channel.send(embed(message, args));
                 }                        
