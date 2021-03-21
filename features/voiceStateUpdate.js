@@ -83,40 +83,27 @@ module.exports = (client, instance) => {
                         })
                         console.log(result);
 
+                        if (result.introSound == undefined || null) {
+                            const sound = 'https://www.myinstants.com/media/sounds/tf_nemesis.mp3';
+
+                            voiceChannel.join().then(connection => {
+                                const dispatcher = connection.play(sound);
+                                dispatcher.on('finish', () => voiceChannel.leave());
+                            })
+                            return;
+                        }
+
                         const sound = result.introSound;
                         voiceChannel.join().then(connection => {
                             const dispatcher = connection.play(sound);
                             dispatcher.on('finish', () => voiceChannel.leave());
                         })
+                        return;
 
                     } finally {
                         mongoose.connection.close();
                     }
                 })
-
-
-
-
-
-
-
-
-
-
-                // Just a player for the introsound, for aesthetic purposes;
-                var name = newState.member.id.toString();
-                var sound = client.intro.get(name);
-
-                // Checks if the person joining has an intro sound, and returns if not to stop Georg from crashing :)
-                if (sound == undefined) {
-
-                    var link = "https://www.myinstants.com/media/sounds/tf_nemesis.mp3";
-
-                    introSound(newState, link, client);
-                    return;
-                }
-                var link = sound.url;
-                introSound(newState, link, client);
             }
         }
     })
