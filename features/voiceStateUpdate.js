@@ -1,3 +1,7 @@
+const mongo = require('../utilities/mongoutilities/mongo');
+const mongoose = require('mongoose');
+const mongoPath = require(process.env.mongoPath);
+
 module.exports = (client, instance) => {
     
     const Discord = require('discord.js');
@@ -43,7 +47,7 @@ module.exports = (client, instance) => {
 
         // Collects the id of the person joining;
         const newPerson = newState.member.id.toString();
-        console.log("Somebody new joined voice: " + newPerson);
+        console.log("Somebody new joined voice: " + newPerson.tag);
 
         var oldChannel = oldState.channelID;
         var newChannel = newState.channelID;
