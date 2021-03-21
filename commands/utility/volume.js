@@ -16,15 +16,15 @@ module.exports = {
 
 		const volume = args[0] + 1;
 
-		// Changes volume somewhere between the number specified and 0;
-		serverQueue.volume = Math.floor(Math.random() * volume);
+		const newVolume = Math.floor(Math.random() * volume);
 
-		volume = serverQueue.volume;
+		// Changes volume somewhere between the number specified and 0;
+		serverQueue.volume = newVolume
 
 //		serverQueue.volume = args[0];
 
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(volume / 5);
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(newVolume / 5);
 
-		return message.channel.send('I set the volume to: **' + volume + '**');
+		return message.channel.send('I set the volume to: **' + newVolume + '**');
 	}
 };
