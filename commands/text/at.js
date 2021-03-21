@@ -6,9 +6,6 @@ module.exports = {
     category: "Text",
     async execute(message, args, text, client, prefix, instance) {
 
-        // Returnerer tidlig om meldingen er sendt av en bot;
-        if (message.author.bot) return;
-
         var trashID = '227520275132973056';
 
         var msg = message.content.replace("-at ", "");
