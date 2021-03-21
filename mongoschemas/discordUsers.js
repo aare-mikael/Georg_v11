@@ -12,7 +12,7 @@ const discordUsers = mongoose.Schema({
 //    sentMessages: Number,
 //    commandsUsed: Number,
     nameHistory: [String],
-    introSound: [String],
+    introSound: String,
 });
 
 module.exports = mongoose.model('discordUsers', discordUsers);
