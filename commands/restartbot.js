@@ -6,7 +6,10 @@ module.exports = {
       
       var trashID = '227520275132973056'
 
-    if (message.author.id != '227520275132973056') {
+      console.log(message.author);
+      console.log(message.author.toString());
+
+    if (message.author != '227520275132973056') {
       message.channel.send('Sorry, only my maker can use this one!');
       return;
     }
