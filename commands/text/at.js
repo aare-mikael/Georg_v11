@@ -18,14 +18,6 @@ module.exports = {
             args.pop();
         }
 
-        function sleep(milliseconds) {
-            const date = Date.now();
-            let currentDate = null;
-            do {
-              currentDate = Date.now();
-            } while (currentDate - date < milliseconds);
-        }
-
 
         if (antall > 20) {
             message.channel.send("Sorry bud, but I'm not gonna spam this user more than 20 times at a time!");
@@ -33,13 +25,11 @@ module.exports = {
             var i = 0;
             var j = 5;
             for (i = 0; i < j; i++) {
-                sleep(1000);
                 message.channel.send(args.join(' '));
             }
         } else {
             var i = 0;
             for (i = 0; i < antall; i++) {
-                sleep(1000);
                 message.channel.send(args.join(' '));
             }
         }
