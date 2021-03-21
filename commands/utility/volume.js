@@ -14,11 +14,11 @@ module.exports = {
 
 		if (!args[0]) return message.channel.send(`The current volume is: **${serverQueue.volume}**`);
 
-		const volume = args[0] + 1;
+		const volume = args[0];
 
 		console.log('Volume is: ' + volume)
 		
-		volume2 = volume / 5;
+		volume2 = volume / 10;
 
 		console.log('Volume is: ' + volume2)
 
