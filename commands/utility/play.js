@@ -10,7 +10,7 @@ module.exports = {
     category: "Voice",
 	args: true,
 //	usage: "<user> <role>",
-callback: async ({ message, args, text, client, prefix, instance, interaction }) => {
+callback: async ({ message, args, text, client, prefix, instance, interaction, queue }) => {
         if (message.author.bot) {
             message.channel.send ("I can't play links sent by discord bots!");
             console.log(message.author.username);
