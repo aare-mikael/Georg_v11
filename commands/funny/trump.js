@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-const embed = require(path.join(__dirname, '..', '/utilities', 'TrumpEmbed.js'));
+const embed = require('../../utilities/TrumpEmbed');
 
 module.exports = {
     name: 'trump',
