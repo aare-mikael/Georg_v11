@@ -82,10 +82,18 @@ module.exports = (client, instance) => {
                             id: newPerson,
                         })
                         console.log(result);
+
+                        const sound = result.introSound;
+                        voiceChannel.join().then(connection => {
+                            const dispatcher = connection.play(sound);
+                            dispatcher.on('finish', () => voiceChannel.leave());
+                        })
+
                     } finally {
                         mongoose.connection.close();
                     }
                 })
+
 
 
 
