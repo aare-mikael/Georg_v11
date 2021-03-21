@@ -18,7 +18,7 @@ module.exports = {
 
 		console.log('Volume is: ' + volume)
 		
-		volume2 = volume / 10;
+		volume2 = volume / 5;
 
 		console.log('Volume is: ' + volume2)
 
