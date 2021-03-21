@@ -21,7 +21,7 @@ callback: async ({ message, args, text, client, prefix, instance, interaction })
         const voiceChannel = message.member.voice.channel;
 
         if (!voiceChannel) {
-            message.channel.send("You have to be in a voice channel for me to join and play this video. Join a voice channel and try again!");
+            message.channel.send("You have to be in a voice channel. Join a voice channel and try again!");
             return;
         }
 
