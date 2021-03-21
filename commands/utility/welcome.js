@@ -6,9 +6,9 @@ module.exports = {
     name: 'welcome',
     description: "Change welcome message in your server",
     category: "Text",
-	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction, }) => {
 
-        if(!member.hasPermission('ADMINISTRATOR')) {
+        if(!message.member.hasPermission('ADMINISTRATOR')) {
             channel.send("Sorry, but you do not have the necessary permissions to run this command. You need administrator permissions!");
             return;
         }
