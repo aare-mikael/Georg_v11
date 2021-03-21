@@ -81,12 +81,13 @@ module.exports = (client, instance) => {
                         const result = await discordUsers.findOne({
                             id: newPerson,
                         })
+                        console.log(result);
                     } finally {
                         mongoose.connection.close();
                     }
                 })
 
-                console.log(result);
+
 
 
 
