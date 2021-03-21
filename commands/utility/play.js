@@ -2,6 +2,7 @@ const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const ApiKey = process.env.YoutubeApiKey;
 const { Util } = require('discord.js');
+const search = require('youtube-search');
 
 module.exports = {
 	name: 'play',
@@ -21,13 +22,12 @@ callback: async ({ message, args, text, client, prefix, instance, interaction })
         const voiceChannel = message.member.voice.channel;
 
         if (!voiceChannel) {
-            message.channel.send("You have to be in a voice channel for me to join and play this video. Join a voice channel and try again!");
+            message.channel.send("You have to be in a voice channel. Join a voice channel and try again!");
             return;
         }
 
         if(voiceChannel == undefined || voiceChannel == null) return;
 
-        const search = require('youtube-search');
         const opts = {
             maxResults: 10,
             key: ApiKey,
