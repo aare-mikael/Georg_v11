@@ -7,8 +7,8 @@ const discordUsers = require('../../mongoschemas/discordUsers');
 module.exports = {
 	name: 'customsound2',
 	description: "Choose a sound you want to play when you enter a voice channel.",
-        category: "Voice",
-	async callback: ({ message, args, text, client, prefix, instance, channel, interaction }) => {
+    category: "Voice",
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         var url = args[1];
         console.log(url);
