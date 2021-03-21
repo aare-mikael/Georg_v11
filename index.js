@@ -109,15 +109,15 @@ client.on('ready', () => {
     .setColor(0x6f4c78)
     .setCategorySettings([
         {
-            name: 'text',
+            name: 'Text',
             emoji: '⌨️'
         },
         {
-            name: 'voice',
+            name: 'Voice',
             emoji: '🎧'
         },
         {
-            name: 'utility',
+            name: 'Utility',
             emoji: '🏗️'
         }
     ])
