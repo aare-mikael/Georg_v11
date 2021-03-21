@@ -59,6 +59,6 @@ module.exports = (wok) => {
         //     message.channel.send("There was an error trying to execute that command!");
         // }
         
-    });
+//    });
 
 }
