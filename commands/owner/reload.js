@@ -3,7 +3,7 @@ module.exports = {
     description: "Reloads the command you specify",
 	category: 'Private',
     usage: "[reload command]",
-    execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
         if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
             
         const commandName = args[0].toLowerCase();

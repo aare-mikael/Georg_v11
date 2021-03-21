@@ -2,7 +2,7 @@ module.exports = {
 	name: 'pause',
     description: 'Pause command.',
     category: 'Voice',
-	execute(message) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;

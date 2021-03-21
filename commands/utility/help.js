@@ -1,12 +1,10 @@
-const { prefix } = require('../../config.json');
-
 module.exports = {
     name: "help",
     description: "Lists all commands currently available for use",
     aliases: ["commands"],
     usage: "[command name]",
     category: "Help",
-    execute(message, args, client) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
         const data = [];
         const { commands } = message.client;
 
@@ -56,7 +54,7 @@ module.exports = {
            
             
 
-            data.push(`You can send \`${prefix}help [command name]\` to get info on a specific command!`);
+            data.push('You can send ' + PREFIX + 'help [command name] to get info on a specific command!');
 
             return message.author.send(data, { split: true })
             	.then(() => {
@@ -81,7 +79,7 @@ module.exports = {
 
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
-        if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+        if (command.usage) data.push('**Usage:** ' + PREFIX + `${command.name} ${command.usage}`);
         if (command.category) data.push(`**Category:** ${command.category}`);
         // ${prefix}${command.name} <- just in case of error, this was right after **Category** in the line above^
 

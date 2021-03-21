@@ -2,7 +2,7 @@ module.exports = {
     name: 'delete',
     description: "Deletes messages",
     category: "Text",
-execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
     const amount = args.join(' ');
 

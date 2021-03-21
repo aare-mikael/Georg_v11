@@ -2,7 +2,7 @@ module.exports = {
 	name: 'disconnect',
 	description: 'Disconnects bot from voicechannel',
 	category: "Utility",
-	execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 		// Sjekker om personen som skriver meldingen er i samme voice kanal;
 
 		if (!message.member.voice.channel == true) {

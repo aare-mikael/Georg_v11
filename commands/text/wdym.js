@@ -1,10 +1,8 @@
-const VoiceSpeaking = require("../../utilities/VoiceSpeaking");
-
 module.exports = {
     name: 'wdym',
     description: 'wdym',
     category: "Text",
-    execute(message, args) {
+	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         message.channel.bulkDelete(1);
 
