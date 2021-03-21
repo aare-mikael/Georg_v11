@@ -10,7 +10,7 @@ module.exports = {
 
         var antall = 5;
 
-        if(!args[args.length - 1].match(/\d/)) {
+        if(isNaN(args[args.length - 1])) {
             antall = 5;
         } else {
             antall = args[args.length-1];
