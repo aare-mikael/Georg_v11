@@ -13,7 +13,7 @@ module.exports = {
                 var id = message.author.id;
                 console.log(id);
 
-                if (!args) {
+                if (!args[0]) {
                         message.channel.send(embed(message, args));
                 }                        
 
