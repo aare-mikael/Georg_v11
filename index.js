@@ -95,7 +95,7 @@ client.on('ready', () => {
         // 'requiredrole'
       ]
 
-    new WOKCommands(client, {
+    const wok = new WOKCommands(client, {
         commandsDir: 'commands',
         featureDir: 'features',
         messagesPath,
@@ -124,8 +124,8 @@ client.on('ready', () => {
 
 
 // Preventing full restart upon an error;
-client.on("error", (e) => console.error(e));
-client.on("warn", (e) => console.warn(e));
+wok.on("error", (e) => console.error(e));
+wok.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
 // const mongo = require('./utilities/mongoutilities/mongo');
