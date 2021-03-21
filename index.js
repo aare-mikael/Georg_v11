@@ -17,6 +17,7 @@ const Discord = require('discord.js');
 // const GeorgBot = require('./struct/Client');
 
 const WOKCommands = require('wokcommands');
+require ('dotenv').config;
 
 // Requires the ytdl-core module, which is used for playing yotube audio in voice channels;
 const ytdl = require('ytdl-core');
@@ -33,27 +34,11 @@ const token = process.env.token;
 // Creates a new Discord client, essentially this is the bot;
 // const client = new Discord.Client();
 const client = new Discord.Client(
-//     {
-//     partials: ['MESSAGE', 'REACTION'],
-// }
+     {
+     partials: ['MESSAGE', 'REACTION'],
+ }
 );
 
-const messagesPath = "messages.json";
-
-    const dbOptions = {
-        keepAlive: true,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-      }
-
-      const disabledDefaultCommands = [
-        // 'help',
-        // 'command',
-        // 'language',
-        // 'prefix',
-        // 'requiredrole'
-      ]
 
     
 // Music queue;
@@ -93,6 +78,23 @@ client.on('ready', () => {
     
     client.user.setActivity('channel activity', { type: 'WATCHING' });
 
+    const messagesPath = "messages.json";
+
+    const dbOptions = {
+        keepAlive: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+      }
+
+      const disabledDefaultCommands = [
+        // 'help',
+        // 'command',
+        // 'language',
+        // 'prefix',
+        // 'requiredrole'
+      ]
+
     const wok = new WOKCommands(client, {
         commandsDir: 'commands',
         featureDir: 'features',
@@ -124,8 +126,8 @@ client.on('ready', () => {
 
 
 // Preventing full restart upon an error;
-client.on("error", (e) => console.error(e));
-client.on("warn", (e) => console.warn(e));
+// client.on("error", (e) => console.error(e));
+// client.on("warn", (e) => console.warn(e));
 // client.on("debug", (e) => console.info(e));
 
 // const mongo = require('./utilities/mongoutilities/mongo');
