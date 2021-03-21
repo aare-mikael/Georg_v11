@@ -9,7 +9,7 @@ const { readdirSync } = require('fs');
 var path = require("path");
 
 // Forces the use of env;
-const env = require('dotenv').config()
+// const env = require('dotenv').config()
 
 // Requires the discord.js module, which this bot is built by;
 const Discord = require('discord.js');
@@ -109,7 +109,7 @@ this.queue = new Map();
 // const cooldowns = new Discord.Collection();
 
 // Hide your token at all costs;
-client.login(process.env.token);
+wok.login(process.env.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
 wok.on('ready', () => {
