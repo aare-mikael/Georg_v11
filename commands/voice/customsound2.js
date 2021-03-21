@@ -1,4 +1,7 @@
 const embed = require('../../utilities/CustomsoundEmbed');
+const mongo = require('../../utilities/mongoutilities/mongo');
+const mongoose = require('mongoose');
+const discordUsers = require('../../mongoschemas/discordUsers');
 
 
 module.exports = {
@@ -6,64 +9,59 @@ module.exports = {
 	description: "Choose a sound you want to play when you enter a voice channel.",
         category: "Voice",
 	callback: ({ message, args, text, client, prefix, instance, channel, interaction }) => {
+
+        var url = args[1];
+        console.log(url);
         
-                var name = message.author.tag;
-                console.log(name);
+        var name = message.author.tag;
+        console.log(name);
 
-                var id = message.author.id;
-                console.log(id);
+        var id = message.author.id;
+        console.log(id);
 
-                if (!args[0]) {
-                        message.channel.send(embed(message, args));
-                }                        
+        if (!args[0]) {
+            message.channel.send(embed(message, args));
+        }                        
 
-                switch(args[0]){
+        switch(args[0]){
 
-                        case 'add':
-                                var url = args[1]
-                                if(fs.existsSync(usersPath + name + ".js")){
-                                var intro = require(path.join(usersPath + name +".js"))
-                                if( intro.id !== message.author.id ){
-                                message.channel.send("You can't change other users intro-sound!")
-                                return
-                                } else {
-                                  introSoundDel(client, message);
-                                  introSoundAdd(client, message, name, url, true)
-                                  message.reply('if you had an intro sound previously, you have to delete it first, and then add your new sound! Your intro-sound is saved, and available for use!')
-                                }
-                                } else {
-                                  introSoundAdd(client, message, name, url, true)
-                                  message.reply("if you had an intro sound previously, you have to delete it first, and then add your new sound! Your intro-sound is saved, and available for use!")
-                                }
-                        break;
+            case 'add':
 
-                        case 'delete':
-                                if(fs.existsSync(usersPath + name + ".js")){
-                                        introSoundDel(client, message);
-                                        }
-                                        message.reply("your sound is deleted.")
-                        break;
-
-                        case 'toggleon':
+                await mongo().then(async (mongoose) => {
+                    try {
+                        const result = await discordUsers.findOneAndUpdate({
                         
-                                if(fs.existsSync(usersPath + name + ".js")){
-                                        var intro = require(path.join(usersPath + name +".js"))     
-                                        introSoundDel(client, message);
-                                        introSoundAdd(client, message, name, url, true)
-                                        message.reply("your sound is toggled on and will play from now on.")
-                                }
-
-                        break;
-
-                        case 'toggleoff':
-
-                                if(fs.existsSync(usersPath + name + ".js")){
-                                        var intro = require(path.join(usersPath + name +".js"))     
-                                        introSoundDel(client, message);
-                                        introSoundAdd(client, message, name, url, false)
-                                        message.reply("your sound is toggled off, and will not play from now on.")
-                                }
-
+                            id: message.author,
+                            }, {
+                                introSound: url,
+                            }, {
+                                upsert: true,
+                                new: true,
+                            })
+                        } finally {
+                            mongoose.connection.close();
                         }
+                    })   
+                            
+                message.reply("your sound is updated!");
+
+                break;
+
+            case 'delete':
+                await mongo().then(async (mongoose) => {
+                    try {
+                        const result = await discordUsers.findOneAndUpdate({
+                            id: message.author,
+                        }, {
+                            $set: { introSound: "https://www.myinstants.com/media/sounds/tf_nemesis.mp3" }
+                        })
+                    } finally {
+                        mongoose.connection.close();
+                    }
+                })
+                            
+            message.reply("your sound is deleted, and you are now using the default sound.");
+
+        }
 	},
 };
