@@ -109,7 +109,7 @@ this.queue = new Map();
 // const cooldowns = new Discord.Collection();
 
 // Hide your token at all costs;
-wok.login(process.env.token);
+client.login(process.env.token);
 
 // When client is ready, this code will be run and will only trigger once after logging in;
 wok.on('ready', () => {
