@@ -53,7 +53,7 @@ module.exports = {
                 await mongo().then(async (mongoose) => {
                     try {
                         const result = await discordUsers.findOneAndUpdate({
-                            id: message.author,
+                            id: message.author.id,
                         }, {
                             introSound: "https://www.myinstants.com/media/sounds/tf_nemesis.mp3",
                         })
