@@ -11,13 +11,10 @@ module.exports = {
 	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         var url = args[1];
-        console.log(url);
         
         var name = message.author.tag;
-        console.log(name);
 
         var id = message.author.id;
-        console.log(id);
 
         if (!args[0]) {
             message.channel.send(embed(message, args));
