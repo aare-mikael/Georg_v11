@@ -134,17 +134,17 @@ client.on('ready', () => {
 });
 
   // Ran whenever a supported database connection is connected
-  wok.on('databaseConnected', (connection, state) => {
+  client.on('databaseConnected', (connection, state) => {
     console.log('The state is', state)
   })
 
   // Ran when a server owner attempts to set a language that you have not supported yet
-  wok.on('languageNotSupported', (message, lang) => {
+  client.on('languageNotSupported', (message, lang) => {
     console.log('Attempted to set language to', lang)
   })
 
   // Ran when an exception occurs within a command
-  wok.on('commandException', (command, message, error) => {
+  client.on('commandException', (command, message, error) => {
     console.log(`An exception occured when using command "${command.names[0]}"! The error is:`)
     console.error(error)
   })
