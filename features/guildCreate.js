@@ -1,7 +1,7 @@
-module.exports = (client) => {
+module.exports = (wok) => {
     
     // Eventlistener for whenever the bot joins a new server;
-    client.on('guildCreate', joinedGuild => {
+    wok.on('guildCreate', joinedGuild => {
 
     let defaultChannel = "";
     joinedGuild.channels.cache.forEach((channel) => {
