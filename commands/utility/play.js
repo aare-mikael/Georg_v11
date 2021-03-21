@@ -63,7 +63,9 @@ callback: async ({ message, args, text, client, prefix, instance, interaction, q
             console.log(videoUrl);
 
             const serverQueue = message.client.queue.get(message.guild.id);
-            const songInfo = await ytdl.getInfo(videoUrl.replace(/<(.+)>/g, '$1'));
+            const songInfo = await ytdl.getInfo(
+//                videoUrl.replace(/<(.+)>/g, '$1')
+                );
             const song = {
                 id: songInfo.videoDetails.video_id,
                 title: Util.escapeMarkdown(songInfo.videoDetails.title),
