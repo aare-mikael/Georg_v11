@@ -9,7 +9,7 @@ module.exports = {
 	description: "Choose a sound you want to play when you enter a voice channel.",
         category: "Voice",
 	args: true,
-	execute(message, args, client) {
+	callback: (message) => {
         
                 var name = message.author.tag;
 
