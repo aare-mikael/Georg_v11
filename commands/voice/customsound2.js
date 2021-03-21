@@ -5,7 +5,7 @@ module.exports = {
 	name: 'customsound2',
 	description: "Choose a sound you want to play when you enter a voice channel.",
         category: "Voice",
-	callback: ({ message }) => {
+	callback: ({ message, args, text, client, prefix, instance, channel, interaction }) => {
         
                 var name = message.author.tag;
                 console.log(name);
