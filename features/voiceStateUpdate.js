@@ -47,7 +47,6 @@ module.exports = (client, instance) => {
 
         // Collects the id of the person joining;
         const newPerson = newState.member.id.toString();
-        console.log("Somebody new joined voice: " + newState.member.tag);
 
         var oldChannel = oldState.channelID;
         var newChannel = newState.channelID;
