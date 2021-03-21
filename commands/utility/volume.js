@@ -18,11 +18,11 @@ module.exports = {
 
 		console.log('Volume is: ' + volume)
 		
-		volume = volume / 5;
+		volume2 = volume / 5;
 
-		console.log('Volume is: ' + volume)
+		console.log('Volume is: ' + volume2)
 
-		const newVolume = Math.floor(Math.random() * volume);
+		const newVolume = Math.floor(Math.random() * volume2);
 
 		console.log('newVolume is: ' + newVolume)
 
