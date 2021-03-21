@@ -105,6 +105,7 @@ client.on('ready', () => {
     })
     .setMongoPath(process.env.mongoPath)
     .setDefaultPrefix('-')
+    .setBotOwner('227520275132973056')
     .setColor(0x6f4c78)
     .setCategorySettings([
         {
@@ -120,7 +121,6 @@ client.on('ready', () => {
             emoji: '🏗️'
         }
     ])
-    .setBotOwner('227520275132973056')
 
 });
 
