@@ -7,7 +7,6 @@ module.exports = {
 
         if (!args[0]) {
             message.channel.send('Available types are; "PLAYING", "STREAMING", "LISTENING", "WATCHING", and "COMPETING".');
-            return;
         }
 
         let filter = m => (m.author.id === message.author.id); 
