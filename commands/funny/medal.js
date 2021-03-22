@@ -27,7 +27,7 @@ var videos = [
 module.exports = {
     name: 'medal',
     description: "Gives a random medal-link from #skrytevideoer in **The Dilf's Noobhouse** for you to either laugh at or be impressed by, 90% chance of the former!",
-    category: "Text",
+    category: "Funny",
     callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;

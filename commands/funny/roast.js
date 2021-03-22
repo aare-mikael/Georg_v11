@@ -46,7 +46,7 @@ function shuffle(array) {
 module.exports = {
     name: 'roast',
     description: "Skjønna du virkelig ikkje ka dinna gjør?",
-    category: "Text",
+    category: "Funny",
     callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
