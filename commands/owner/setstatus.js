@@ -10,7 +10,7 @@ module.exports = {
             return;
         }
         
-        client.user.setStatus(args);
+        client.user.setStatus(args[0]);
 
     },
   }    
