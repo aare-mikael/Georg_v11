@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'setstatus',
+    name: 'setactivity',
     description: "Sets my activity, but only my maker can use this!",
     category: "Private",
     ownerOnly: true,
