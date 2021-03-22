@@ -5,7 +5,7 @@ module.exports = {
     ownerOnly: true,
     callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
-        if (!args) {
+        if (!args[0]) {
             message.channel.send('Available types are; "PLAYING", "STREAMING", "LISTENING", "WATCHING", and "COMPETING".');
             return;
         }
