@@ -7,10 +7,17 @@ module.exports = {
 
         if (!args[0]) {
             message.channel.send('The available statuses are; "online", "idle", "dnd" and "invisible"!');
-            return;
         }
+
+        let filter = m => (m.author.id === message.author.id); 
+        let collectedStatus = await message.channel.awaitMessages(filter, { max: 1 });
+        let status = collectedStatus.first().content;
         
-        client.user.setStatus(args[0]);
+        client.user.setPresence({
+            status: {
+                name: status,
+            }
+        });
 
     },
   }    
