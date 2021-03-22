@@ -13,7 +13,7 @@ module.exports = {
         let collectedStatus = await message.channel.awaitMessages(filter, { max: 1 });
         let status = collectedStatus.first().content;
         
-        client.user.setStatus(status);
+        client.user.setPresence({ status: status });
 
     },
   }    
