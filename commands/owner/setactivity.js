@@ -16,7 +16,12 @@ module.exports = {
         let filter2 = m => (m.author.id === message.author.id);
         let collectedType = await message.channel.awaitMessages(filter2, { max: 1 });
 
-        client.user.setActivity(collectedActivity, { type: collectedType });
+        client.user.setPresence({
+            activity: {
+                name: collectedActivity,
+                type: collectedType,
+            }
+        });
     },
   }    
   
