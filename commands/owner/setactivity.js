@@ -7,7 +7,7 @@ module.exports = {
 
         if (!args[0]) {
             message.channel.send('Available types are; "PLAYING", "STREAMING", "LISTENING", "WATCHING", and "COMPETING".');
-            message.channel.send('Listening to actvity first, and then type of activity!');
+            message.channel.send('Listening to activity first, and then type of activity!');
         }
 
         let filter = m => (m.author.id === message.author.id); 

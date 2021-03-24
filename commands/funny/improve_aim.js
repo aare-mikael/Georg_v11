@@ -12,13 +12,15 @@ var improvements = [
     "har du kjøpt deg gamingsokker?",
     "musa e sikkert utslitt. Kjøp deg ny",
     "har du prøvd å åpne augene dine?",
-    "har du kjøpt nye datadeler på NetPartner i det siste?"
+    "har du kjøpt nye datadeler på NetPartner i det siste?",
+    "ingenting eg seie kan hjelpe det trailerlasset du ser ut som å treffe det du skal",
+    "gi opp"
 ]
 
 module.exports = {
     name: 'improve_aim',
     description: "Dinna e nesten litt sus å bruke",
-    category: "Text",
+    category: "Funny",
     callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;
