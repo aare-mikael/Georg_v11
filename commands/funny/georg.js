@@ -14,7 +14,7 @@ module.exports = {
 
         voice.channel.join().then(connection => {
             const dispatcher = connection.play(audio);
-//            dispatcher.on('finish', () => voice.channel.leave());
+            dispatcher.on('finish', () => voice.channel.leave());
         }).catch(err => console.log(err));
     },
 };
