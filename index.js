@@ -77,7 +77,7 @@ client.on('ready', () => {
     
     client.user.setStatus('online');
     
-    client.user.setActivity('channel activity', { type: 'WATCHING' });
+    client.user.setActivity('-help', { type: 'LISTENING' });
 
     const messagesPath = "messages.json";
 
