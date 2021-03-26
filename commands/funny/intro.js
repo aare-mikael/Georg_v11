@@ -1,3 +1,6 @@
+const mongo = require('../../utilities/mongoutilities/mongo');
+const mongoose = require('mongoose');
+
 module.exports = {
     name: 'intro',
     description: "Joins voice channel and plays your introsound",
