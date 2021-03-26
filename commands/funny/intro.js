@@ -1,5 +1,6 @@
 const mongo = require('../../utilities/mongoutilities/mongo');
 const mongoose = require('mongoose');
+const discordUsers = require('../../mongoschemas/discordUsers');
 
 module.exports = {
     name: 'intro',
