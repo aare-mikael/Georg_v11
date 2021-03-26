@@ -5,7 +5,7 @@ module.exports = {
 	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
-        const serverQueue = newState.client.queue.get(newState.guild.id);
+        const serverQueue = message.client.queue.get(message.guild.id);
 
         const { voice } = message.member;
 
