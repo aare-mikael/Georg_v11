@@ -35,9 +35,9 @@ module.exports = {
                     }
 
                     const sound = result.introSound;
-                    voiceChannel.join().then(connection => {
+                    voice.channel.join().then(connection => {
                         const dispatcher = connection.play(sound);
-                        dispatcher.on('finish', () => voiceChannel.leave());
+                        dispatcher.on('finish', () => voice.channel.leave());
                     })
                     return;
 
