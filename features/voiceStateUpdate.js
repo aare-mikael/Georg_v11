@@ -2,28 +2,7 @@ const mongo = require('../utilities/mongoutilities/mongo');
 const mongoose = require('mongoose');
 const discordUsers = require('../mongoschemas/discordUsers');
 
-module.exports = (client, instance) => {
-    
-    const Discord = require('discord.js');
-
-    // fs is Node's native file system module;
-    const fs = require('fs');
-    const { readdirSync } = require('fs');
-
-    // To get file paths of different classes and objects;
-    var path = require("path");
-
-    const introSound = require('../utilities/introPlayer');
-
-    // // Requires the customsound array, so the bot knows which sound to play when a user joins voice;
-    // client.intro = new Discord.Collection();
-    // const introFiles = fs.readdirSync('../customsounds/').filter(file => file.endsWith('.js'));
-    // for (const file of introFiles) {
-    //     // Requires all files in intro;
-    //     const intro = require('./customsounds' + file);
-    //     // Set a new item in the collection with the key as the commandname and the value as the exported module;
-    //     client.intro.set(intro.id, intro);
-    // }
+module.exports = (client) => {
 
     // Makes the bot pay attention to whenever somebody joins a new channel;
     client.on('voiceStateUpdate', async (oldState, newState) => {
@@ -61,7 +40,7 @@ module.exports = (client, instance) => {
         */
 
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
-    const serverQueue = newState.client.queue.get(newState.guild.id);
+        const serverQueue = newState.client.queue.get(newState.guild.id);
 
         // Checks if the new channel is the same as the old, in case someone mutes, unmutes, deafens and so on;
         if (oldChannel != newChannel) {
