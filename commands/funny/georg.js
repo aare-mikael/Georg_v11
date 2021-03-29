@@ -12,6 +12,12 @@ module.exports = {
             message.channel.send('Sorry, but you have to be in a voicechannel to use this command!');
         }
 
+        const serverQueue = message.client.queue.get(message.guild.id);
+        if(serverQueue) {
+            serverQueue.songs.push(audio);
+            return message.channel.send(`✅ **Georg.mp3** has been added to the queue!`);
+        }
+
         voice.channel.join().then(connection => {
             const dispatcher = connection.play(audio);
             dispatcher.on('finish', () => voice.channel.leave());
