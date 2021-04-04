@@ -61,7 +61,7 @@ module.exports = (client) => {
                         })
                         console.log(result);
 
-                        if (result.introSound == undefined || null) {
+                        if ((result == undefined || null) || (result.introSound == undefined || null)) {
                             const sound = 'https://www.myinstants.com/media/sounds/tf_nemesis.mp3';
 
                             voiceChannel.join().then(connection => {
