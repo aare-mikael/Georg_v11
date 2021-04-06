@@ -31,14 +31,6 @@ module.exports = (client) => {
         var newChannel = newState.channelID;
         var voiceChannel = newState.channel;
 
-        /*
-        if (voiceChannel = undefined || voiceChannel == null) {
-            if(oldserver == team10Discord) {
-                
-            }
-        }
-        */
-
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
         const serverQueue = newState.client.queue.get(newState.guild.id);
 
@@ -48,7 +40,10 @@ module.exports = (client) => {
                 return;
             } else if (serverQueue) {
                 return;
-            } else {
+            } else if (voiceChannel == null || undefined) {
+                return;
+            } 
+            else {
 
                 // bruk mongodb til å hente ut introlink og spill av
 
