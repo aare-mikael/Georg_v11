@@ -38,9 +38,9 @@ module.exports = (client) => {
         // Collects the id of the person joining;
         const newPerson = newState.member.id.toString();
 
-        if (newPerson == georg) {
-            return;
-        }
+        // if (newPerson == georg) {
+        //     return;
+        // }
 
           console.log('Going to sleep for 10 seconds');
           sleep(10000);
