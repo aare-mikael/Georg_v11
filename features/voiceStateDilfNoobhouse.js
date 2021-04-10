@@ -34,7 +34,7 @@ module.exports = (client) => {
             return;
         } 
 
-            join();
+            randomVoiceJoin();
 
     })
 }
