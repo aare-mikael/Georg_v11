@@ -29,8 +29,6 @@ module.exports = (client) => {
 
         if (newserver != georgland ) return;
 
-        if (newState.guild.voiceConnection) return;
-
         function sleep(milliseconds) {
             const date = Date.now();
             let currentDate = null;
@@ -66,7 +64,7 @@ module.exports = (client) => {
             'https://www.myinstants.com/media/sounds/fbi-open-up-sfx.mp3',
         ]
             
-        const lydplass = Math.random(sounds.length - 1);
+        const lydplass = Math.floor(Math.random() * (sounds.length - 1));
 
         console.log('Lydplass: ' + lydplass);
     
