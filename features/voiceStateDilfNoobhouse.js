@@ -33,7 +33,7 @@ module.exports = (client) => {
         if (serverQueue) {
             return;
         } else {
-            run();
+            join();
         }
     })
 }
@@ -51,7 +51,7 @@ var sounds = [
 
     const lyd = sounds[lydplass];
 
-async function randomVoiceJoin() {
+function randomVoiceJoin() {
 
     var voiceChannel = newState.channel;
 
@@ -69,7 +69,7 @@ async function randomVoiceJoin() {
     }).catch(err => console.log(err));  
 };
 
-async function run() {
+function join() {
     setTimeout(randomVoiceJoin, 10000);
 }
 
