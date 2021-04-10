@@ -25,7 +25,7 @@ module.exports = (client) => {
         var newserver = newState.guild.id.toString();
         var oldserver = oldState.guild.id.toString();
 
-        if (newserver != (DilfNoobhouse || team10Discord || georgland) ) return;
+        if (newserver != DilfNoobhouse || team10Discord || georgland ) return;
 
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
         const serverQueue = newState.client.queue.get(newState.guild.id);
