@@ -71,7 +71,6 @@ module.exports = (client) => {
         console.log(lyd);
         
         var voiceChannel = newState.channel;
-        console.log(voiceChannel);
     
         if (voiceChannel == (undefined || null) ) {
             console.log('Undefined or null voice channel');
