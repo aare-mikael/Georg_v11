@@ -21,6 +21,8 @@ module.exports = (client) => {
 
         if (newState.guild.voiceConnection) return;
 
+        if (newState.channel == null || undefined) return;
+
         // Variable names should tell you what this does;
         var newserver = newState.guild.id.toString();
         var oldserver = oldState.guild.id.toString();
