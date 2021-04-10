@@ -54,7 +54,7 @@ module.exports = (client) => {
                         const result = await discordUsers.findOne({
                             id: newPerson,
                         })
-                        console.log(result);
+                        console.log(result.user);
 
                         if ((result == undefined || null) || (result.introSound == undefined || null)) {
                             const sound = 'https://www.myinstants.com/media/sounds/tf_nemesis.mp3';
