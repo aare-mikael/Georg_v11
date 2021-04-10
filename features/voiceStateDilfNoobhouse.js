@@ -65,6 +65,8 @@ module.exports = (client) => {
         const lydplass = Math.random(sounds.length - 1);
     
         const lyd = sounds[lydplass];
+
+        console.log(lyd);
         
         var voiceChannel = newState.channel;
         console.log(voiceChannel);
