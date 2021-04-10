@@ -7,6 +7,18 @@ module.exports = (client) => {
     // Makes the bot pay attention to whenever somebody joins a new channel;
     client.on('voiceStateUpdate', async (oldState, newState) => {
 
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+              currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+          }
+
+          console.log('Going to sleep for 10 seconds');
+          sleep(10000);
+          console.log('Slept for 10 seconds!');
+
         const georg = '741703921877123164';
 
         const team10Discord = '612947002853949458';
@@ -34,52 +46,39 @@ module.exports = (client) => {
             return;
         } 
 
-        function randomVoiceJoin() {
-
-            var sounds = [
-                'https://www.myinstants.com/media/sounds/pornhub-community-intro.mp3',
-                'https://www.myinstants.com/media/sounds/what-are-you-doing-step-bro-tik-tok-meme.mp3',
-                'https://www.myinstants.com/media/sounds/mlg-airhorn.mp3',
-                'https://www.myinstants.com/media/sounds/discord-call-sound.mp3',
-                'https://www.myinstants.com/media/sounds/roblox-death-sound_1.mp3',
-                'https://www.myinstants.com/media/sounds/fbi-open-up-sfx.mp3',
-            ]
+        var sounds = [
+            'https://www.myinstants.com/media/sounds/pornhub-community-intro.mp3',
+            'https://www.myinstants.com/media/sounds/what-are-you-doing-step-bro-tik-tok-meme.mp3',
+            'https://www.myinstants.com/media/sounds/mlg-airhorn.mp3',
+            'https://www.myinstants.com/media/sounds/discord-call-sound.mp3',
+            'https://www.myinstants.com/media/sounds/roblox-death-sound_1.mp3',
+            'https://www.myinstants.com/media/sounds/fbi-open-up-sfx.mp3',
+        ]
             
-                const lydplass = Math.random(sounds.length - 1);
-            
-                const lyd = sounds[lydplass];
+        const lydplass = Math.random(sounds.length - 1);
+    
+        const lyd = sounds[lydplass];
         
-            var voiceChannel = newState.channel;
-            console.log(voiceChannel);
+        var voiceChannel = newState.channel;
+        console.log(voiceChannel);
+    
+        if (voiceChannel == (undefined || null) ) {
+            console.log('Undefined or null voice channel');
+            return;
+        }
         
-            if (voiceChannel == (undefined || null) ) {
-                console.log('Undefined or null voice channel');
-                return;
-            }
+        // Returnerer error-message om brukeren ikkje er i en voice-kanal
+        if (!voiceChannel) {
+            console.log('!voiceChannel??');
+            return;
+        }
         
-            // Returnerer error-message om brukeren ikkje er i en voice-kanal
-            if (!voiceChannel) {
-                console.log('!voiceChannel??');
-                return;
-            }
-        
-            voiceChannel.join().then(connection => {
-                const dispatcher = connection.play(lyd);
-                dispatcher.on('finish', () => voiceChannel.leave());
-            }).catch(err => console.log(err));  
-        };
-
-        setTimeout(randomVoiceJoin, 10000);
+        voiceChannel.join().then(connection => {
+            const dispatcher = connection.play(lyd);
+            dispatcher.on('finish', () => voiceChannel.leave());
+        }).catch(err => console.log(err));  
 
     })
-}
-
-
-
-
-
-function join() {
-    setTimeout(randomVoiceJoin, 10000);
 }
 
 module.exports.config = {
