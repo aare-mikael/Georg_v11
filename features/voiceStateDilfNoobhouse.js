@@ -10,7 +10,7 @@ module.exports = (client) => {
         const georg = '741703921877123164';
 
         const team10Discord = '612947002853949458';
-        const georgland = '773672843576606721';
+        const georgland = '710444747298439168';
         const DilfNoobhouse = '634849156179165222';
 
         // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
