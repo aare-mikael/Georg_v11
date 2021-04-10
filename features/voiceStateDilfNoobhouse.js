@@ -34,7 +34,7 @@ module.exports = (client) => {
             return;
         } 
 
-            randomVoiceJoin();
+        setTimeout(randomVoiceJoin, 10000);
 
     })
 }
