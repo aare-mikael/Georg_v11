@@ -51,7 +51,7 @@ var sounds = [
 
     const lyd = sounds[lydplass];
 
-module.exports = async function randomVoiceJoin(newState) {
+async function randomVoiceJoin() {
 
     var voiceChannel = newState.channel;
 
@@ -69,7 +69,7 @@ module.exports = async function randomVoiceJoin(newState) {
     }).catch(err => console.log(err));  
 };
 
-module.exports = function run() {
+async function run() {
     setTimeout(randomVoiceJoin, 10000);
 }
 
