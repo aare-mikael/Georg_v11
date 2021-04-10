@@ -34,7 +34,7 @@ module.exports = (client) => {
         if (serverQueue) {
             return;
         } else {
-            setTimeout(randomVoiceJoin, 20000);
+            setTimeout(randomVoiceJoin(newState), 20000);
         }
     })
 }
