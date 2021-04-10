@@ -27,6 +27,8 @@ module.exports = (client) => {
 
         if (newserver != georgland ) return;
 
+        if (newState.guild.voiceConnection) return;
+
         function sleep(milliseconds) {
             const date = Date.now();
             let currentDate = null;
@@ -38,9 +40,9 @@ module.exports = (client) => {
         // Collects the id of the person joining;
         const newPerson = newState.member.id.toString();
 
-        // if (newPerson == georg) {
-        //     return;
-        // }
+        if (newPerson == georg) {
+            return;
+        }
 
           console.log('Going to sleep for 10 seconds');
           sleep(10000);
