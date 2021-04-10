@@ -33,7 +33,7 @@ module.exports = (client) => {
         if (serverQueue) {
             return;
         } else {
-            setTimeout(randomVoiceJoin, 10000);
+            run();
         }
     })
 }
@@ -66,9 +66,12 @@ module.exports = async function randomVoiceJoin(newState) {
     voiceChannel.join().then(connection => {
         const dispatcher = connection.play(lyd);
         dispatcher.on('finish', () => voiceChannel.leave());
-    }).catch(err => console.log(err));
-    
+    }).catch(err => console.log(err));  
 };
+
+module.exports = function run() {
+    setTimeout(randomVoiceJoin, 10000);
+}
 
 module.exports.config = {
     displayName: "Georg's database",
