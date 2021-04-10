@@ -7,18 +7,6 @@ module.exports = (client) => {
     // Makes the bot pay attention to whenever somebody joins a new channel;
     client.on('voiceStateUpdate', async (oldState, newState) => {
 
-        function sleep(milliseconds) {
-            const date = Date.now();
-            let currentDate = null;
-            do {
-              currentDate = Date.now();
-            } while (currentDate - date < milliseconds);
-          }
-
-          console.log('Going to sleep for 10 seconds');
-          sleep(10000);
-          console.log('Slept for 10 seconds!');
-
         const georg = '741703921877123164';
 
         const team10Discord = '612947002853949458';
@@ -38,6 +26,25 @@ module.exports = (client) => {
         var oldserver = oldState.guild.id.toString();
 
         if (newserver != (DilfNoobhouse || team10Discord || georgland) ) return;
+
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+              currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+          }
+
+        // Collects the id of the person joining;
+        const newPerson = newState.member.id.toString();
+
+        if (newPerson == georg) {
+            return;
+        }
+
+          console.log('Going to sleep for 10 seconds');
+          sleep(10000);
+          console.log('Slept for 10 seconds!');
 
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
         const serverQueue = newState.client.queue.get(newState.guild.id);
