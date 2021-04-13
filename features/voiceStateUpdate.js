@@ -11,6 +11,7 @@ module.exports = (client) => {
 
         const team10Discord = '612947002853949458';
         const georgland = '773672843576606721';
+        const DilfNoobhouse = '634849156179165222';
 
         // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
         //     console.log("User 123456789 is in the channel");
@@ -54,7 +55,8 @@ module.exports = (client) => {
                         const result = await discordUsers.findOne({
                             id: newPerson,
                         })
-                        console.log(result.user);
+                        console.log("result.user: " + result.user);
+                        console.log("Newstate.member: " + newState.member);
 
                         if ((result == undefined || null) || (result.introSound == undefined || null)) {
                             const sound = 'https://www.myinstants.com/media/sounds/tf_nemesis.mp3';
@@ -71,6 +73,11 @@ module.exports = (client) => {
                             const dispatcher = connection.play(sound);
                             dispatcher.on('finish', () => voiceChannel.leave());
                         })
+
+                        if (newserver == (team10Discord || georgland || DilfNoobhouse)) {
+                            // Skriv funksjoner for random lengde på timeout og random lyd av Georg ved bruk av voiceStateDilfNoobhouse!
+                        }
+
                         return;
 
                     } finally {
