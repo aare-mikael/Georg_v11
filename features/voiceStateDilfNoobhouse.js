@@ -27,7 +27,7 @@ module.exports = (client) => {
         var newserver = newState.guild.id.toString();
         var oldserver = oldState.guild.id.toString();
 
-        if (newserver != georgland ) return;
+        if (newserver != georgland || team10Discord || DilfNoobhouse ) return;
 
         function sleep(milliseconds) {
             const date = Date.now();
