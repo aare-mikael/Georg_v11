@@ -13,6 +13,8 @@ module.exports = (client) => {
         const georgland = '710444747298439168';
         const DilfNoobhouse = '634849156179165222';
 
+        var servers = [ '612947002853949458', '710444747298439168', '634849156179165222', ];
+
         // if (newState.channel.members.filter(m => m.user.id == "123456789")) {
         //     console.log("User 123456789 is in the channel");
         // } else {
@@ -27,7 +29,7 @@ module.exports = (client) => {
         var newserver = newState.guild.id.toString();
         var oldserver = oldState.guild.id.toString();
 
-        if ((newserver != georgland) || (newserver != team10Discord) || (newserver != DilfNoobhouse)) return;
+        if (!servers.includes(newserver)) return;
 
         function sleep(milliseconds) {
             const date = Date.now();
