@@ -46,9 +46,9 @@ module.exports = (client) => {
             return;
         }
 
-          console.log('Going to sleep for 10 seconds');
-          sleep(10000);
-          console.log('Slept for 10 seconds!');
+          console.log('Being difficult for 5 seconds');
+          sleep(5000);
+          console.log('Being normal now');
 
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;
         const serverQueue = newState.client.queue.get(newState.guild.id);
