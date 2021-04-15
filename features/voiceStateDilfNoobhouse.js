@@ -60,7 +60,7 @@ module.exports = (client) => {
         var sounds = [
             'https://www.myinstants.com/media/sounds/pornhub-community-intro.mp3',
             'https://www.myinstants.com/media/sounds/what-are-you-doing-step-bro-tik-tok-meme.mp3',
-            'https://www.myinstants.com/media/sounds/mlg-airhorn.mp3',
+// Too obnoxious :)            'https://www.myinstants.com/media/sounds/mlg-airhorn.mp3',
             'https://www.myinstants.com/media/sounds/discord-call-sound.mp3',
             'https://www.myinstants.com/media/sounds/roblox-death-sound_1.mp3',
             'https://www.myinstants.com/media/sounds/fbi-open-up-sfx.mp3',
