@@ -56,7 +56,7 @@ module.exports = (client) => {
                             id: newPerson,
                         })
                         console.log("result.user: " + result.user);
-                        console.log("Newstate.member.tag: " + newState.member.user);
+                        console.log("Newstate.member.displayName: " + newState.member.displayName);
 
                         if ((result == undefined || null) || (result.introSound == undefined || null)) {
                             const sound = 'https://www.myinstants.com/media/sounds/tf_nemesis.mp3';
