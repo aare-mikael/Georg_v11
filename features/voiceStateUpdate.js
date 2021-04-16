@@ -58,7 +58,16 @@ module.exports = (client) => {
                         console.log("result.user: " + result.user);
                         console.log("Newstate.member.displayName: " + newState.member.displayName);
 
-                        if ((result == undefined || null) || (result.introSound == undefined || null)) {
+                        if (result == (undefined || null)) {
+
+                            result = await discordUsers.create({
+                                id: newPerson,
+                                introSound: "https://www.myinstants.com/media/sounds/tf_nemesis.mp3",
+                                username: newState.member.displayName,
+                            })
+                            console.log("Created user in mongo:");
+                            console.log(result);
+
                             const sound = 'https://www.myinstants.com/media/sounds/tf_nemesis.mp3';
 
                             voiceChannel.join().then(connection => {
