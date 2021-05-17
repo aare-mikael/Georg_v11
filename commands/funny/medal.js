@@ -21,7 +21,18 @@ var videos = [
     "https://medal.tv/clips/46163782/d13378CIpPjq",
     "https://medal.tv/clips/46348453/d1337paAAvye",
     "https://medal.tv/clips/46450492/d1337wLepf5K", // Da eg sto bak lemmi i 30 sek, minst
-    "https://medal.tv/clips/46450787/d1337f8UeCNV" // denne er pikaboo fra 5v5 inhouse
+    "https://medal.tv/clips/46450787/d1337f8UeCNV", // denne er pikaboo fra 5v5 inhouse
+    "https://medal.tv/clips/49602180/d1337BY9AsVD", // Erik i Telialigaen, p90 spray and pray
+    "https://medal.tv/clips/49801615/d13371cbpv5U", // Jan-Erik 1v5, tok 3 før han døde
+    "https://medal.tv/clips/49804811/d1337OQwm0dF", // Jan-Erik 1v4, tok 3 før han døde igjen
+    "https://medal.tv/clips/51876015/ad1337VdxgWpfo", // Jan-Erik sneaky beaky, kniv i bank
+    "https://medal.tv/clips/52022206/ad1337JoAE47KE", // Jan-Erik 2v3 solo A site hold Inferno
+    "https://medal.tv/clips/52022226/ad1337ds1FtNpa", // Ranks fra matchen over
+    "https://medal.tv/clips/52145466/ad13372r7KQYZS", // Jan-Erik 4k med awp på cache
+    "https://medal.tv/clips/52145694/ad13372yDD3nLY", // Jan-Erik spideysense tingling
+    "https://medal.tv/clips/52628508/d1337sj0wK2m", // Erik kniva Kari
+    "https://medal.tv/clips/52637898/d1337BWZZ5y2", // Erik spray and pray mp5 Vertigo
+    "https://medal.tv/clips/52638084/d1337twl9SgU", // Jan-Erik tok en iBuyPower og throwa en tie
     ];
 
 module.exports = {
