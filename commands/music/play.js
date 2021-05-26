@@ -7,7 +7,7 @@ const search = require('youtube-search');
 module.exports = {
 	name: 'play',
     description: 'Searches for Youtube videos',
-    category: "Voice",
+    category: "Music",
 	args: true,
 //	usage: "<user> <role>",
 callback: async ({ message, args, text, client, prefix, instance, interaction, queue }) => {

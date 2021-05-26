@@ -110,20 +110,24 @@ client.on('ready', () => {
     .setColor(0x6f4c78)
     .setCategorySettings([
         {
-            name: 'Funny',
-            emoji: '😂'
+            name: 'Intro',
+            emoji: '🎧'
+        },
+        {
+            name: 'MP3',
+            emoji: '🧑‍🎤'
+        },
+        {
+            name: 'Music',
+            emoji: '🎶'
         },
         {
             name: 'Text',
             emoji: '⌨️'
         },
         {
-            name: 'Voice',
-            emoji: '🎧'
-        },
-        {
-            name: 'Utility',
-            emoji: '🏗️'
+          name: 'Utility',
+          emoji: '🏗️'
         },
         {
             name: 'Private',

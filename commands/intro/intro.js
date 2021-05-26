@@ -5,7 +5,7 @@ const discordUsers = require('../../mongoschemas/discordUsers');
 module.exports = {
     name: 'intro',
     description: "Joins voice channel and plays your introsound",
-    category: "Funny",
+    category: "Intro",
 	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         // checks if Georg is currently playing any sound in the relevant guild, and stopping the introSound if so;

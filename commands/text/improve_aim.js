@@ -20,7 +20,7 @@ var improvements = [
 module.exports = {
     name: 'improve_aim',
     description: "Dinna e nesten litt sus å bruke",
-    category: "Funny",
+    category: "Text",
     callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
     // Returnerer tidlig om meldingen er sendt av en bot;
     if (message.author.bot) return;

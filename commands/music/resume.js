@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'resume',
     description: 'Resume command.',
-    category: 'Voice',
+    category: 'Music',
 	callback: async ({ message, args, text, client, prefix, instance, interaction }) => {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && !serverQueue.playing) {

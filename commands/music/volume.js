@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'volume',
     description: 'Volume command.',
-    category: 'Voice',
+    category: 'Music',
 	callback: async ({ message, args, text, client, prefix, instance, interaction }) => {
 		
 		const { channel } = message.member.voice;

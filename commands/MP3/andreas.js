@@ -1,7 +1,7 @@
 module.exports = {
     name: 'andreas',
     description: "Joins voice channel and plays AllByMyself.mp3",
-    category: "Funny",
+    category: "MP3",
 	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
 
         const audio = 'https://www.myinstants.com/media/sounds/untitled_34.mp3';
