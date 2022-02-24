@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'sindre',
+    name: 'entil',
     description: "Joins voice channel and plays en-til.mp3",
     category: "MP3",
 	callback: async ({ message, args, text, client, prefix, instance, channel, interaction }) => {
